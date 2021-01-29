@@ -1,0 +1,47 @@
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
+prerelease: false
+publish: false
+exclude-labels:
+  - "skip-changelog"
+categories:
+  - title: "🚀 Features"
+    labels:
+      - "new-feature"
+      - "feature"
+      - "enhancement"
+  - title: "🐛 Bug fixes"
+    labels:
+      - "fix"
+      - "bug"
+  - title: "⚡ Performance Improvements"
+    labels:
+      - "performance"
+  - title: "📖 Docs"
+    labels:
+      - "documentation"
+      - "docs"
+  - title: "⚙️ Tests"
+    labels:
+      - "tests"
+  - title: "🏭 Installation"
+    labels:
+      - "install"
+  - title: "🔧 Language Translations"
+    labels:
+      - "translations"
+change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+version-resolver:
+  major:
+    labels:
+      - "major"
+  minor:
+    labels:
+      - "minor"
+  patch:
+    labels:
+      - "patch"
+  default: patch
+template: |
+  ## Release Notes
+  $CHANGES

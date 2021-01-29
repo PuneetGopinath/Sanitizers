@@ -1,0 +1,86 @@
+html {
+  text-align: left;
+  margin: 10px 10px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+  scroll-behavior: inherit;
+}
+body {
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 2px 2px;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display: block;
+}
+header, section, footer {
+  padding: 20px 20px;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+img {
+  max-width: 80%;
+  max-height: 80%;
+}
+code, pre {
+  font-size: 12px;
+  overflow-x: auto;
+}
+code {
+  font-family: Consolas;
+  padding: 2px;
+}
+pre {
+  margin: 0px -10px;
+  padding: 20px 20px;
+}
+pre {
+  background-color: #9299a0;
+  color: #fff;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  table-layout: fixed;
+}
+td, th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 4px 4px;
+  letter-spacing: 1px;
+  width: 50%;
+}
+thead th {
+  font-family: Times New Roman;
+  background-color: lightblue;
+}
+tbody th {
+  font-weight: 400;
+  font-family: Trebuchet MS;
+}
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+td:nth-child(odd) {
+  width: 25%;
+}
+td:nth-child(even) {
+  width: 50%;
+}

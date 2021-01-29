@@ -1,0 +1,8 @@
+title: Sanitizers - Quickly Sanitize user data
+safe: true
+google_analytics: UA-177058685-1
+include: [.htaccess]
+theme: jekyll-theme-modernist
+encoding: "utf-8"
+layouts_dir: _layouts
+includes_dir: _includes

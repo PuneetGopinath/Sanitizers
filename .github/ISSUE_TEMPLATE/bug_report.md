@@ -12,7 +12,6 @@ assignees: ''
 
 ### Bug reports include:
 
-
 **Description**
 A clear and concise description of what the bug is.
 
@@ -25,7 +24,7 @@ A clear and concise description of what the bug is.
 
 **Screenshots (optional)**
 If applicable, add screenshots to help explain your problem.
-Note: If you can't upload files then use [GoFile](https://gofile.io/uploadFiles) or [WeTransfer](https://wetransfer.com/upload)
+**Note:** If you can't upload files then use [GoFile](https://gofile.io/uploadFiles) or [WeTransfer](https://wetransfer.com/upload)
 
 **Additional context (optional)**
 Add any other context about the problem here.

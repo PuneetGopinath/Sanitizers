@@ -1,27 +1,39 @@
 {
-  "name": "Sanitizers",
-  "description": "Quickly Sanitize user input",
-  "version": "v1.0.0",
-  "license": "MIT",
-  "homepage": "https://github.com/PuneetGopinath/Sanitizers#readme",
-  "config": {
-    "version_short": "1.0"
-  },
-  "keywords": [
-    "Sanitizers",
-    "Sanitize",
-    "PHP Sanitizers",
-    "Sanitize user input"
-  ],
-  "files": [
-    "src/*.php"
-  ],
-  "author": "Puneet Gopinath",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PuneetGopinath/Sanitizers.git"
-  },
-  "bugs": {
-    "url": "https://github.com/PuneetGopinath/Sanitizers/issues"
-  }
+    "name": "Sanitizers",
+    "description": "Quickly Sanitize user data",
+    "version": "v1.0.1",
+    "license": "MIT",
+    "homepage": "https://github.com/PuneetGopinath/Sanitizers#readme",
+    "config": {
+        "version_short": "1.0"
+    },
+    "keywords": [
+        "Sanitizers",
+        "back-end",
+        "backend",
+        "security",
+        "sanitization",
+        "validate",
+        "Sanitize",
+        "web",
+        "php",
+        "PHP Sanitizers",
+        "user-input",
+        "escape",
+        "filter",
+        "sanitize-input",
+        "input sanitizer",
+        "xss"
+    ],
+    "files": [
+        "src/*.php"
+    ],
+    "author": "The Sanitizers Authors (https://github.com/PuneetGopinath/Sanitizers/graphs/contributors)",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PuneetGopinath/Sanitizers.git"
+    },
+    "bugs": {
+        "url": "https://github.com/PuneetGopinath/Sanitizers/issues"
+    }
 }

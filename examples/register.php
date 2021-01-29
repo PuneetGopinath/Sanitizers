@@ -1,36 +1,41 @@
 <?php
-require("Sanitizers.php");
+use Sanitizers\Sanitizers\Sanitize;
+require_once("../src/Sanitizers.php");
 
-if (isset($_POST['Submit']))
+if (isset($_POST["Submit"]))
 {
-    $sanitize = new Sanitizer();
-    $name = $sanitize->Name($_POST['name']);
-    $email = $sanitize->Email($_POST['email']);
-    $username = $sanitize->Username($_POST['username']);
-    $password = $sanitize->Hex($_POST['password']);
-    /*
-        Now use $name, $email, $username, $password for user form inputs...
-        Save to Database, Send email, etc...
-    */
+    $sanitize = new Sanitize();
+    $name = $sanitize->sanitize("name", $_POST["name"]);
+    $email = $sanitize->sanitize("email", $_POST["email"]);
+    $username = $sanitize->sanitize("username", $_POST["username"]);
+    $password = $sanitize->sanitize("password", $_POST["password"]);
+
+    // Now use variables $name, $email, $username, $password for user form inputs (name, email, username, password respectively)...
+    print_r(array("name" => $name, "email" => $email, "username" => $username, "password" => $password, "Sanitize" => $sanitize, "_POST" => $_POST)); //Testing
+    // Save to Database, Send email, etc...
 }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- meta tags, head content -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- meta tags, head content... -->
+        <link rel="stylesheet" href="main.css" />
     </head>
     <body>
         <p>Registration Form</p>
-        <form method="post">
-            <label for="name">Your Full Name:</label><br>
-            <input type="text" name="name" /><br><br>
-            <label for="email">Email Address:</label><br>
-            <input type="email" name="email" /><br><br>
-            <label for="username">Username:</label><br>
-            <input type="text" name="username" /><br><br>
-            <label for="password">Password:</label><br>
-            <input type="password" name="password" />
-            <input type="submit" name="Submit" value="Create Account" />
+        <form class="form-control" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <label class="form-text" for="name">Your Full Name:</label><br>
+            <input required class="form-input" type="text" name="name" /><br><br>
+            <label class="form-text" for="email">Email Address:</label><br>
+            <input required class="form-input" type="email" name="email" /><br><br>
+            <label class="form-text" for="username">Username:</label><br>
+            <input required class="form-input" type="text" name="username" /><br><br>
+            <label class="form-text" for="password">Password:</label><br>
+            <input required class="form-input" type="password" name="password" />
+            <!-- Extra input tags like password validation, etc... -->
+            <input required class="btn btn-primary" type="submit" name="Submit" value="Create Account" />
         </form>
     </body>
 </html>
