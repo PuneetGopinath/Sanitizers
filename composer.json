@@ -1,0 +1,50 @@
+{
+  "name": "sanitizers/sanitizers",
+  "description": "Quickly Sanitize user input",
+  "type": "library",
+  "version": "v1.0.1",
+  "license": "MIT",
+  "homepage": "https://github.com/PuneetGopinath/Sanitizers#readme",
+  "keywords": [
+    "Sanitizers",
+    "back-end",
+    "Sanitize",
+    "web",
+    "PHP Sanitizers",
+    "Sanitize user input"
+  ],
+  "authors": [
+    {
+      "name": "Puneet Gopinath",
+      "role": "developer"
+    }
+  ],
+  "scripts": {
+    "test": "@php test/SanitizersTest.php"
+  },
+  "autoload": {
+    "psr-4": {
+        "Sanitizers\\Sanitizers\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/PuneetGopinath/Sanitizers"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "sanitizers/sanitizers",
+        "version": "v1.0.1",
+        "dist": {
+          "url": "https://github.com/PuneetGopinath/Sanitizers/archive/v1.0.1.zip",
+          "type": "zip"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  }
+}

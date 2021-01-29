@@ -1,5 +1,6 @@
 <?php
-require("Sanitizers.php");
+require_once("Sanitizers.php");
+use Sanitizers\Sanitizers\Sanitizer;
 
 if (isset($_POST['Submit']))
 {
@@ -8,20 +9,19 @@ if (isset($_POST['Submit']))
     $email = $sanitize->Email($_POST['email']);
     $username = $sanitize->Username($_POST['username']);
     $password = $sanitize->Hex($_POST['password']);
-    /*
-        Now use $name, $email, $username, $password for user form inputs...
-        Save to Database, Send email, etc...
-    */
+
+    // Now use variables $name, $email, $username, $password for user form inputs (name, email, username, password respectively)...
+    // Save to Database, Send email, etc...
 }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- meta tags, head content -->
+        <!-- meta tags, head content... -->
     </head>
     <body>
         <p>Registration Form</p>
-        <form method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
             <label for="name">Your Full Name:</label><br>
             <input type="text" name="name" /><br><br>
             <label for="email">Email Address:</label><br>
@@ -30,6 +30,7 @@ if (isset($_POST['Submit']))
             <input type="text" name="username" /><br><br>
             <label for="password">Password:</label><br>
             <input type="password" name="password" />
+            <!-- Extra input tags like CSRF Protection, etc... -->
             <input type="submit" name="Submit" value="Create Account" />
         </form>
     </body>
