@@ -64,7 +64,8 @@ Sanitizers/
 
 <h2><a name="status">Status</a></h2>
 
-[![Github All Releases](https://img.shields.io/github/downloads/PuneetGopinath/Sanitizers/total.svg)]()
+[![Github All Releases](https://img.shields.io/github/downloads/PuneetGopinath/Sanitizers/total.svg)][![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers?ref=badge_shield)
+()
 [![GitHub stars](https://img.shields.io/github/stars/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/issues)
 [![GitHub license](https://img.shields.io/github/license/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/blob/main/LICENSE)
@@ -90,3 +91,7 @@ See the <a href="https://github.com/PuneetGopinath/Sanitizers/tree/main/.github/
 <h2><a name="notes">NOTES</a></h2>
 
 See the [NOTES.md](https://github.com/PuneetGopinath/Sanitizers/blob/main/NOTES.md) file.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers?ref=badge_large)
