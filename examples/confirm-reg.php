@@ -1,14 +1,14 @@
 <?php
-use Sanitizers\Sanitizers\Sanitize;
+use Sanitizers\Sanitizers\Sanitizer;
 require_once("../src/Sanitizers.php");
 
 if (isset($_POST["Submit"]))
 {
-    $sanitize = new Sanitize();
-    $code = $sanitize->sanitize("hex", $_POST["code"]);
+    $sanitizer = new Sanitizer();
+    $code = $sanitizer->sanitize("hex", $_POST["code"]);
 
     // Now use variable $code for the code...
-    print_r(array("code" => $code, "Sanitize" => $sanitize, "_POST" => $_POST)); //Testing
+    print_r(array("code" => $code, "Sanitize" => $sanitizer, "_POST" => $_POST)); //Testing
     // Check in Database, Send email, etc...
 }
 

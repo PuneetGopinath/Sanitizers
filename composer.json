@@ -21,9 +21,23 @@
         "xss"
     ],
     "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
         "process-timeout": 500,
         "platform-check": true
     },
+    "funding": [
+        {
+            "type": "patreon",
+            "url": "https://www.patreon.com/user?u=51227613"
+        },
+        {
+            "type": "other",
+            "url": "https://www.patreon.com/user?u=51227613"
+        }
+    ],
     "homepage": "https://github.com/PuneetGopinath/Sanitizers#readme",
     "license": "MIT",
     "authors": [
@@ -49,7 +63,9 @@
             "composer validate",
             "composer update"
         ],
-        "test": "@php test/SanitizersTest.php -- --debug"
+        "test": [
+            "php test/SanitizersTest.php -- --debug"
+        ]
     },
     "scripts-descriptions": {
         "setup": "Setup composer, generate autoload files, etc...",
@@ -62,7 +78,7 @@
         }
     },
     "support": {
-        "docs": "https://puneetgopinath.github.io/Sanitizers",
+        "docs": "https://puneetgopinath.github.io/Sanitizers/docs",
         "wiki":"https://github.com/PuneetGopinath/Sanitizers/wiki",
         "issues": "https://github.com/PuneetGopinath/Sanitizers/issues"
     },

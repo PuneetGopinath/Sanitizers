@@ -1,11 +1,12 @@
 <?php
-use Sanitizers\Sanitizers\Sanitize;
+use Sanitizers\Sanitizers\Sanitizer;
 
 foreach ($argv as $value) {
     if ($value === "--debug" || $value === "-d")
         $debug = true;
     else
         $debug = false;
+
     if ($value === "--ini")
         $configFromIni = true;
     else
@@ -26,9 +27,9 @@ if (is_readable($baseDir . "/vendor/autoload.php")) {
     require_once $baseDir . "/src/Sanitizers.php";
     echo "Not using composer autoload files" . EOL;
 }
-$sanitize = new Sanitize(false);
+$sanitizer = new Sanitizer(false);
 
-echo "Using Sanitizers version: " . $sanitize->getVersion() . EOL;
+echo "Using Sanitizers version: " . $sanitizer->getVersion() . EOL;
 $len = 32; //32 bytes = 256 bits
 
 if (function_exists("random_bytes"))
@@ -46,22 +47,22 @@ $test_values = array(
     "float" => $len-0.5,
     "name" => "\0saNiTiZeRs ä\x80",
     "email" => "AdMiN@ExAmPle.cOm",
-    "message" => "Sanitizers - Quickly sanitize user data.\r\nSee this github project at https://github.com/PuneetGopinath/Sanitizers",
+    "message" => "Sanitizers - Quickly sanitize user data.\r\nSee this project at <a href='https://github.com/PuneetGopinath/Sanitizers'>GitHub</a>",
     "username" => "PuneetGopinath",
     "html" => "<b>Text in bold</b><!-- This is a comment --><style>body {display: none;}</style>"
 );
-if ($configFromIni)
-    $sanitize->configFromIni($baseDir . "/src/config.ini");
+if ($configFromIni && is_readable($baseDir . "/src/config.ini"))
+    $sanitizer->configFromIni($baseDir . "/src/config.ini");
 
 $values = array(
-    "hex" => $sanitize->sanitize("hex", $test_values["hex"]),
-    "int" => $sanitize->sanitize("integer", $test_values["int"]),
-    "float" => $sanitize->sanitize("float", $test_values["float"]),
-    "name" => $sanitize->sanitize("name", $test_values["name"]),
-    "email" => $sanitize->sanitize("email", $test_values["email"]),
-    "message" => $sanitize->sanitize("message", $test_values["message"], false, true),
-    "username" => $sanitize->sanitize("username", $test_values["username"]),
-    "html" => $sanitize->HTML($test_values["html"])
+    "hex" => $sanitizer->sanitize("hex", $test_values["hex"]),
+    "int" => $sanitizer->sanitize("integer", $test_values["int"]),
+    "float" => $sanitizer->sanitize("float", $test_values["float"]),
+    "name" => $sanitizer->sanitize("name", $test_values["name"]),
+    "email" => $sanitizer->sanitize("email", $test_values["email"]),
+    "message" => $sanitizer->sanitize("message", $test_values["message"], false, true),
+    "username" => $sanitizer->sanitize("username", $test_values["username"]),
+    "html" => $sanitizer->HTML($test_values["html"])
 );
 $filters = array(
     "types" => array(
@@ -83,7 +84,7 @@ $filters = array(
         "tags" => "<b><i><em><p><a><br>"//Allowed tags
     )
 );
-$auto_values = $sanitize->sanitizeArray($test_values, $filters);
+$auto_values = $sanitizer->sanitizeArray($test_values, $filters);
 
 echo "Array Key -- Original Value => Sanitized Value" . EOL;
 
@@ -97,7 +98,7 @@ foreach ($test_values as $i => $value) {
     echo $i . " -- " . $value . " => " . $auto_values[$i] . EOL;
 }
 if ($debug)
-    $debug_info[] = json_encode($sanitize);
+    $debug_info[] = json_encode($sanitizer);
 
 echo "Debug_info: " . implode(", ", $debug_info) . PHP_EOL;
 ?>

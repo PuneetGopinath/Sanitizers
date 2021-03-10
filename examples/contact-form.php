@@ -1,18 +1,18 @@
 <?php
-use Sanitizers\Sanitizers\Sanitize;
+use Sanitizers\Sanitizers\Sanitizer;
 require_once("../src/Sanitizers.php");
 
 if (isset($_POST["Submit"]))
 {
-    $sanitize = new Sanitize();
-    $name = $sanitize->sanitize("name", $_POST["name"]);
-    $email = $sanitize->sanitize("email", $_POST["email"]);
-    $sanitize->set("maxInputLength", 5000);
-    $message = $sanitize->clean($_POST["message"], /*trim=*/false, /*entities*/false, false, false);
-    $dept = $sanitize->clean($_POST["dept"]);
+    $sanitizer = new Sanitizer();
+    $name = $sanitizer->sanitize("name", $_POST["name"]);
+    $email = $sanitizer->sanitize("email", $_POST["email"]);
+    $sanitizer->set("maxInputLength", 5000);
+    $message = $sanitizer->clean($_POST["message"], /*trim=*/false, /*entities*/false, false, false);
+    $dept = $sanitizer->clean($_POST["dept"]);
 
     // Now use variables $name, $email, $message, $dept for user inputs...
-    print_r(array("name" => $name, "email" => $email, "message" => $message, "dept" => $dept, "Sanitize" => $sanitize, "_POST" => $_POST)); //Testing
+    print_r(array("name" => $name, "email" => $email, "message" => $message, "dept" => $dept, "Sanitize" => $sanitizer, "_POST" => $_POST)); //Testing
     // Check in Database, Send email, etc...
 }
 

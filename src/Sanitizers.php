@@ -14,10 +14,10 @@ namespace Sanitizers\Sanitizers;
 require dirname(__FILE__) . "/bootstrap.php";
 
 /**
- * Sanitize class for Sanitizing user input
+ * Sanitizer class for Sanitizing user input
  */
-class Sanitize {
-
+class Sanitizer
+{
     /**
      * Optional LoggerInterface for debugging used if psr/log package is installed.
      * 
@@ -33,11 +33,11 @@ class Sanitize {
     public $config = array();
 
     /**
-     * Sanitizer's version
+     * Sanitizers Version number.
      * 
      * @var string
      */
-    private $version = "1.0.1";
+    const VERSION = "1.0.1";
 
     /**
      * Are we using config settings from ini
@@ -47,11 +47,11 @@ class Sanitize {
     public $ini = false;
 
     /**
-     * Base Directory
+     * Message for fatal error
      * 
      * @var string
      */
-    public $baseDir;
+    private $fatal = "Fatal Error: Sanitizers: ";
 
     /**
      * Create new Sanitizers class
@@ -65,8 +65,7 @@ class Sanitize {
         $this->exceptions = (bool) $exceptions;
         $this->logger = $logger;
 
-        $this->baseDir = dirname(dirname(__FILE__));
-        $this->config = config;
+        $this->set("*", config);
     }
 
     /**
@@ -76,7 +75,7 @@ class Sanitize {
      */
     public function getVersion()
     {
-        return $this->version;
+        return self::VERSION;
     }
 
     /**
@@ -87,7 +86,7 @@ class Sanitize {
      */
     public function configFromIni($file="config.ini")
     {
-        $ini = parse_ini_file($file, true);
+        $ini = \parse_ini_file($file, true);
         $this->set("*", $ini);
         $this->ini = true;
         return null;
@@ -102,8 +101,9 @@ class Sanitize {
      */
     public function set($case, $value="default")
     {
-        if (!is_array($this->config))
+        if (!is_array($this->config)) {
             $this->config = array();
+        }
 
         switch ($case) {
             case "encoding":
@@ -127,10 +127,20 @@ class Sanitize {
                 break;
             default:
                 if ($this->exceptions) {
-                    throw new \Exception("Fatal Error: Sanitizers: Invalid config key: $case with value: $value");
+                    throw new \Exception($this->fatal . "Invalid config key: $case with value: $value");
                 }
                 return false;
                 break;
+        }
+
+        if (isset($this->config["preventXSS"]) && isset($this->config["encoding"])) {
+            if ($this->config["preventXSS"] === true && strtoupper($this->config["encoding"]) !== "UTF-8") {
+                $msg = $this->fatal . "If you set preventXSS as true then you should set encoding to UTF-8";
+                if ($this->logger) {
+                    $this->logger->error($msg);
+                }
+                throw new \Error($msg);
+            }
         }
 
         if ($value === "default") {
@@ -151,9 +161,9 @@ class Sanitize {
      */
     public function clean($text, $trim=true, $html_entities=true, $alpha_num=false, $ucwords=true)
     {
-        $text = strip_tags($text);
+        $text = \strip_tags($text);
         if ($alpha_num)
-            $text = preg_replace("/\W/si", "", $text);
+            $text = \preg_replace("/\W/si", "", $text);
 
         /*if (function_exists("iconv") && function_exists("mb_detect_encoding")) {
             $text = iconv(mb_detect_encoding($text, mb_detect_order(), true), $this->config["encoding"], $text);
@@ -161,43 +171,26 @@ class Sanitize {
             error_log("Warning: Sanitizers: extension iconv or mbstring not installed");
         }*/
 
-        if (mb_strlen($text) > $this->config["maxInputLength"]) {
-            $text = mb_substr($text, 0, $this->config["maxInputLength"]);
+        if (\mb_strlen($text) > $this->config["maxInputLength"]) {
+            $text = \mb_substr($text, 0, $this->config["maxInputLength"]);
         }
 
         if ($html_entities) {
-            $text = htmlspecialchars($text, /*flags=*/ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
+            $text = \htmlspecialchars($text, /*flags=*/ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
         }
 
         if ($trim)
-            $text = trim($text);
+            $text = \trim($text);
 
         if ($this->config["slashes"])
-            $text = addslashes($text);
-
-        /*if ($this->config["preventXSS"])// https://www.php.net/manual/en/reference.pcre.pattern.modifiers.php
-        {
-            $XSS = function ($text){return "" === $text || 1 === preg_match("/" . (string)$text . "/us", $text);};
-            $XSS = $XSS($text);
-            $err_file = $this->baseDir . "/error.log";
-            if (is_file($err_file))
-                touch($err_file);
-            error_log("XSS: $XSS");
-            if ($this->logger) {
-                $this->logger->debug('XSS: "{xss}".', array("xss" => $XSS));
-            }
-            if ($XSS !== 1 || is_null($XSS)) {
-                error_log("Warning: string $text is not valid UTF-8 returning null as sanitized value" . PHP_EOL, 3 , $err_file);
-                return null;
-            }
-        }*/
+            $text = \addslashes($text);
 
         if ($this->config["preventXSS"]) {
-            $text = utf8_encode($text);
+            $text = \utf8_encode($text);
         }
 
         if ($ucwords)
-            $text = ucwords(strtolower($text));
+            $text = \ucwords(\strtolower($text));
 
         return $text;
     }
@@ -216,45 +209,48 @@ class Sanitize {
     public function sanitize($type, $text, $trim=true, $html_entities=true, $alpha_num=false, $ucwords=true)
     {
         $input = $text;
-        if (!isset($type) || is_null($type))
-            $type = gettype($text);
+        if (!isset($type) || \is_null($type)) {
+            $type = \gettype($text);
 
-        switch (strtolower($type)) {
+            if ($type === "string") {//If $type is not given and php says it is a string
+                $type = "message";//Then take it as message (because We don't know whether it contains EOL)
+            }
+        }
+
+        switch (\strtolower($type)) {
             case "int":
             case "integer":
-                $text = preg_replace("/[^0-9]/s", "", filter_var((string)$text, FILTER_SANITIZE_NUMBER_INT));
+                $text = \preg_replace("/[^0-9]/s", "", \filter_var((string)$text, FILTER_SANITIZE_NUMBER_INT));
                 $text = (int)$text+0;
                 break;
             case "float":
-                $text = $this->clean(preg_replace("/[^0-9.]/s", "", filter_var((string)$text, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION)), $trim, $html_entities, false, false);
+                $text = $this->clean(preg_replace("/[^0-9.]/s", "", \filter_var((string)$text, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION)), $trim, $html_entities, false, false);
                 $text = (float)$text+0;
                 break;
             case "string":
             case "text":
-                $text = preg_replace("/[^A-Za-z0-9]/s", "", filter_var($this->clean((string)$text, $trim, $html_entities, $alpha_num, $ucwords), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
+                $text = preg_replace("/[^A-Za-z0-9]/s", "", \filter_var($this->clean((string)$text, $trim, $html_entities, $alpha_num, $ucwords), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
                 break;
             case "hex":
-                $text = preg_replace("/[^a-f0-9]/s", "", filter_var($this->clean((string)$text, $trim, $html_entities, $alpha_num, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
+                $text = preg_replace("/[^a-f0-9]/s", "", \filter_var($this->clean((string)$text, $trim, $html_entities, $alpha_num, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
                 break;
             case "url":
-                $text = filter_var((string)$text, FILTER_SANITIZE_URL);
-                if ($html_entities)
-                    $text = htmlspecialchars($text);
+                $text = \filter_var((string)$text, FILTER_SANITIZE_URL);
                 break;
             case "password":
-                $text = filter_var((string)$text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+                $text = \filter_var((string)$text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
                 break;
             case "name":
-                $text = preg_replace("/[^A-Za-z\s+]/s", "", filter_var($this->clean((string)$text, $trim, $html_entities, $alpha_num, $ucwords), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
+                $text = \preg_replace("/[^A-Za-z\s+]/s", "", \filter_var($this->clean((string)$text, $trim, $html_entities, $alpha_num, $ucwords), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
                 break;
             case "message":
                 $text = $this->clean($text, false, true, false, false);
                 break;
             case "email":
-                $text = filter_var(strtolower($this->clean((string)$text, $trim, $html_entities, false, false)), FILTER_SANITIZE_EMAIL);
+                $text = \filter_var(\strtolower($this->clean((string)$text, $trim, $html_entities, false, false)), FILTER_SANITIZE_EMAIL);
                 break;
             case "username":
-                $text = strtolower($this->sanitize("text", (string)$text, $trim, $html_entities, $alpha_num, false));
+                $text = \strtolower($this->sanitize("text", (string)$text, $trim, $html_entities, $alpha_num, false));
                 break;
             default:
                 $text = $this->clean($text, $trim, $html_entities, $alpha_num, $ucwords);
@@ -267,7 +263,7 @@ class Sanitize {
     }
 
     /**
-     * Text without any number (Depreciated)
+     * Text without any number
      * 
      * @param string $text
      * @param bool $trim
@@ -276,7 +272,7 @@ class Sanitize {
      */
     public function NonNumericText($text, $trim=true, $html_entities=true, $alpha_num=false)
     {
-        $text = preg_replace("/[^A-Za-z]/s", "", $this->sanitize("text", (string)$text, $trim, $html_entities));
+        $text = \preg_replace("/[^A-Za-z]/s", "", $this->sanitize("text", (string)$text, $trim, $html_entities));
         return $text;
     }
 
@@ -289,17 +285,17 @@ class Sanitize {
      */
     private function strip_tags_content($text, $tags="", $invert=false)
     {
-        preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($tags), $tags);
-        $tags = array_unique($tags[1]);
+        \preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', \trim($tags), $tags);
+        $tags = \array_unique($tags[1]);
 
-        if(is_array($tags) AND count($tags) > 0) {
-            if($invert == FALSE) {
-                return preg_replace('@<(?!(?:'. implode('|', $tags) .')\b)(\w+)\b.*?>.*?</\1>@si', '', $text);
+        if (\is_array($tags) && \count($tags) > 0) {
+            if ($invert === false) {
+                return \preg_replace('@<(?!(?:'. \implode("|", $tags) .')\b)(\w+)\b.*?>.*?</\1>@si', "", $text);
             } else {
-                return preg_replace('@<('. implode('|', $tags) .')\b.*?>.*?</\1>@si', '', $text);
+                return \preg_replace('@<('. \implode("|", $tags) .')\b.*?>.*?</\1>@si', "", $text);
             }
-        } elseif($invert == FALSE) {
-            return preg_replace('@<(\w+)\b.*?>.*?</\1>@si', '', $text);
+        } else if ($invert === false) {
+            return \preg_replace('@<(\w+)\b.*?>.*?</\1>@si', "", $text);
         }
         return $text;
     }
@@ -309,6 +305,7 @@ class Sanitize {
      * 
      * @param string $text
      * @param string $tags
+     * @return $text
      */
     public function HTML($text, $tags="<b><i><em><p><a><br>")
     {
@@ -325,14 +322,14 @@ class Sanitize {
      * @param array $filters
      * @return $array
      */
-    public function sanitizeArray($array, $filters)
+    public function sanitizeArray($array, $filters=array("types"=>array()))
     {
         foreach ($array as $key => $value)
         {
             $settings = array("trim" => true, "html_entities" => true, "alpha_num" => false);
             if (isset($filters[$key]))
             {
-                if (is_string($filters[$key])) {
+                if (\is_string($filters[$key])) {
                     $filters[$key] = explode("|", $filters[$key]);
                     $filters[$key] = array_combine($filters[$key], $filters[$key]);
                 }
@@ -344,8 +341,12 @@ class Sanitize {
                 }
             }
 
-            if (!isset($filters["types"][$key]))
+            if (!isset($filters["types"][$key])) {
                 $filters["types"][$key] = gettype($value);
+                if ($filters["types"][$key] === "string") {
+                    $filters["types"][$key] = "message";
+                }
+            }
 
             switch (strtolower($filters["types"][$key])) {
                 case "int":

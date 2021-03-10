@@ -1,7 +1,4 @@
 <div class="card">
-  <p align="center">
-    <a href="https://puneetgopinath.github.io/Sanitizers"><img src="images/Sanitizers-logo-transparent.png" alt="Sanitizers logo" style="width:300;height:300;"></a>
-  </p>
   <h2 align="center">Sanitizers Docs</h2>
     Latest release: <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers">
 </div>
@@ -10,40 +7,40 @@
 
 ### Steps
 First require the **Sanitizers.php** file.<br>
-**Note:** The file from where you are including **Sanitizers.php** should contain the file **config.php** in the directory where **Sanitizers.php** exists.
 
-And replace **path/to/src/Sanitizers.php** with path to **src/Sanitizers.php** file.
+And replace **/path/to/src/Sanitizers.php** with path to **src/Sanitizers.php** file.
 
+1. Loading classes
 ```
-use Sanitizers\Sanitizers\Sanitize;
+use Sanitizers\Sanitizers\Sanitizer;
 
-require_once("path/to/src/Sanitizers.php");
+require "/path/to/src/Sanitizers.php";
 ```
 
-Then, Sanitize the input.<br>
+2. Then, Sanitize the input.<br>
 For example,<br>
 ```
-// passing `false` in Sanitizer class disables exceptions
-$sanitize = new Sanitize(false);
-$username = $sanitize->sanitize("username", $_POST['username']);
-$password = $sanitize->sanitize("password", $_POST['password']);
+// passing `false` in Sanitize class disables exceptions
+$sanitizer = new Sanitizer(false);
+$username = $sanitizer->sanitize("username", $_POST['username']);
+$password = $sanitizer->sanitize("password", $_POST['password']);
 ```
 
-<b><p align="center">OR</p></b>
+<b>OR</b>
 
 ```
-// passing `true` in Sanitizer class enables exceptions
-$sanitize = new Sanitize(true);
+// passing `true` in Sanitize class enables exceptions
+$sanitizer = new Sanitizer(true);
 
 try {
-    $username = $sanitize->sanitize("username", $_POST["username"]);
-    $password = $sanitize->sanitize("password", $_POST["password"]);
+    $username = $sanitizer->Username($_POST["username"]);
+    $password = $sanitizer->Password($_POST["password"]);
 } catch (Exception $e) {
     echo "Could not Sanitize user input.";
     var_dump($e);
 }
 ```
 
-You can understand more by seeing [examples](https://github.com/PuneetGopinath/Sanitizers/tree/main/examples) folder in github.
+You will find more to play with in the [examples](https://github.com/PuneetGopinath/Sanitizers/tree/main/examples) folder.
 
-Also see [FUNCTIONS.md](FUNCTIONS.md)
+For understaning functions, see [FUNCTIONS.md](FUNCTIONS.md).

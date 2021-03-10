@@ -3,6 +3,7 @@
 # Install Sanitizers
 
 ## Table of Contents
+
  * [Prerequisites](#prerequisites)
  * [Install Sanitizers](#install)
 
@@ -19,22 +20,13 @@ To install Sanitizers, you will need:
 
 Installing from composer:
 > Run `composer require sanitizers/sanitizers`
-
-<p align="center">OR</p>
-
-> Add this line to your **composer.json** file. If you already have require (key in composer.json) just add `"sanitizers/sanitizers": "^1.0"`
-or else add this
-
-```
-"require": {
-    "sanitizers/sanitizers": "^1.0"
-}
-```
+> OR
+> Add this line to the require key **composer.json** file. `"sanitizers/sanitizers": "^1.0"`
 
 Installing from github:
-> [Download from releases page](https://github.com/PuneetGopinath/Sanitizers/releases/)
+> [Download source code from releases page](https://github.com/PuneetGopinath/Sanitizers/releases/)
 > Extract files to your project's folder
 
-2. Edit src/config.php
-3. 
-
+2. Edit src/bootstrap.php or src/config.ini if you want to modify config options
+3. If you are going to use src/config.ini, Then add this line to your php app before sanitizing any user input `$sanitizer->configFromIni("path/to/src/config.ini");`
+4. Now sanitize user input !!

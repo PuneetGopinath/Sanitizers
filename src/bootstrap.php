@@ -28,8 +28,6 @@ For a list of encoding options
 4. A bool indicating whether to add slashes
 */
 
-use \PHP_EOL;
-
 //See: https://stackoverflow.com/a/255531
 if (!defined("PHP_EOL")) {
     switch (strtoupper(substr(PHP_OS, 0, 3))) {

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="docs/css/main.css" />
 <div class="card">
   <p align="center">
-    <a href="https://puneetgopinath.github.io/Sanitizers/docs"><img src="docs/images/Sanitizers-logo-transparent.png" alt="Sanitizers logo" style="width:200;height:200;" height="200" width="200"></a>
+    <a href="https://puneetgopinath.github.io/Sanitizers/docs"><img src="docs/images/Sanitizers-logo-transparent.png" alt="Sanitizers logo" style="width:300;height:300;" height="300" width="300"></a>
   </p>
   <h2 align="center">Sanitizers (BK S)</h2>
 
@@ -15,6 +15,10 @@
     Info &rArr;
     <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md">Report bug(s)</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/releases">See Releases</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=feature_request.md">Request feature</a>
   </p><br><br>
+  <a href="https://twitter.com/intent/tweet?text=See%20this%20PHP%20Sanitizers%20on%20GitHub:&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers&hashtags=php,backend,sanitizers,php-sanitize,developers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
+  <a href="https://gitter.im/BaalKrshna/Sanitizers?utm_source=badge&utm_medium=badge"><img alt="Join the chat at https://gitter.im/BaalKrshna/Sanitizers" src="https://badges.gitter.im/BaalKrshna/Sanitizers.svg" /></a>
+  <img alt="GitHub forks" src="https://img.shields.io/github/forks/PuneetGopinath/Sanitizers?style=social">
+  <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/PuneetGopinath/Sanitizers?style=social">
 </div>
 
 <hr>
@@ -22,16 +26,19 @@
 # Table of contents
 
  * [Quick Start](#quick-start)
- * [Source Files Structure](#files)
+ * [Visuals](#visuals)
+ * [Files](#files)
  * [Status](#status)
  * [Prerequisites](#prerequisites)
- * [Tests](#test)
- * [Contributing](#contribute)
+ * [Tests](#tests)
+ * [Contributing](#contributing)
  * [Authors](#authors)
  * [LICENSE](#license)
- * [Conclusion](#conclude)
+ * [Discussion](#discussion)
+ * [Spread BK Sanitizers](#spread)
+ * [Conclusion](#conclusion)
 
-<h2><a name="quick-start">Quick Start</a></h2>
+<h2><a name="quick-start">Quick Start 🚀</a></h2>
 
 - [Download the latest version](https://github.com/PuneetGopinath/Sanitizers/archive/v1.0.1.zip)
 
@@ -50,15 +57,34 @@
 - ### When and why should I use Sanitizers ?
 
 > Whenever you store user's data (in database or anywhere), and if that data will be read/available to (unsuspecting) users, then you have to sanitize it.<br>
-> If it contains html code given by users then you have to sanitize it. See HTML_sanitization in
+> See also HTML_sanitization in
 [wikipedia](https://en.m.wikipedia.org/wiki/HTML_sanitization)<br>
+
+- ### What is SQL injection
+
+SQL injection is a method used by hackers to inject malicious SQL codes while running SQL query.
+
+Example SQL injection in php:
+
+for example, here `$_POST["userId"]` is `105 OR 1=1`
+
+    $query = "SELECT * FROM Users WHERE UserId = " . $_POST["userId"];
+it will become:
+
+    $query = "SELECT * FROM Users WHERE UserId = 105 OR 1=1";
+
+The SQL above is valid and will return ALL rows from the "Users" table, since `OR 1=1` is always TRUE.
+
+Does the example above look dangerous? What if the "Users" table contains names and passwords?
+
+[Source](https://www.w3schools.com/sql/sql_injection.asp)
 
 - ### How can I clean user input ?
 
  * First, Sanitize
  * Then, Validate
  * Last, Escape output.
-![Validating process image](Sanitize.jpg)
+![Validating process image](gif/Sanitize.jpg)
 
 - ### Installation 🔧
 
@@ -72,14 +98,14 @@ Example Usage in php:
 ```php
 <?php
 // Import classes
-use Sanitizers\Sanitizers\Sanitize;
+use Sanitizers\Sanitizers\Sanitizer;
 
 require "src/Sanitizers.php";
 
-// passing `true` in Sanitizer class enables exceptions
-$sanitize = new Sanitize(true);
+// passing `true` in Sanitize class enables exceptions
+$sanitizer = new Sanitizer(true);
 try {
-    echo $sanitize->sanitize("username", $_GET['username']);
+    echo $sanitizer->sanitize("username", $_GET["username"]);
 } catch (Exception $e) {
     echo "Could not Sanitize user input.";
     var_dump($e);
@@ -92,13 +118,13 @@ Example Usage in composer:
 ```php
 <?php
 // Import classes
-use Sanitizers\Sanitizers\Sanitize;
+use Sanitizers\Sanitizers\Sanitizer;
 
 require "vendor/autoload.php";
 
-$sanitize = new Sanitize(true);
+$sanitizer = new Sanitizer(true);
 try {
-    echo $sanitize->sanitize("username", $_GET['username']);
+    echo $sanitizer->sanitize("username", $_GET["username"]);
 } catch (Exception $e) {
     echo "Could not Sanitize user input.";
     var_dump($e);
@@ -106,13 +132,34 @@ try {
 ?>
 ```
 
-<h2><a name="files">Source Files Structure</a></h2>
+<h2><a name="visuals">Visuals</a></h2>
+
+- ### Testing with and without composer autoload in Termux (on Android)
+
+![Gif of testing on termux](gif/BK-Sanitizers-termux.gif)
+
+I ran:
+```bash
+composer validate # Validates composer.json
+composer test # Test without composer autoload
+composer update # Update dependencies and install autoload
+composer test # Test with composer autoload
+```
+
+<h2><a name="files">Files</a></h2>
 
 ```text
 Sanitizers/
 └── src/
     ├── Sanitizers.php
-    └── config.php
+    └── config.ini
+    └── bootstrap.php
+└── examples/
+    └── README.md
+    └── confirm-reg.php
+    └── contact-form.php
+    └── login.php
+    └── register.php
 └── test/
     └── SanitizersTest.php
     └── README.md
@@ -152,8 +199,9 @@ Sanitizers/
 [![.gitattributes](https://poser.pugx.org/sanitizers/sanitizers/gitattributes)](//packagist.org/packages/sanitizers/sanitizers)
 [![composer.lock](https://poser.pugx.org/sanitizers/sanitizers/composerlock)](//packagist.org/packages/sanitizers/sanitizers)
 [![Daily Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/daily)](//packagist.org/packages/sanitizers/sanitizers)
+![Packagist Stars](https://img.shields.io/packagist/stars/sanitizers/sanitizers)
 
-#### Stargazers
+#### Stargazers Thank you very much !!
 
 [![Stargazers repo roster for @PuneetGopinath/Sanitizers](https://reporoster.com/stars/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/stargazers)
 
@@ -164,17 +212,18 @@ Minimum we need php 5.6.0 for Sanitizers to work.
  * #### PHP Extensions
 You need filter and mbstring extension.
 
-<h2><a name="test">Tests ⚙️</a></h2>
+<h2><a name="tests">Tests ⚙️</a></h2>
 
 Run either `composer run-script test` or `php test/SanitizersTest.php -- --debug`
 
-<h2><a name="contribute">Contributing</a></h2>
+<h2><a name="contributing">Contributing</a></h2>
 
 Plz read [CONTRIBUTING.md](.github/CONTRIBUTING.md)</a> file.
 
 <h2><a name="authors">Authors ✒️</a></h2>
 
  * Puneet Gopinath - [PuneetGopinath](https://github.com/PuneetGopinath)
+
 See also the list of [contributors](https://github.com/PuneetGopinath/Sanitizers/graphs/contributors) who participated in building this project.
 
 <h2><a name="license">LICENSE 📄</a></h2>
@@ -186,7 +235,14 @@ MIT License. Read [LICENSE](LICENSE) file.
 
 For doubts, use either GitHub discussion or Gitter.
 
-<h2><a name="conclude">Conclusion</a></h2>
+<h2><a name="spread">Spread BK Sanitizers! 🎉</a></h2>
+
+Help spread awareness about BK Sanitizers by:
+
+ * Share in social media platforms to spread it.
+ * add BK Sanitizers in your site's credits list.
+
+<h2><a name="conclusion">Conclusion</a></h2>
 
 If you sanitize user input then, you will be able to manage data properly, validate it, show it in a secure and reliable way.<br>
 It makes your web application trustworthy, so it must be one of your main goals from the beginning of your career as a web developer.

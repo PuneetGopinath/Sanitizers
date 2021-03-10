@@ -1,17 +1,17 @@
 <?php
-use Sanitizers\Sanitizers\Sanitize;
+use Sanitizers\Sanitizers\Sanitizer;
 require_once("../src/Sanitizers.php");
 
 if (isset($_POST["Submit"]))
 {
-    $sanitize = new Sanitize();
-    $name = $sanitize->sanitize("name", $_POST["name"]);
-    $email = $sanitize->sanitize("email", $_POST["email"]);
-    $username = $sanitize->sanitize("username", $_POST["username"]);
-    $password = $sanitize->sanitize("password", $_POST["password"]);
+    $sanitizer = new Sanitizer();
+    $name = $sanitizer->sanitize("name", $_POST["name"]);
+    $email = $sanitizer->sanitize("email", $_POST["email"]);
+    $username = $sanitizer->sanitize("username", $_POST["username"]);
+    $password = $sanitizer->sanitize("password", $_POST["password"]);
 
     // Now use variables $name, $email, $username, $password for user form inputs (name, email, username, password respectively)...
-    print_r(array("name" => $name, "email" => $email, "username" => $username, "password" => $password, "Sanitize" => $sanitize, "_POST" => $_POST)); //Testing
+    print_r(array("name" => $name, "email" => $email, "username" => $username, "password" => $password, "Sanitize" => $sanitizer, "_POST" => $_POST)); //Testing
     // Save to Database, Send email, etc...
 }
 ?>

@@ -24,8 +24,16 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 header, section, footer {
   padding: 20px 20px;
 }
+a:link {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+a:link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 500px;
   margin: auto;
   text-align: center;
@@ -47,8 +55,8 @@ pre {
   padding: 20px 20px;
 }
 pre {
-  background-color: #9299a0;
-  color: #fff;
+  color: #404040;
+  background-color: #fff;
 }
 table {
   font-family: arial, sans-serif;
