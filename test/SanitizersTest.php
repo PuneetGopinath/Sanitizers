@@ -1,16 +1,18 @@
 <?php
 use Sanitizers\Sanitizers\Sanitizer;
 
-foreach ($argv as $value) {
-    if ($value === "--debug" || $value === "-d")
-        $debug = true;
-    else
-        $debug = false;
-
-    if ($value === "--ini")
-        $configFromIni = true;
-    else
-        $configFromIni = false;
+for ($i = 0; $i < count($argv); $i++) {
+    switch ($argv[$i]) {
+        case "debug":
+            $debug = true;
+            break;
+        case "ini":
+            $configFromIni = true;
+        default:
+            $debug = false;
+            $configFromIni = false;
+            break;
+    }
 }
 
 $debug_info = array();
@@ -47,12 +49,15 @@ $test_values = array(
     "float" => $len-0.5,
     "name" => "\0saNiTiZeRs ä\x80",
     "email" => "AdMiN@ExAmPle.cOm",
-    "message" => "Sanitizers - Quickly sanitize user data.\r\nSee this project at <a href='https://github.com/PuneetGopinath/Sanitizers'>GitHub</a>",
-    "username" => "PuneetGopinath",
-    "html" => "<b>Text in bold</b><!-- This is a comment --><style>body {display: none;}</style>"
+    "message" => "Hi <script src=http://ha.ckers.org/xss.js></script><a href=\"//www.google.com/\">XSS</a>",
+    "username" => "PuneetGopinath", // It will become to smaller case if you want upper case also then use name instead `$sanitizer->sanitize("name", $username)`
+    "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">XSS</a>"
 );
+
 if ($configFromIni && is_readable($baseDir . "/src/config.ini"))
     $sanitizer->configFromIni($baseDir . "/src/config.ini");
+
+$debug_info[] = "configFromIni: " . (string)$configFromIni;
 
 $values = array(
     "hex" => $sanitizer->sanitize("hex", $test_values["hex"]),
@@ -81,7 +86,7 @@ $filters = array(
         "alpha_num" => false //Sets value to be alpha_numeric, default:false
     ),
     "html" => array(
-        "tags" => "<b><i><em><p><a><br>"//Allowed tags
+        "tags" => "<b><i><em><p><a><br>"//Optinal Allowed tags
     )
 );
 $auto_values = $sanitizer->sanitizeArray($test_values, $filters);
@@ -97,8 +102,9 @@ echo EOL . "Array Key -- Original Value => Auto Sanitized Value" . EOL;
 foreach ($test_values as $i => $value) {
     echo $i . " -- " . $value . " => " . $auto_values[$i] . EOL;
 }
+
 if ($debug)
-    $debug_info[] = json_encode($sanitizer);
+    $debug_info[] = json_encode(array("Sanitizer"=>$sanitizer,"version"=>$sanitizer->getVersion()));
 
 echo "Debug_info: " . implode(", ", $debug_info) . PHP_EOL;
 ?>

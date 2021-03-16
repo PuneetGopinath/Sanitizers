@@ -4,6 +4,7 @@
 
 You can test PHP Sanitizers using the file **SanitizersTest.php**
 
+If you run `composer test` or `php test/SanitizersTest.php -- --debug`
 You will get an output which is similar to this.<br>
 &rarr;
 
@@ -11,7 +12,7 @@ You will get an output which is similar to this.<br>
 > php test/SanitizersTest.php -- --debug
 Using composer autoload files
 
-Using Sanitizers version: 1.0.1
+Using Sanitizers version: 1.0.2
 
 Array Key -- Original Value => Sanitized Value
 
@@ -26,8 +27,8 @@ name -- saNiTiZeRs ä� => Sanitizers
 email -- AdMiN@ExAmPle.cOm => admin@example.com
 
 message -- Sanitizers - Quickly sanitize user data.
-See this project at <a href='https://github.com/PuneetGopinath/Sanitizers'>GitHub</a> => Sanitizers - Quickly sanitize user data.
-See this project at GitHub
+See this project at https://github.com/PuneetGopinath/Sanitizers => Sanitizers - Quickly sanitize user data.
+See this project at https://github.com/PuneetGopinath/Sanitizers
 
 username -- PuneetGopinath => puneetgopinath
 
@@ -48,12 +49,12 @@ name -- saNiTiZeRs ä� => Sanitizers
 email -- AdMiN@ExAmPle.cOm => admin@example.com
 
 message -- Sanitizers - Quickly sanitize user data.
-See this project at <a href='https://github.com/PuneetGopinath/Sanitizers'>GitHub</a> => Sanitizers - Quickly sanitize user data.
-See this project at GitHub
+See this project at https://github.com/PuneetGopinath/Sanitizers => Sanitizers - Quickly sanitize user data.
+See this project at https://github.com/PuneetGopinath/Sanitizers
 
 username -- PuneetGopinath => puneetgopinath
 
 html -- <b>Text in bold</b><!-- This is a comment --><style>body {display: none;}</style> => <b>Text in bold</b><!-- This is a comment -->
 
-Debug_info: {"logger":null,"config":{"maxInputLength":100,"encoding":"UTF-8","preventXSS":true,"slashes":true},"ini":false,"exceptions":false}
+Debug_info: configFromIni: , {"Sanitizer":{"logger":null,"config":{"encoding":"UTF-8","maxInputLength":100,"slashes":true,"preventXSS":true},"ini":false,"exceptions":false},"version":"1.0.2"}
 ```

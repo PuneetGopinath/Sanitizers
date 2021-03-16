@@ -9,7 +9,7 @@ updates:
       interval: "weekly"
       day: "sunday"
       time: "12:00"
-      timezon: "Asia/Kolkata"
+      timezone: "Asia/Kolkata"
 
   - package-ecosystem: "composer"
     directory: "/"
@@ -17,6 +17,6 @@ updates:
       interval: "weekly"
       day: "sunday"
       time: "12:00"
-      timezon: "Asia/Kolkata"
+      timezone: "Asia/Kolkata"
     reviewers:
       - PuneetGopinath

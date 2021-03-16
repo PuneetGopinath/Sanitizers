@@ -1,5 +1,5 @@
 {
-    "name": "Sanitizers",
+    "name": "BK Sanitizers",
     "description": "Quickly Sanitize user data",
     "version": "v1.0.1",
     "license": "MIT",
@@ -26,7 +26,8 @@
         "xss"
     ],
     "files": [
-        "src/*.php"
+        "src/*.php",
+        "test/*.php"
     ],
     "author": "The Sanitizers Authors (https://github.com/PuneetGopinath/Sanitizers/graphs/contributors)",
     "repository": {
