@@ -1,4 +1,6 @@
-# Sanitizers code examples
+# BK Sanitizers code examples
+
+<link rel="stylesheet" href="../docs/css/main.css" />
 
 This folder contains of examples of how to use PHP Sanitizers
 

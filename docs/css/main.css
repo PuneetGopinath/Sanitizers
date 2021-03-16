@@ -33,9 +33,12 @@ a:link:hover {
   color: #0056b3;
   text-decoration: underline;
 }
-.card {
+.card, details {
   max-width: 500px;
+  font-family: arial, sans-serif;
   margin: auto;
+}
+.card {
   text-align: center;
 }
 img {
@@ -57,6 +60,7 @@ pre {
 pre {
   color: #404040;
   background-color: #fff;
+  border: 1px solid #9299a0;
 }
 table {
   font-family: arial, sans-serif;
