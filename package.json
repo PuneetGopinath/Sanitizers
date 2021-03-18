@@ -1,0 +1,40 @@
+{
+    "name": "BK Sanitizers",
+    "description": "Quickly Sanitize user data",
+    "version": "v1.0.2",
+    "license": "MIT",
+    "homepage": "https://github.com/PuneetGopinath/Sanitizers#readme",
+    "config": {
+        "version_short": "1.0"
+    },
+    "keywords": [
+        "Sanitizers",
+        "back-end",
+        "backend",
+        "security",
+        "sanitization",
+        "validate",
+        "Sanitize",
+        "web",
+        "php",
+        "PHP Sanitizers",
+        "user-input",
+        "escape",
+        "filter",
+        "sanitize-input",
+        "input sanitizer",
+        "xss"
+    ],
+    "files": [
+        "src/*.php",
+        "test/*.php"
+    ],
+    "author": "The Sanitizers Authors (https://github.com/PuneetGopinath/Sanitizers/graphs/contributors)",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PuneetGopinath/Sanitizers.git"
+    },
+    "bugs": {
+        "url": "https://github.com/PuneetGopinath/Sanitizers/issues"
+    }
+}

@@ -1,0 +1,103 @@
+{
+    "name": "sanitizers/sanitizers",
+    "description": "Quickly Sanitize user data",
+    "type": "library",
+    "keywords": [
+        "sanitizers",
+        "back-end",
+        "backend",
+        "security",
+        "sanitization",
+        "validate",
+        "sanitize",
+        "web",
+        "php",
+        "PHP Sanitizers",
+        "user-input",
+        "escape",
+        "filter",
+        "sanitize-input",
+        "input sanitizer",
+        "xss"
+    ],
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "process-timeout": 500,
+        "platform-check": true
+    },
+    "funding": [
+        {
+            "type": "patreon",
+            "url": "https://www.patreon.com/PuneetGopinath"
+        }
+    ],
+    "readme": "https://github.com/PuneetGopinath/Sanitizers#readme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Puneet Gopinath",
+            "role": "developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "ext-filter": "*",
+        "ext-mbstring": "*"
+    },
+    "suggest": {
+        "ext-iconv": "Optional for encoding user input",
+        "psr/log": "Optional library for debugging"
+    },
+    "archive": {
+        "name": "Sanitizers"
+    },
+    "scripts": {
+        "setup": [
+            "composer validate",
+            "composer update"
+        ],
+        "test": "php test/SanitizersTest.php",
+        "test-autoload": [
+            "@setup",
+            "@test"
+        ]
+    },
+    "scripts-descriptions": {
+        "setup": "Setup composer, generate autoload files, etc...",
+        "test": "Run Sanitizers built-in test!",
+        "test-autoload": "Run test with composer autoload"
+    },
+    "autoload": {
+        "classmap": ["src/"],
+        "psr-4": {
+            "Sanitizers\\Sanitizers\\": "src/"
+        }
+    },
+    "support": {
+        "docs": "https://puneetgopinath.github.io/Sanitizers/docs",
+        "wiki":"https://github.com/PuneetGopinath/Sanitizers/wiki",
+        "issues": "https://github.com/PuneetGopinath/Sanitizers/issues",
+        "source": "https://github.com/PuneetGopinath/Sanitizers/"
+    },
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/PuneetGopinath/Sanitizers"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "sanitizers/sanitizers",
+                "version": "v1.0.2",
+                "dist": {
+                    "url": "https://github.com/PuneetGopinath/Sanitizers/archive/v1.0.2.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ]
+}
