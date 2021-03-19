@@ -12,8 +12,8 @@ require "../src/Sanitizers.php";
 if (isset($_POST["Submit"]))
 {
     $sanitizer = new Sanitizer();
-    $username = $sanitizer->sanitize("username", $_POST["username"]);
-    $password = $sanitizer->sanitize("password", $_POST["password"]);
+    $username = $sanitizer->Username($_POST["username"]);
+    $password = $sanitizer->Password($_POST["password"]);
 
     // Now use variables $username, $password for user form inputs...
     print_r(array("username" => $username, "password" => $password, "Sanitize" => $sanitizer, "_POST" => $_POST)); //Testing

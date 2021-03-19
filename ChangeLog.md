@@ -6,9 +6,9 @@ All notable changes to BKS Sanitizers library will be added to this file.
 
 ## Releases
 
-Format is `version    (*dd-mm-yyyy*)`
+Format is `version (*dd-mm-yyyy*)`
 
-### v1.0.2    (*20-03-2021*)
+### v1.0.2 (*20-03-2021*)
 
 #### Info
  * 🐛 Bug fix release
@@ -20,8 +20,9 @@ Format is `version    (*dd-mm-yyyy*)`
  * Use `$this->config` for configuration options instead of `$this->maxInputLength` and `$this->encoding`
 
 #### Functions
- * `htmlspecialchars` can be disabled or enabled using param(parameter) #3 in all functions
+ * `htmlspecialchars` can be disabled or enabled using param(parameter) #3 in all sanitizing functions (i.e. clean, Integer, Hex, Password, Email, Username, Text, NonNumericText, Name, Float, URL)
  * Get Sanitizers version using `$sanitizer->getVersion();`
+ * New function `Password`
 
 #### Additions
  * Added `INSTALL.md` for installing guidlines
@@ -37,7 +38,7 @@ Format is `version    (*dd-mm-yyyy*)`
  * Improved Wiki
  * Added contact-form, confirm-reg in examples
 
-### v1.0.1    (*05-02-2021*)
+### v1.0.1 (*05-02-2021*)
 
 #### Info
  * 🐛 Bug fix release
@@ -70,7 +71,7 @@ Format is `version    (*dd-mm-yyyy*)`
  * Corrected this mistake `the file you are using (or the file from where you are including Sanitizers.php) should contain the file *config.php* in the same directory`
  * Added examples of using Sanitizers
 
-### v1.0.0    (*28-01-2021*)
+### v1.0.0 (*28-01-2021*)
 
 #### Info
  * 🎉 Initial release of Sanitizers!

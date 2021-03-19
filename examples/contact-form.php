@@ -12,8 +12,8 @@ require "../src/Sanitizers.php";
 if (isset($_POST["Submit"]))
 {
     $sanitizer = new Sanitizer();
-    $name = $sanitizer->sanitize("name", $_POST["name"]);
-    $email = $sanitizer->sanitize("email", $_POST["email"]);
+    $name = $sanitizer->Name($_POST["name"]);
+    $email = $sanitizer->Email($_POST["email"]);
     $sanitizer->set("maxInputLength", 5000);
     $message = $sanitizer->clean($_POST["message"], /*trim=*/false, /*entities*/false, false, false);
     $dept = $sanitizer->clean($_POST["dept"]);

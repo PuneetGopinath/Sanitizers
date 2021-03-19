@@ -44,12 +44,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "ext-filter": "*",
-        "ext-mbstring": "*"
-    },
-    "suggest": {
-        "ext-iconv": "Optional for encoding user input",
-        "psr/log": "Optional library for debugging"
+        "ext-filter": "*"
     },
     "archive": {
         "name": "Sanitizers"
@@ -59,16 +54,11 @@
             "composer validate",
             "composer update"
         ],
-        "test": "php test/SanitizersTest.php",
-        "test-autoload": [
-            "@setup",
-            "@test"
-        ]
+        "test": "php test/SanitizersTest.php"
     },
     "scripts-descriptions": {
         "setup": "Setup composer, generate autoload files, etc...",
-        "test": "Run Sanitizers built-in test!",
-        "test-autoload": "Run test with composer autoload"
+        "test": "Run Sanitizers built-in test!"
     },
     "autoload": {
         "classmap": ["src/"],

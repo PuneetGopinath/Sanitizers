@@ -1,5 +1,7 @@
 /.gitattributes export-ignore
-/.github export-ignore
+/.github/*.yml export-ignore
+/.github/workflows export-ignore
+/.github/ISSUE_TEMPLATE export-ignore
 /.gitignore export-ignore
-/_config.yml
+/_config.yml export-ignore
 /examples export-ignore

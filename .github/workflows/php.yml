@@ -2,9 +2,9 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ main ]
+    branches: [ 1.0-dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ 1.0-dev ]
   workflow_dispatch:
 
 jobs:
@@ -13,18 +13,12 @@ jobs:
     strategy:
       matrix:
         platform: [ubuntu-20.04, macos-latest, windows-latest]
-#        php: ["5.0", "7.0", "8.0"]
 
     runs-on: ${{ matrix.platform }}
 
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-#    - name: Install PHP
-#      uses: shivammathur/setup-php@v2
-#      with:
-#        php-version: ${{ matrix.php }}
 
     - name: Check PHP Version
       run: php -v
@@ -42,12 +36,7 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Update dependencies
-#      if: steps.composer-cache.outputs.cache-hit != 'true'
-#      run: composer install --prefer-dist --no-progress #--no-suggest
       run: composer update
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
 
     - name: Run tests
       run: composer run-script test

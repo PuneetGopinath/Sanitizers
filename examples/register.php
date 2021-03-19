@@ -12,10 +12,10 @@ require "../src/Sanitizers.php";
 if (isset($_POST["Submit"]))
 {
     $sanitizer = new Sanitizer();
-    $name = $sanitizer->sanitize("name", $_POST["name"]);
-    $email = $sanitizer->sanitize("email", $_POST["email"]);
-    $username = $sanitizer->sanitize("username", $_POST["username"]);
-    $password = $sanitizer->sanitize("password", $_POST["password"]);
+    $name = $sanitizer->Name($_POST["name"]);
+    $email = $sanitizer->Email($_POST["email"]);
+    $username = $sanitizer->Username($_POST["username"]);
+    $password = $sanitizer->Password($_POST["password"]);
 
     // Now use variables $name, $email, $username, $password for user form inputs (name, email, username, password respectively)...
     print_r(array("name" => $name, "email" => $email, "username" => $username, "password" => $password, "Sanitize" => $sanitizer, "_POST" => $_POST)); //Testing

@@ -59,7 +59,7 @@ require "src/Sanitizers.php";
 // passing `true` in Sanitize class enables exceptions
 $sanitizer = new Sanitizer(true);
 try {
-    echo $sanitizer->sanitize("username", $_GET["username"]);
+    echo $sanitizer->Username($_GET["username"]);
 } catch (Exception $e) {
     echo "Could not Sanitize user input.";
     echo $e->getMessage();
@@ -78,7 +78,7 @@ require "vendor/autoload.php";
 
 $sanitizer = new Sanitizer(true);
 try {
-    echo $sanitizer->sanitize("username", $_GET["username"]);
+    echo $sanitizer->Username($_GET["username"]);
 } catch (Exception $e) {
     echo "Could not Sanitize user input.";
     echo $e->getMessage();
@@ -97,12 +97,8 @@ try {
 
 #### GitHub
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/y/PuneetGopinath/Sanitizers)
-![GitHub last commit](https://img.shields.io/github/last-commit/PuneetGopinath/Sanitizers)
 [![Github Downloads](https://img.shields.io/github/downloads/PuneetGopinath/Sanitizers/total.svg)](https://github.com/PuneetGopinath/Sanitizers/releases)
 [![GitHub stars](https://img.shields.io/github/stars/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues-raw/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/pulls)
 [![GitHub package.json dynamic](https://img.shields.io/github/package-json/description/PuneetGopinath/Sanitizers)]()
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/releases)
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/PuneetGopinath/Sanitizers)
@@ -117,11 +113,11 @@ try {
 [![Latest Stable Version](https://poser.pugx.org/sanitizers/sanitizers/v)](https://packagist.org/packages/sanitizers/sanitizers)
 [![PHP Support](https://img.shields.io/packagist/php-v/sanitizers/sanitizers)](https://packagist.org/packages/sanitizers/sanitizers)
 [![Latest Unstable Version](https://poser.pugx.org/sanitizers/sanitizers/v/unstable)](https://packagist.org/packages/sanitizers/sanitizers)
-[![Total Downloads](https://poser.pugx.org/sanitizers/sanitizers/downloads)](//packagist.org/packages/sanitizers/sanitizers)
-[![Monthly Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/monthly)](//packagist.org/packages/sanitizers/sanitizers)
-[![.gitattributes](https://poser.pugx.org/sanitizers/sanitizers/gitattributes)](//packagist.org/packages/sanitizers/sanitizers)
-[![composer.lock](https://poser.pugx.org/sanitizers/sanitizers/composerlock)](//packagist.org/packages/sanitizers/sanitizers)
-[![Daily Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/daily)](//packagist.org/packages/sanitizers/sanitizers)
+[![Total Downloads](https://poser.pugx.org/sanitizers/sanitizers/downloads)](https://packagist.org/packages/sanitizers/sanitizers)
+[![Monthly Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/monthly)](https://packagist.org/packages/sanitizers/sanitizers)
+[![.gitattributes](https://poser.pugx.org/sanitizers/sanitizers/gitattributes)](https://packagist.org/packages/sanitizers/sanitizers)
+[![composer.lock](https://poser.pugx.org/sanitizers/sanitizers/composerlock)](https://packagist.org/packages/sanitizers/sanitizers)
+[![Daily Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/daily)](https://packagist.org/packages/sanitizers/sanitizers)
 
 #### Stargazers
 
@@ -134,14 +130,6 @@ You have proved that BK Sanitizers has some value !!
 #### Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/PuneetGopinath/Sanitizers.svg)](https://starchart.cc/PuneetGopinath/Sanitizers)
-
-<!--[![Sparkline](https://stars.medv.io/PuneetGopinath/Sanitizers.svg)](https://stars.medv.io/PuneetGopinath/Sanitizers)
-
-#### Contributors
-
-Thanks to all contributors !!
-
-[![GitHub Contributors Image](https://contrib.rocks/image?repo=PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/contributors)-->
 
 <h2><a name="about">About ℹ️</a></h2>
 

@@ -20,7 +20,6 @@ You can contribute us by improving:
  * Docs
  * Translating docs, readme
  * Improving source code, examples and built-in tests
- * Visuals in different platforms, See [Visuals in readme](https://github.com/PuneetGopinath/Sanitizers#visuals), currently only termux (android) available
 
 ## Translating
 
@@ -33,7 +32,7 @@ Thank you very much !!
 3. Clone it
 4. Edit the docs, test and readme
 5. At the end of readme add `Translated by your full name` in that language but not in english, replace `your full name` with your name in that language
-6. Now commit and give us a pull request
+6. Now commit, push and give us a pull request
 
 #### Languages already translated
 

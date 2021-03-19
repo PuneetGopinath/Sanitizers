@@ -12,7 +12,7 @@ require "../src/Sanitizers.php";
 if (isset($_POST["Submit"]))
 {
     $sanitizer = new Sanitizer();
-    $code = $sanitizer->sanitize("hex", $_POST["code"]);
+    $code = $sanitizer->Hex($_POST["code"]);
 
     // Now use variable $code for the code...
     print_r(array("code" => $code, "Sanitize" => $sanitizer, "_POST" => $_POST)); //Testing
