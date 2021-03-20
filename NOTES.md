@@ -12,7 +12,3 @@ You can see the examples in this file to understand our code.
 **It allows a dot. example:** without this flag 100.25 will become 10025.
 
 See PHP flags official documentation in [php.net](http://php.net/manual/en/filter.filters.flags.php).
-
-## Important Note
-
-1. The file from where you are including **Sanitizers.php** should contain the file **config.php** in the directory where **Sanitizers.php** exists.
