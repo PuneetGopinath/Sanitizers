@@ -120,7 +120,7 @@ class Sanitizer
 
     public function Username($username, $trim=true, $html_entities=true)
     {
-        $username = strtolower(preg_replace("/[^a-z0-9]/s", "", $this->Text($username, $trim, $html_entities)));
+        $username = preg_replace("/[^a-z0-9]/s", "", strtolower($this->Text($username, $trim, $html_entities)));
         return $username;
     }
 

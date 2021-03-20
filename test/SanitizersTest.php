@@ -20,7 +20,7 @@ $test_values = [
     "hex" => bin2hex($bytes),
     "name" => "\0Some Name ä\x80",
     "email" => "ADMIN@ExAMpLe.com",
-    "message" => "Sanitizers - Quickly sanitize user data.\r\nSee this github project at https://github.com/PuneetGopinath/Sanitizers",
+    "message" => "Hi <script>alert('I am XSS');</script>",
     "username" => "PuneetGopinath"
 ];
 $values = [

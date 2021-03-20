@@ -8,12 +8,35 @@ All notable changes to BKS Sanitizers library will be added to this file.
 
 Format is `version (*dd-mm-yyyy*)`
 
+### v1.0.3 (*unreleased*)
+
+#### Info
+ * 🐛 Bug fix release
+
+#### Bug fixes
+ * Fix bug `Username` function removes uppercase letters instead of making them to lowercase letters.
+
+#### Changes
+ * 
+
+#### Functions
+ * 
+
+#### Additions
+ * Change message in tests to an example of xss
+
+#### Deletions
+ * 
+
+#### Docs
+ * 
+
 ### v1.0.2 (*20-03-2021*)
 
 #### Info
  * 🐛 Bug fix release
 
-### Bug fixes
+#### Bug fixes
  * Fix bug function `Integer` and `Float` returns as string, it should return as `int` and `float` respectively
 
 #### Changes
@@ -23,6 +46,7 @@ Format is `version (*dd-mm-yyyy*)`
  * `htmlspecialchars` can be disabled or enabled using param(parameter) #3 in all sanitizing functions (i.e. clean, Integer, Hex, Password, Email, Username, Text, NonNumericText, Name, Float, URL)
  * Get Sanitizers version using `$sanitizer->getVersion();`
  * New function `Password`
+ * `$sanitizer->set(/*key*/, /*value*/);` function - modifies a config option temporarily
 
 #### Additions
  * Added `INSTALL.md` for installing guidlines
@@ -43,7 +67,7 @@ Format is `version (*dd-mm-yyyy*)`
 #### Info
  * 🐛 Bug fix release
 
-### Bug fixes
+#### Bug fixes
  * Warning: Undefined variable $config in src/Sanitizers.php on line 10
  * Warning: Trying to access array offset on value of type null in src/Sanitizers.php on line 10
  * Warning: Undefined variable $config in src/Sanitizers.php on line 11

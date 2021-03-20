@@ -147,10 +147,6 @@ You have proved that BK Sanitizers has some value !!
 > See also HTML_sanitization in
 [wikipedia](https://en.m.wikipedia.org/wiki/HTML_sanitization)<br>
 
-- ### What is SQL injection ??
-
-SQL injection is a method used by hackers to inject malicious SQL codes while running SQL query.
-
 - ### How can I clean user input 🧹 ?
 
  * First, Sanitize
