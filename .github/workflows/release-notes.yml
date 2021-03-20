@@ -2,9 +2,9 @@ name: Release notes
 
 on:
   push:
-    branches: [ main ]
-#  pull_request:
-#    branches: [ main ]
+    branches: [ main, 1.0-dev ]
+  pull_request:
+    branches: [ main, 1.0-dev ]
 
 jobs:
   update_release_draft:
