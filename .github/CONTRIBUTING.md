@@ -15,12 +15,12 @@ You can <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?templat
 
 ## Where can I contribute to BKS?
 
-You can contribute us by improving:
+You can contribute us by:
 
  * Improving docs
  * Translating docs, readme
  * Improving source code, examples and built-in tests
- * Visuals in different platforms, See [Visuals in readme](https://github.com/PuneetGopinath/Sanitizers#visuals), currently only termux (android)
+ * Visuals in different platforms, See [Visuals in readme](https://github.com/PuneetGopinath/Sanitizers#visuals), currently only termux (android) available
 
 ## Translating
 
@@ -31,9 +31,9 @@ Thank you very much !!
 1. Fork our repo
 2. Create new branch with the language name, for example: `en-us`
 3. Clone it
-4. Edit the docs, test and readme
+4. Edit the docs, test, `.github/CONTRIBUTING.md` and readme
 5. At the end of readme add `Translated by your full name` in that language but not in english, replace `your full name` with your name in that language
-6. Now commit and give us a pull request
+6. Now commit, push and give us a pull request
 
 #### Languages already translated
 
@@ -41,7 +41,6 @@ Thank you very much !!
 
 ## Other options
 
- * You can also contribute by funding us
- * If you found something wrong or not working or you found bug(s) then, Open an issue in github.
- * Even asking questions is a contribution to us, Ask at gitter or start a new github discussion (only if you want a big discussion about it)
- * If your question is small then ask at gitter
+ * You can also contribute by funding the Author
+ * If you found something wrong or not working or you found bug(s) then, [Open an issue](https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md) in github.
+ * Even asking questions will help us improve our docs and wiki, Ask at gitter or at IRC #bksanitizers channel in `irc.freenode.net` server
