@@ -1,6 +1,6 @@
 # Contributing to BK Sanitizers !!!
 
-Looking to contribute us?
+Looking to contribute to BKS ??
 _**Here's how we can help.**_
 
 Pull requests are welcome !!
@@ -15,9 +15,9 @@ You can <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?templat
 
 ## Where can I contribute to BKS?
 
-You can contribute us by improving:
+You can contribute us by:
 
- * Docs
+ * Improving docs
  * Translating docs, readme
  * Improving source code, examples and built-in tests
 
@@ -41,6 +41,5 @@ Thank you very much !!
 ## Other options
 
  * You can also contribute by funding us
- * If you found something wrong or not working or you found bug(s) then, Open an issue in github.
- * Even asking questions is a contribution to us, Ask at gitter or start a new github discussion (only if you want a big discussion about it)
- * If your question is small then ask at gitter
+ * If you found something wrong or not working or you found bug(s) then, [Open an issue](https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md) in github.
+ * Even asking questions will help us improve our docs and wiki, Ask at gitter
