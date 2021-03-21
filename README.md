@@ -179,9 +179,9 @@ Thanks to all contributors !!
 > See also HTML_sanitization in
 [wikipedia](https://en.m.wikipedia.org/wiki/HTML_sanitization)<br>
 
-- ### What is SQL injection ??
+- ### What is XSS ??
 
-SQL injection is a method used by hackers to inject malicious SQL codes while running SQL query.
+XSS stands for Cross Site Scripting.
 
 - ### How can I clean user input 🧹 ?
 
