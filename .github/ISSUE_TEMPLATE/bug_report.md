@@ -7,8 +7,12 @@ assignees: ''
 
 ---
 
-**Before Starting**
-> [Search for duplicate or closed bug report](https://github.com/PuneetGopinath/Sanitizers/issues?q=is%3Aissue)
+Please check these things before submitting your issue:
+
+- [ ] I am using the latest version of Sanitizers
+- [ ] I tried Sanitizers troubleshooting [guide in wiki](https://github.com/PuneetGopinath/Sanitizers/wiki/Troubleshooting)
+- [ ] I included sufficient code
+- [ ] I searched for duplicate or closed bug report [here](https://github.com/PuneetGopinath/Sanitizers/issues?q=is%3Aissue)
 
 ### Bug reports include:
 
