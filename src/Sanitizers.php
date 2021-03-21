@@ -102,7 +102,7 @@ class Sanitizer
 
     public function Hex($hex, $trim=true, $html_entities=true)
     {
-        $hex = $this->clean(preg_replace("/[^a-f0-9]/s", "", filter_var($hex, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)));
+        $hex = $this->clean(preg_replace("/[^a-f0-9]/s", "", filter_var((string)$hex, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)));
         return $hex;
     }
 
@@ -126,19 +126,19 @@ class Sanitizer
 
     public function Text($text, $trim=true, $html_entities=true)
     {
-        $text = $this->clean(preg_replace("/[^a-zA-Z0-9]/s", "", filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)));
+        $text = $this->clean(preg_replace("/[^a-zA-Z0-9]/s", "", filter_var((string)$text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)));
         return $text;
     }
 
     public function NonNumericText($text, $trim=true, $html_entities=true)
     {
-        $text = preg_replace("/[^A-Za-z]/s", "", $this->Text((string)$text, $trim, $html_entities));
+        $text = preg_replace("/[^A-Za-z]/s", "", $this->Text($text, $trim, $html_entities));
         return $text;
     }
 
     public function Name($name, $trim=true, $html_entities=true)
     {
-        $name = $this->clean(preg_replace("/[^a-zA-Z\s+]/s", "", filter_var($name, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)));
+        $name = $this->clean(preg_replace("/[^a-zA-Z\s+]/s", "", filter_var((string)$name, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)));
         return $name;
     }
 

@@ -1,5 +1,11 @@
 <?php
-require_once(dirname(dirname(__FILE__)) . "/src/Sanitizers.php");
+$currentDir = dirname(__FILE__);
+$baseDir = dirname($currentDir);
+if (is_readable($baseDir . "/vendor/autoload.php")) {
+    require_once $baseDir . "/vendor/autoload.php";
+} else {
+    require_once $baseDir . "/src/Sanitizers.php";
+}
 use Sanitizers\Sanitizers\Sanitizer;
 
 const EOL = PHP_EOL . PHP_EOL;

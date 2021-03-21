@@ -17,13 +17,13 @@ Format is `version (*dd-mm-yyyy*)`
  * Fix bug `Username` function removes uppercase letters instead of making them to lowercase letters.
 
 #### Changes
- * 
+ * Change message in tests to an example of xss
 
 #### Functions
  * 
 
 #### Additions
- * Change message in tests to an example of xss
+ * If `vendor/autoload.php` file exists then use composer autoload in tests
 
 #### Deletions
  * 
