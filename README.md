@@ -7,15 +7,18 @@
   </p>
   <h2 align="center">BK Sanitizers (BKS)</h2>
 
+  <img alt="Welcome" src="gif/Welcome.gif" />
+
   <p align="center">
     Quickly Sanitize user data<br><br>
-    Sanitizers is also called as BK Sanitizers (<b>B</b>aal-<b>K</b>rshna <b>Sanitizers</b>)<br><br>
+    An acronym or abbreviation for <b>B</b>aal-<b>K</b>rshna <b>Sanitizers</b> is BK Sanitizers
     <br><br>See:<br>
     <a href="https://puneetgopinath.github.io/Sanitizers/docs"><b>Sanitizers Docs</b></a> &raquo;<br>
     <a href="https://github.com/PuneetGopinath/Sanitizers/wiki"><b>Sanitizers Wiki</b></a> &raquo;<br><br>
     Pages &rArr;
-    <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md">Report bug(s)</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/releases">Releases</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=feature_request.md">Request feature</a>
-  </p><br>
+    <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md">Report bug(s)</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/releases">Releases</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=feature_request.md">Request feature</a> • <a href="https://baalkrshna.hashnode.dev/series/bks">Blog</a>
+  </p><br><br>
+  <a href="https://github.com/PuneetGopinath/Sanitizers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/PuneetGopinath/Sanitizers?style=social"></a><br>
 </div>
 
 <hr>
@@ -30,6 +33,7 @@
  * [Tests](#tests)
  * [Contributing](#contributing)
  * [LICENSE](#license)
+ * [Sponsor](#sponsor)
  * [Conclusion](#conclusion)
 
 <h2><a name="quick-start">Quick Start 🚀</a></h2>
@@ -56,7 +60,7 @@ use Sanitizers\Sanitizers\Sanitizer;
 
 require "src/Sanitizers.php";
 
-// passing `true` in Sanitize class enables exceptions
+// passing `true` in Sanitizer class enables exceptions
 $sanitizer = new Sanitizer(true);
 try {
     echo $sanitizer->Username($_GET["username"]);
@@ -106,7 +110,6 @@ try {
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/PuneetGopinath/Sanitizers)]()
 [![GitHub language count](https://img.shields.io/github/languages/count/PuneetGopinath/Sanitizers)]()
 [![GitHub repo size](https://img.shields.io/github/repo-size/PuneetGopinath/Sanitizers)]()
-![Maintenance](https://img.shields.io/maintenance/yes/2021)
 
 #### Packagist
 
@@ -115,8 +118,6 @@ try {
 [![Latest Unstable Version](https://poser.pugx.org/sanitizers/sanitizers/v/unstable)](https://packagist.org/packages/sanitizers/sanitizers)
 [![Total Downloads](https://poser.pugx.org/sanitizers/sanitizers/downloads)](https://packagist.org/packages/sanitizers/sanitizers)
 [![Monthly Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/monthly)](https://packagist.org/packages/sanitizers/sanitizers)
-[![.gitattributes](https://poser.pugx.org/sanitizers/sanitizers/gitattributes)](https://packagist.org/packages/sanitizers/sanitizers)
-[![composer.lock](https://poser.pugx.org/sanitizers/sanitizers/composerlock)](https://packagist.org/packages/sanitizers/sanitizers)
 [![Daily Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/daily)](https://packagist.org/packages/sanitizers/sanitizers)
 
 #### Stargazers
@@ -152,7 +153,7 @@ You have proved that BK Sanitizers has some value !!
  * First, Sanitize
  * Then, Validate
  * Last, Escape output.
-![Validating process image](Sanitize.jpg)
+![Validating process image](gif/Sanitize.jpg)
 
 <h2><a name="files">Files 🗃️</a></h2>
 
@@ -192,6 +193,12 @@ Plz read [CONTRIBUTING.md](.github/CONTRIBUTING.md)</a> file.
 
 MIT License. Read [LICENSE](LICENSE) file.
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers?ref=badge_large)
+
+<h2><a name="sponsor">Sponsor</a></h2>
+
+Support BK Sanitizers by becoming a sponsor.
+
+[Click here to sponsor](https://patreon.com/PuneetGopinath)
 
 <h2><a name="conclusion">Conclusion 🏁</a></h2>
 
