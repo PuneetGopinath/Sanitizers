@@ -27,8 +27,8 @@ echo "v" . $sanitizer->getVersion();
 Will output:
 
 ```
-1.0.2
-v1.0.2
+1.1.0
+v1.1.0
 ```
 
 ### Return values
@@ -41,7 +41,7 @@ clean - Sanitize a string without specifing the type parameter of sanitize funct
 
 ### Description
 
-    public function clean($text, $trim=true, $html_entities=true, $alpha_num=false, $ucwords=true)
+    public function clean($text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=true)
 
 Cleans a user input. It sanitizes the input string through various functions.
 The input string is given parameter 1.<br>
@@ -55,7 +55,7 @@ And returns the sanitized string
 <b>trim</b><br>
 &emsp;A boolen indicting whether to trim the input data.
 
-<b>html_entities</b><br>
+<b>htmlspecialchars</b><br>
 &emsp;A boolen indicting whether to use htmlspecialchars in input data.
 
 <b>alpha_num</b><br>
@@ -78,7 +78,7 @@ sanitize - Sanitize a string
 
 ### Description
 
-    public function sanitize($type, $text, $trim=true, $html_entities=true, $alpha_num=false, $ucwords=true)
+    public function sanitize($type, $text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=true)
 
 Cleans a user input. It sanitizes the input string through filter_var and somtimes uses above clean function according to type parameter.
 The input string is given parameter 2.<br>
@@ -146,7 +146,7 @@ And returns the sanitized string
 <b>trim</b><br>
 &emsp;Same as mentioned above in clean function
 
-<b>html_entities</b><br>
+<b>htmlspecialchars</b><br>
 &emsp;Same as mentioned above in clean function
 
 <b>alpha_num</b><br>
@@ -231,3 +231,20 @@ Which will keep both `<b>` and `</b>`, `<a>` and `</a>` in this example.
 
 ### Return values
 &emsp;Returns the sanitized html code
+
+## 5. function configFromIni
+
+configFromIni - Use config settings from ini
+### Description
+
+    public function configFromIni($file="config.ini")
+
+Uses php `parse_ini_file` function to get config settings.
+
+### Parameters
+
+<b>file</b><br>
+&emsp;The configuration file (default: `config.ini`).
+
+### Return values
+&emsp;Returns null
