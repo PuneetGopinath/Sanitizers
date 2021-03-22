@@ -14,7 +14,7 @@ $config_file = dirname(__FILE__) . "/config.php";
 if (is_readable($config_file)) {
     include_once($config_file);
 } else {
-    error_log("PHP Sanitizers config file not found. Used fallback values, Time: " . time(), 0);
+    error_log("PHP Sanitizers config file not found. Used fallback values.", 0);
 }
 
 /**
@@ -37,7 +37,7 @@ class Sanitizer
             ];
         }
 
-        $this->set("*", $config);
+        $this->set("*", $GLOBALS["config"]);
     }
 
     public function getVersion()

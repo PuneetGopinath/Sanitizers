@@ -27,10 +27,10 @@ Format is `version (*dd-mm-yyyy*)`
  * Added testing `Integer` and `Float` function in tests
 
 #### Deletions
- * 
+ * Removed specifing time in error_log if config file not found
 
 #### Docs
- * 
+ * Improved Contributing guidelines
 
 ### v1.0.2 (*20-03-2021*)
 
