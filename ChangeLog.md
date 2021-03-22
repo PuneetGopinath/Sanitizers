@@ -24,6 +24,7 @@ Format is `version (*dd-mm-yyyy*)`
 
 #### Additions
  * If `vendor/autoload.php` file exists then use composer autoload in tests
+ * Added testing `Integer` and `Float` function in tests
 
 #### Deletions
  * 
@@ -46,7 +47,7 @@ Format is `version (*dd-mm-yyyy*)`
  * `htmlspecialchars` can be disabled or enabled using param(parameter) #3 in all sanitizing functions (i.e. clean, Integer, Hex, Password, Email, Username, Text, NonNumericText, Name, Float, URL)
  * Get Sanitizers version using `$sanitizer->getVersion();`
  * New function `Password`
- * `$sanitizer->set(/*key*/, /*value*/);` function - modifies a config option temporarily
+ * Added `$sanitizer->set(/*key*/, /*value*/);` function - modifies a config option temporarily
 
 #### Additions
  * Added `INSTALL.md` for installing guidlines
