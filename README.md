@@ -43,10 +43,10 @@
  * [Contributing](#contributing)
  * [Community](#community)
  * [Authors](#authors)
+ * [Supporters](#supporters)
  * [LICENSE](#license)
  * [Comparing](#comparing)
- * [Sponsor](#sponsor)
- * [Spread BK Sanitizers](#spread)
+ * [Support Us](#support-us)
  * [CODE_OF_CONDUCT](#code-of-conduct)
  * [Versioning](#versioning)
  * [Conclusion](#conclusion)
@@ -138,14 +138,6 @@ try {
 [![Total Downloads](https://poser.pugx.org/sanitizers/sanitizers/downloads)](//packagist.org/packages/sanitizers/sanitizers)
 [![Monthly Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/monthly)](//packagist.org/packages/sanitizers/sanitizers)
 [![Daily Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/daily)](//packagist.org/packages/sanitizers/sanitizers)
-
-#### Stargazers
-
-👏 Thank you very much stargazers ⭐ !!
-
-You have proved that BK Sanitizers has some value !!
-
-[![Stargazers repo roster for @PuneetGopinath/Sanitizers](https://reporoster.com/stars/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/stargazers)
 
 #### Stargazers over time
 
@@ -246,6 +238,20 @@ Get updates on Sanitizers's development and chat with the BKS maintainers and co
 
 See also the list of [contributors](https://github.com/PuneetGopinath/Sanitizers/graphs/contributors) who participated in building this project.
 
+<h2><a name="supporters">Supporters</a></h2>
+
+👏 Thank you very much !
+
+You have proved that BK Sanitizers has some value !!
+
+### Stargazers
+
+[![Stargazers repo roster for @PuneetGopinath/Sanitizers](https://reporoster.com/stars/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/stargazers)
+
+### Forks
+
+[![Forkers repo roster for @PuneetGopinath/Sanitizers](https://reporoster.com/forks/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/network/members)
+
 <h2><a name="license">LICENSE 📄</a></h2>
 
 MIT License. Read [LICENSE](LICENSE) file.
@@ -259,24 +265,32 @@ Then, you need to know difference between HTMLPurifier and BKS
 
 1. HTMLPurifier aims at creating safe and valid HTML as close as possible to a given input. But we aim to cover all types of input like name, username, password, etc
 
-<h2><a name="sponsor">Sponsor</a></h2>
+<h2><a name="support-us">Support Us</a></h2>
+
+This is optional (we don't force you anything) and you can also try to give at least a star.
+
+<a href="https://www.producthunt.com/posts/bk-sanitizers?utm_source=badge-review&utm_medium=badge&utm_souce=badge-bk-sanitizers#discussion-body" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/review.svg?post_id=289099&theme=light" alt="BK Sanitizers - Quickly Sanitize user data | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
+### Sponsor
 
 Support BK Sanitizers by becoming a sponsor.
 Your name will be displayed here.
 
-Just click the "Sponsor" button [on our GitHub repo](https://github.com/PuneetGopinath/Sanitizers).
+[Click here to sponsor](https://patreon.com/PuneetGopinath)
 
-[Become a sponsor](https://patreon.com/PuneetGopinath)
-
-<h2><a name="spread">Spread BK Sanitizers! 🎉</a></h2>
-
-This is optional (we don't force you anything) and you can also try to give at least a star.
+### Spread
 
 Help spread awareness about BK Sanitizers by:
 
- * Share in social media platforms.
- * Add BK Sanitizers in your site's credits list **OR** add `Powered by <a href="https://github.com/PuneetGopinath/Sanitizers/">BK Sanitizers</a>`.
- * Give a star in GitHub
+ * Twitter: [![](https://img.shields.io/badge/Share-Twitter-%231DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Opensource%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
+
+ * Facebook: [![](https://img.shields.io/badge/Share-Facebook-%233b5998?style=flat-square)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/PuneetGopinath/Sanitizers)
+
+ * Linkedin: [![](https://img.shields.io/badge/Share-Linkedin-%230e76a8?style=flat-square)](https://www.linkedin.com/shareArticle?mini=true\&url=https://github.com/PuneetGopinath/Sanitizers)
+
+ * Pinterest: [![](https://img.shields.io/badge/Share-Pinterest-%23c8232c?style=flat-square)](https://pinterest.com/pin/create/button/?media=\&description=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Opensource%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
+
+ * Email: [![](https://img.shields.io/badge/Share-Email-green?style=flat-square)](mailto:info@example.com?\&subject=See%20this%20Awesome%20PHP%20Sanitizers\&cc=\&bcc=\&body=https://github.com/PuneetGopinath/Sanitizers%0AThis%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Opensource%20Projects.%20Make%20Sure%20To%20Check%20It%20Out)
 
 <h2><a name="code-of-conduct">CODE_OF_CONDUCT</a></h2>
 
