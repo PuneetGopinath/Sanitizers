@@ -5,15 +5,16 @@
       <img src="docs/images/Sanitizers-logo-transparent.png" alt="Sanitizers logo" style="width:300;height:300;" height="300" width="300" />
     </a>
   </p>
-  <h2 align="center">Welcome to BK Sanitizers (BKS)</h2>
+  <h2 align="center">BK Sanitizers (BKS)</h2>
 
   <img alt="Welcome" src="gif/Welcome.gif" />
 
   <p align="center">
-    Quickly Sanitize user data<br><br>
-    Sanitizers is also called as BK Sanitizers (<b>B</b>aal-<b>K</b>rshna <b>Sanitizers</b>)<br><br>
+    <blockquote><b>Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.</b></blockquote>
+    Tagline: Quickly Sanitize user data<br><br>
+    An acronym or abbreviation for <b>B</b>aal-<b>K</b>rshna <b>Sanitizers</b> is BK Sanitizers
+    <br><br>
     Latest release: <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers"><br>
-    Info &rArr; BK Sanitizers is a Web Sanitizers written in php<br>
     <br><br>See:<br>
     <a href="https://puneetgopinath.github.io/Sanitizers/docs"><b>Sanitizers Docs</b></a> &raquo;<br>
     <a href="https://github.com/PuneetGopinath/Sanitizers/wiki"><b>Sanitizers Wiki</b></a> &raquo;<br><br>
@@ -29,7 +30,6 @@
 <hr>
 
 **Note**: See the [1.0-dev](https://github.com/PuneetGopinath/Sanitizers/tree/1.0-dev) branch, as main branch is developing 1.1.0 minor release so, readme and docs are not for 1.0 releases.
-
 <details open="true">
     <summary>Table of contents</summary>
 
@@ -48,6 +48,7 @@
  * [Sponsor](#sponsor)
  * [Spread BK Sanitizers](#spread)
  * [CODE_OF_CONDUCT](#code-of-conduct)
+ * [Versioning](#versioning)
  * [Conclusion](#conclusion)
 
 </details>
@@ -82,7 +83,7 @@ try {
     echo $sanitizer->sanitize("username", $_GET["username"]);
 } catch (Exception $e) {
     echo "Could not Sanitize user input.";
-    var_dump($e);
+    echo $e->getMessage();
 }
 ?>
 ```
@@ -101,7 +102,7 @@ try {
     echo $sanitizer->sanitize("username", $_GET["username"]);
 } catch (Exception $e) {
     echo "Could not Sanitize user input.";
-    var_dump($e);
+    echo $e->getMessage();
 }
 ?>
 ```
@@ -120,17 +121,14 @@ try {
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/PuneetGopinath/Sanitizers)
 ![GitHub last commit](https://img.shields.io/github/last-commit/PuneetGopinath/Sanitizers)
 [![Github Downloads](https://img.shields.io/github/downloads/PuneetGopinath/Sanitizers/total.svg)](https://github.com/PuneetGopinath/Sanitizers/releases)
-[![GitHub stars](https://img.shields.io/github/stars/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues-raw/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/pulls)
-[![GitHub package.json dynamic](https://img.shields.io/github/package-json/description/PuneetGopinath/Sanitizers)]()
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/releases)
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/PuneetGopinath/Sanitizers)
 [![GitHub top language](https://img.shields.io/github/languages/top/PuneetGopinath/Sanitizers)]()
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/PuneetGopinath/Sanitizers)]()
 [![GitHub language count](https://img.shields.io/github/languages/count/PuneetGopinath/Sanitizers)]()
 [![GitHub repo size](https://img.shields.io/github/repo-size/PuneetGopinath/Sanitizers)]()
-![Maintenance](https://img.shields.io/maintenance/yes/2021)
 
 #### Packagist
 
@@ -139,8 +137,6 @@ try {
 [![Latest Unstable Version](https://poser.pugx.org/sanitizers/sanitizers/v/unstable)](https://packagist.org/packages/sanitizers/sanitizers)
 [![Total Downloads](https://poser.pugx.org/sanitizers/sanitizers/downloads)](//packagist.org/packages/sanitizers/sanitizers)
 [![Monthly Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/monthly)](//packagist.org/packages/sanitizers/sanitizers)
-[![.gitattributes](https://poser.pugx.org/sanitizers/sanitizers/gitattributes)](//packagist.org/packages/sanitizers/sanitizers)
-[![composer.lock](https://poser.pugx.org/sanitizers/sanitizers/composerlock)](//packagist.org/packages/sanitizers/sanitizers)
 [![Daily Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/daily)](//packagist.org/packages/sanitizers/sanitizers)
 
 #### Stargazers
@@ -214,6 +210,7 @@ Sanitizers/
     └── bootstrap.php
 └── examples/
     └── README.md
+    └── extending.php
     └── confirm-reg.php
     └── contact-form.php
     └── login.php
@@ -225,10 +222,7 @@ Sanitizers/
 
 <h2><a name="prerequisites">Prerequisites 📋</a></h2>
 
- * #### PHP
-Minimum we need php 5.6.0 for Sanitizers to work.
- * #### PHP Extensions
-You need filter and mbstring extension.
+See Prerequisites section [in INSTALL.md](INSTALL.md#prerequisites).
 
 <h2><a name="tests">Tests ⚙️</a></h2>
 
@@ -245,7 +239,6 @@ Get updates on Sanitizers's development and chat with the BKS maintainers and co
 - Chat in IRC. On the `irc.freenode.net` server, in the `#bksanitizers` channel.
 - Also you can chat in [gitter](https://gitter.im/BaalKrshna/Sanitizers)
 - Follow our blog on [hashnode.dev](https://baalkrshna.hashnode.dev)
-- We might send messages (as comments) in [this discussion](https://github.com/PuneetGopinath/Sanitizers/discussions/3), you can read those when you are free !!
 
 <h2><a name="authors">Authors ✒️</a></h2>
 
@@ -269,7 +262,7 @@ Then, you need to know difference between HTMLPurifier and BKS
 <h2><a name="sponsor">Sponsor</a></h2>
 
 Support BK Sanitizers by becoming a sponsor.
-Your logo will be displayed here.
+Your name will be displayed here.
 
 Just click the "Sponsor" button [on our GitHub repo](https://github.com/PuneetGopinath/Sanitizers).
 
@@ -277,9 +270,9 @@ Just click the "Sponsor" button [on our GitHub repo](https://github.com/PuneetGo
 
 <h2><a name="spread">Spread BK Sanitizers! 🎉</a></h2>
 
-Help spread awareness about BK Sanitizers by:
+This is optional (we don't force you anything) and you can also try to give at least a star.
 
-This is optional and you can also try to atleast give a star.
+Help spread awareness about BK Sanitizers by:
 
  * Share in social media platforms.
  * Add BK Sanitizers in your site's credits list **OR** add `Powered by <a href="https://github.com/PuneetGopinath/Sanitizers/">BK Sanitizers</a>`.
@@ -288,6 +281,10 @@ This is optional and you can also try to atleast give a star.
 <h2><a name="code-of-conduct">CODE_OF_CONDUCT</a></h2>
 
 Plz read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for our CODE OF CONDUCT.
+
+<h2><a name="versioning">Versioning</a></h2>
+
+We use [Semantic Versioning](https://semver.org) for our library.
 
 <h2><a name="conclusion">Conclusion 🏁</a></h2>
 
