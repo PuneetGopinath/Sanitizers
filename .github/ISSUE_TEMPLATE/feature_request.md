@@ -7,8 +7,6 @@ assignees: ''
 
 ---
 
-- [ ] I am using the latest version of Sanitizers
-- [ ] I tried Sanitizers troubleshooting [guide in wiki](https://github.com/PuneetGopinath/Sanitizers/wiki/Troubleshooting)
 - [ ] I searched for duplicate or closed feature request [here](https://github.com/PuneetGopinath/Sanitizers/issues?q=is%3Aissue)
 
 ### Feature requests include:
