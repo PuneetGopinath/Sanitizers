@@ -10,6 +10,10 @@ updates:
       day: "sunday"
       time: "12:00"
       timezone: "Asia/Kolkata"
+    pull-request-branch-name:
+      separator: "-"
+    reviewers:
+      - PuneetGopinath
 
   - package-ecosystem: "composer"
     directory: "/"
@@ -18,5 +22,7 @@ updates:
       day: "sunday"
       time: "12:00"
       timezone: "Asia/Kolkata"
+    pull-request-branch-name:
+      separator: "-"
     reviewers:
       - PuneetGopinath
