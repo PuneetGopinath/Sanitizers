@@ -9,9 +9,30 @@ for ($i = 0; $i < count($argv); $i++) {
         case "ini":
             $configFromIni = true;
         default:
-            $debug = false;
-            $configFromIni = false;
+            if (!(isset($debug) && isset($configFromIni))) {
+                $debug = false;
+                $configFromIni = false;
+            }
             break;
+    }
+}
+
+//See: https://stackoverflow.com/a/255531
+if (!defined("PHP_EOL")) {
+    switch (strtoupper(substr(PHP_OS, 0, 3))) {
+        // Windows
+        case "WIN":
+            define("PHP_EOL", "\r\n");
+            break;
+
+        // Mac
+        case "DAR":
+            define("PHP_EOL", "\r");
+            break;
+
+        // Unix
+        default:
+            define("PHP_EOL", "\n");
     }
 }
 
@@ -23,15 +44,15 @@ const EOL = PHP_EOL . PHP_EOL;
 $currentDir = dirname(__FILE__);
 $baseDir = dirname($currentDir);
 if (is_readable($baseDir . "/vendor/autoload.php")) {
-    require_once $baseDir . "/vendor/autoload.php";
+    require $baseDir . "/vendor/autoload.php";
     echo "Using composer autoload files" . EOL;
 } else {
-    require_once $baseDir . "/src/Sanitizers.php";
+    require $baseDir . "/src/Sanitizers.php";
     echo "Not using composer autoload files" . EOL;
 }
 $sanitizer = new Sanitizer(false);
 
-echo "Using Sanitizers version: " . $sanitizer->getVersion() . EOL;
+echo "Using Sanitizers version: " . $sanitizer::VERSION . EOL;
 $len = 32; //32 bytes = 256 bits
 
 if (function_exists("random_bytes"))
@@ -43,36 +64,38 @@ if (function_exists("random_bytes"))
 } else {
     $bytes = hash("sha256", uniqid((string) mt_rand(), true), true);
 }
-$test_values = array(
+$testValues = array(
     "hex" => bin2hex($bytes),
     "int" => $len-0.5,
     "float" => $len-0.5,
     "name" => "\0saNiTiZeRs ä\x80",
     "email" => "AdMiN@ExAmPle.cOm",
-    "message" => "Hi <script src=http://ha.ckers.org/xss.js></script><a href=\"//www.google.com/\">XSS</a>",
+    "message" => "Hi <script src=http://ha.ckers.org/xss.js></script>",
     "username" => "PuneetGopinath", // It will become to smaller case if you want upper case also then use name instead `$sanitizer->sanitize("name", $username)`
-    "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">XSS</a>"
+    "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">XSS</a>",
+    "password" => "\$UnIQUe|`_-#pass•WORD%!?"
 );
 
 if ($configFromIni && is_readable($baseDir . "/src/config.ini"))
     $sanitizer->configFromIni($baseDir . "/src/config.ini");
 
-$debug_info[] = "configFromIni: " . (string)$configFromIni;
+$debug_info[] = "configFromIni: " . ($configFromIni?"true":"false");
 
 $values = array(
-    "hex" => $sanitizer->sanitize("hex", $test_values["hex"]),
-    "int" => $sanitizer->sanitize("integer", $test_values["int"]),
-    "float" => $sanitizer->sanitize("float", $test_values["float"]),
-    "name" => $sanitizer->sanitize("name", $test_values["name"]),
-    "email" => $sanitizer->sanitize("email", $test_values["email"]),
-    "message" => $sanitizer->sanitize("message", $test_values["message"], false, true),
-    "username" => $sanitizer->sanitize("username", $test_values["username"]),
-    "html" => $sanitizer->HTML($test_values["html"])
+    "hex" => $sanitizer->sanitize("hex", $testValues["hex"]),
+    "int" => $sanitizer->sanitize("integer", $testValues["int"]),
+    "float" => $sanitizer->sanitize("float", $testValues["float"]),
+    "name" => $sanitizer->sanitize("name", $testValues["name"]),
+    "email" => $sanitizer->sanitize("email", $testValues["email"]),
+    "message" => $sanitizer->sanitize("message", $testValues["message"], false, true),
+    "username" => $sanitizer->sanitize("username", $testValues["username"]),
+    "html" => $sanitizer->HTML($testValues["html"]),
+    "password" => $sanitizer->sanitize("password", $testValues["password"])
 );
 $filters = array(
     "types" => array(
         "hex" => "hex",
-        "int" => "integer",//You can also use int ("int" => "int")
+        "int" => "integer", //You can also use int ("int" => "int")
         "float" => "float",
         "name" => "name",
         "email" => "email",
@@ -83,28 +106,29 @@ $filters = array(
     "message" => array(
         "trim" => false, //Enables php trim function, default:true
         "htmlentities" => true, //Enables using htmlentities, default:true
-        "alpha_num" => false //Sets value to be alpha_numeric, default:false
+        "alpha_num" => false, //Sets value to be alpha_numeric, default:false
+        "ucwords" => false
     ),
     "html" => array(
         "tags" => "<b><i><em><p><a><br>"//Optinal Allowed tags
     )
 );
-$auto_values = $sanitizer->sanitizeArray($test_values, $filters);
+$auto_values = $sanitizer->sanitizeArray($testValues, $filters);
 
-echo "Array Key -- Original Value => Sanitized Value" . EOL;
+echo "Array Key -- Original Value => Sanitized Value -- same: bool" . EOL;
 
-foreach ($test_values as $i => $value) {
-    echo $i . " -- " . $value . " => " . $values[$i] . EOL;
+foreach ($testValues as $i => $value) {
+    echo $i . " -- " . $value . " => " . $values[$i] . " -- same: " . (($value === $values[$i])?"true":"false") . EOL;
 }
 
-echo EOL . "Array Key -- Original Value => Auto Sanitized Value" . EOL;
+echo EOL . "Array Key -- Original Value => Auto Sanitized Value -- same: bool" . EOL;
 
-foreach ($test_values as $i => $value) {
-    echo $i . " -- " . $value . " => " . $auto_values[$i] . EOL;
+foreach ($testValues as $i => $value) {
+    echo $i . " -- " . $value . " => " . $auto_values[$i] . " -- same: " . (($value === $auto_values[$i])?"true":"false") . EOL;
 }
 
 if ($debug)
-    $debug_info[] = json_encode(array("Sanitizer"=>$sanitizer,"version"=>$sanitizer->getVersion()));
+    $debug_info[] = json_encode(array("Sanitizer"=>$sanitizer,"version"=>$sanitizer::VERSION));
 
 echo "Debug_info: " . implode(", ", $debug_info) . PHP_EOL;
 ?>

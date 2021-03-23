@@ -18,32 +18,14 @@ const config = array(
 );
 /*
 1. Maximum length of string (user input)
-if user input is more than maxInputLength then extra characters will be removed
+If user input is more than maxInputLength then extra characters will be removed
 
 2. See https://www.php.net/manual/en/function.htmlspecialchars
 For a list of encoding options
 
-3. A boolen indicating whether to prevent XSS
+3. A bool indicating whether to prevent XSS
 
-4. A bool indicating whether to add slashes
+4. A bool indicating whether to use php function addslashes
 */
 
-//See: https://stackoverflow.com/a/255531
-if (!defined("PHP_EOL")) {
-    switch (strtoupper(substr(PHP_OS, 0, 3))) {
-        // Windows
-        case "WIN":
-            define("PHP_EOL", "\r\n");
-            break;
-
-        // Mac
-        case "DAR":
-            define("PHP_EOL", "\r");
-            break;
-
-        // Unix
-        default:
-            define("PHP_EOL", "\n");
-    }
-}
 ?>
