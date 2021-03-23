@@ -17,3 +17,6 @@ Example of Sanitizing user input in a confirm registration form.
 
 #### 4. [Contact form](https://github.com/PuneetGopinath/Sanitizers/blob/main/examples/contact-form.php)
 Example of Sanitizing user input in a confirm contact form.
+
+#### 5. [Extending Sanitizer class](https://github.com/PuneetGopinath/Sanitizers/blob/main/examples/extending.php)
+Example of extending Sanitizer class to sanitize user input.

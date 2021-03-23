@@ -1,6 +1,13 @@
 <?php
+
+/**
+ * This example shows how to use Sanitizers in a login form
+ */
+
+//Import Sanitizer class into the global namespace
 use Sanitizers\Sanitizers\Sanitizer;
-require_once("../src/Sanitizers.php");
+
+require "../src/Sanitizers.php";
 
 if (isset($_POST["Submit"]))
 {
@@ -9,7 +16,7 @@ if (isset($_POST["Submit"]))
     $password = $sanitizer->sanitize("password", $_POST["password"]);
 
     // Now use variables $username, $password for user form inputs...
-    print_r(array("username" => $username, "password" => $password, "Sanitize" => $sanitizer, "_POST" => $_POST)); //Testing
+    print_r(array("username" => $username, "password" => $password, "Sanitizer" => $sanitizer, "_POST" => $_POST)); //Testing
     // Check in Database, Send email, etc...
 }
 ?>

@@ -1,6 +1,13 @@
 <?php
+
+/**
+ * This example shows how to use Sanitizers in a contact form
+ */
+
+//Import Sanitizer class into the global namespace
 use Sanitizers\Sanitizers\Sanitizer;
-require_once("../src/Sanitizers.php");
+
+require "../src/Sanitizers.php";
 
 if (isset($_POST["Submit"]))
 {
@@ -8,11 +15,11 @@ if (isset($_POST["Submit"]))
     $name = $sanitizer->sanitize("name", $_POST["name"]);
     $email = $sanitizer->sanitize("email", $_POST["email"]);
     $sanitizer->set("maxInputLength", 5000);
-    $message = $sanitizer->clean($_POST["message"], /*trim=*/false, /*entities*/false, false, false);
-    $dept = $sanitizer->clean($_POST["dept"]);
+    $message = $sanitizer->clean($_POST["message"], false, false, false, false);
+    $dept = $sanitizer->sanitize("text", $_POST["dept"]);
 
     // Now use variables $name, $email, $message, $dept for user inputs...
-    print_r(array("name" => $name, "email" => $email, "message" => $message, "dept" => $dept, "Sanitize" => $sanitizer, "_POST" => $_POST)); //Testing
+    print_r(array("name" => $name, "email" => $email, "message" => $message, "dept" => $dept, "Sanitizer" => $sanitizer, "_POST" => $_POST)); //Testing
     // Check in Database, Send email, etc...
 }
 

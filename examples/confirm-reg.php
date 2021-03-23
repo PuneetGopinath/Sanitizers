@@ -1,6 +1,13 @@
 <?php
+
+/**
+ * This example shows how to use Sanitizers in a confirm registration form
+ */
+
+//Import Sanitizer class into the global namespace
 use Sanitizers\Sanitizers\Sanitizer;
-require_once("../src/Sanitizers.php");
+
+require "../src/Sanitizers.php";
 
 if (isset($_POST["Submit"]))
 {
@@ -8,7 +15,7 @@ if (isset($_POST["Submit"]))
     $code = $sanitizer->sanitize("hex", $_POST["code"]);
 
     // Now use variable $code for the code...
-    print_r(array("code" => $code, "Sanitize" => $sanitizer, "_POST" => $_POST)); //Testing
+    print_r(array("code" => $code, "Sanitizer" => $sanitizer, "_POST" => $_POST)); //Testing
     // Check in Database, Send email, etc...
 }
 
