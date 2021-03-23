@@ -2,38 +2,69 @@
 
 <link rel="stylesheet" href="css/main.css" />
 
-## 1. function getVersion
+## 1. function set
 
-getVersion - Returns the current Sanitizers version
+set - Modifies a config setting
 
 ### Description
 
-    public function getVersion()
+    public function set($case, $value="default")
 
-Returns the version of Sanitizers you are using
+Modifies a config setting temporarily and returns true if it is modified or else false if it is not modified
 
 ### Parameters
 
-&emsp;It has no parameters
+<b>case</b><br>
+&emsp;The key of the setting. It can be any one of these.
+
+<table class="card">
+    <thead>
+        <tr>
+            <th>value of case</th>
+            <th>description</th>
+            <th>value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>maxInputLength</th>
+            <td>Maximum length of string (user input). If length of user input is more than maxInputLength then extra characters will be removed</td>
+            <td>A integer specifing the Maximum length of user input</td>
+        </tr>
+        <tr>
+            <th>encoding</th>
+            <td>Encodes user input to that character set</td>
+            <td>See https://www.php.net/manual/en/function.htmlspecialchars</td>
+        </tr>
+        <tr>
+            <th>preventXSS</th>
+            <td>Do you want to prevent XSS?</td>
+            <td>A bool</td>
+        </tr>
+        <tr>
+            <th>slashes</th>
+            <td>Do you want to escape user input?</td>
+            <td>A bool</td>
+        </tr>
+    </tbody>
+</table>
+
+<b>value</b><br>
+&emsp;The value of the setting. It is based on the case parameter. See the value column in case parameter
 
 ### Example
 
-1. Using getVersion
+1. Using set
 ```
 $sanitizer = new Sanitize();
-echo $sanitizer->getVersion() . PHP_EOL;
-echo "v" . $sanitizer->getVersion();
-```
-Will output:
-
-```
-1.1.0
-v1.1.0
+if ($sanitizer->set("preventXSS", true)) {
+    $name = $sanitizer->sanitize("name", $_POST["name"]);
+}
 ```
 
 ### Return values
 
-&emsp;Returns version as a string in the format `major.minor.patch`
+&emsp;Returns true if config setting is modified or else false if it is not modified
 
 ## 2. function clean
 
@@ -66,7 +97,7 @@ And returns the sanitized string
 1. Using clean
 ```
 $sanitizer = new Sanitize();
-$uid = $sanitizer->clean($_POST["uid"]); // uid full form is user id
+$uid = $sanitizer->clean($_POST["uid"]);
 ```
 
 ### Return values
@@ -80,7 +111,7 @@ sanitize - Sanitize a string
 
     public function sanitize($type, $text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=true)
 
-Cleans a user input. It sanitizes the input string through filter_var and somtimes uses above clean function according to type parameter.
+Cleans a user input. It sanitizes the input string through `filter_var` and somtimes uses above `clean` function based on the type parameter.
 The input string is given parameter 2.<br>
 And returns the sanitized string
 
@@ -191,14 +222,15 @@ $filters = array(
     "types" => array( //Types also Optional, if string detected then we will treat it as message
         "array_key" => "string" //The type of array_key
     ),
-    "array_key" => array( //Optional What filters to apply to array_key
+    "array_key" => array( //Optional What filters you want to apply to array_key
         "trim" => true,
         "htmlentities" => true,
-        "alpha_num" => false
+        "alpha_num" => false,
+        "ucwords" => true
     )
 );
 ```
-See SanitizersTest.php for understanding more.
+See parameters in sanitize function for understanding about filters and see the table in type parameter in sanitize function for understanding about types.
 
 ### Return values
 &emsp;Returns the sanitized array

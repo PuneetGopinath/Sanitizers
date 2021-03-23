@@ -60,4 +60,4 @@ If you want to use `psr/log` for debugging, Then create a new logger in a variab
 
 You will find more to play with in the [examples](https://github.com/PuneetGopinath/Sanitizers/tree/main/examples) folder.
 
-For understaning functions, see [FUNCTIONS.md](FUNCTIONS.md).
+For understaning BK Sanitizers functions, see [FUNCTIONS.md](FUNCTIONS.md).
