@@ -32,6 +32,7 @@
  * [Prerequisites](#prerequisites)
  * [Tests](#tests)
  * [Contributing](#contributing)
+ * [Community](#community)
  * [LICENSE](#license)
  * [Sponsor](#sponsor)
  * [Conclusion](#conclusion)
@@ -47,6 +48,10 @@
 - ### Installation 🔧
 
 See [INSTALL.md](INSTALL.md) file for Installation guide.
+
+- ### Read Documentation
+
+Plz see [docs](docs/README.md) folder
 
 - ### Usage
 
@@ -188,6 +193,13 @@ Run either `composer run-script test` or `php test/SanitizersTest.php`
 <h2><a name="contributing">Contributing</a></h2>
 
 Plz read [CONTRIBUTING.md](.github/CONTRIBUTING.md)</a> file.
+
+<h2><a name="community">Community 💬</a></h2>
+
+Get updates on Sanitizers's development and chat with the BKS maintainers and community members.
+
+- Chat in [gitter](https://gitter.im/BaalKrshna/Sanitizers)
+- Subscribe our blog on [hashnode.dev](https://baalkrshna.hashnode.dev)
 
 <h2><a name="license">LICENSE 📄</a></h2>
 
