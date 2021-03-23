@@ -1,6 +1,6 @@
 {
     "name": "sanitizers/sanitizers",
-    "description": "Quickly Sanitize user data",
+    "description": "BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.",
     "type": "library",
     "keywords": [
         "sanitizers",
@@ -31,11 +31,7 @@
     "funding": [
         {
             "type": "patreon",
-            "url": "https://www.patreon.com/user?u=51227613"
-        },
-        {
-            "type": "other",
-            "url": "https://www.patreon.com/user?u=51227613"
+            "url": "https://www.patreon.com/PuneetGopinath"
         }
     ],
     "readme": "https://github.com/PuneetGopinath/Sanitizers#readme",
@@ -64,6 +60,7 @@
             "composer update"
         ],
         "test": "php test/SanitizersTest.php debug",
+        "test-ini": "php test/SanitizersTest.php ini",
         "test-autoload": [
             "@setup",
             "@test"
@@ -78,6 +75,7 @@
     "scripts-descriptions": {
         "setup": "Setup composer, generate autoload files, etc...",
         "test": "Run Sanitizers built-in test!",
+        "test-ini": "Test using config from ini",
         "test-autoload": "Run test with composer autoload",
         "test-all": "Run test without and with composer autoload"
     },
@@ -103,9 +101,9 @@
             "type": "package",
             "package": {
                 "name": "sanitizers/sanitizers",
-                "version": "v1.0.1",
+                "version": "v1.0.2",
                 "dist": {
-                    "url": "https://github.com/PuneetGopinath/Sanitizers/archive/v1.0.1.zip",
+                    "url": "https://github.com/PuneetGopinath/Sanitizers/archive/v1.0.2.zip",
                     "type": "zip"
                 }
             }

@@ -1,7 +1,7 @@
 {
     "name": "bksanitizers",
-    "description": "Quickly Sanitize user data",
-    "version": "v1.0.1",
+    "description": "BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.",
+    "version": "v1.0.2",
     "license": "MIT",
     "homepage": "https://github.com/PuneetGopinath/Sanitizers#readme",
     "config": {

@@ -10,29 +10,29 @@
   <img alt="Welcome" src="gif/Welcome.gif" />
 
   <p align="center">
-    <blockquote><b>Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.</b></blockquote>
+    <blockquote><b>BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.</b></blockquote>
     Tagline: Quickly Sanitize user data<br><br>
     An acronym or abbreviation for <b>B</b>aal-<b>K</b>rshna <b>Sanitizers</b> is BK Sanitizers
     <br><br>
     Latest release: <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers"><br>
-    <br><br>See:<br>
+    <br><br>Explore:<br>
     <a href="https://puneetgopinath.github.io/Sanitizers/docs"><b>Sanitizers Docs</b></a> &raquo;<br>
     <a href="https://github.com/PuneetGopinath/Sanitizers/wiki"><b>Sanitizers Wiki</b></a> &raquo;<br><br>
     Pages &rArr;
     <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md">Report bug(s)</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/releases">Releases</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=feature_request.md">Request feature</a> • <a href="https://baalkrshna.hashnode.dev/series/bks">Blog</a>
   </p><br><br>
-  <a href="https://twitter.com/intent/tweet?text=See%20this%20PHP%20Sanitizers%20on%20GitHub:&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers&hashtags=php,backend,sanitizers,php-sanitize,developers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
+  <a href="https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers&hashtags=php,backend,sanitizers,php-sanitizer,developers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
   <a href="https://gitter.im/BaalKrshna/Sanitizers?utm_source=badge&utm_medium=badge"><img alt="Join the chat at https://gitter.im/BaalKrshna/Sanitizers" src="https://badges.gitter.im/BaalKrshna/Sanitizers.svg" /></a>
-  <a href="https://github.com/PuneetGopinath/Sanitizers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/PuneetGopinath/Sanitizers?style=social"></a>
-  <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/PuneetGopinath/Sanitizers?style=social">
+  <a href="https://github.com/PuneetGopinath/Sanitizers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/PuneetGopinath/Sanitizers?style=social"></a><br>
 </div>
 
 <hr>
 
 **Note**: See the [1.0-dev](https://github.com/PuneetGopinath/Sanitizers/tree/1.0-dev) branch, as main branch is developing 1.1.0 minor release so, readme and docs are not for 1.0 releases.
 <details open="true">
-    <summary>Table of contents</summary>
+    <summary align="center">Table of contents</summary>
 
+ * [Features](#features)
  * [Quick Start](#quick-start)
  * [Status](#status)
  * [About](#about)
@@ -53,13 +53,25 @@
 
 </details>
 
+<h2><a name="features">Features</a></h2>
+
+1. Sanitize strings and arrays
+2. Namespaced to prevent name clashes
+3. Built-in tests
+4. Examples for how-to use BKS
+5. Escape values
+6. Easy to Use
+
 <h2><a name="quick-start">Quick Start 🚀</a></h2>
 
-- [Download the latest version](https://github.com/PuneetGopinath/Sanitizers/archive/v1.0.1.zip)
+- [Download the latest version](https://github.com/PuneetGopinath/Sanitizers/archive/v1.0.2.zip)
 
 - ### Clone the repo:
 
-`git clone https://github.com/PuneetGopinath/Sanitizers.git` OR `gh repo clone PuneetGopinath/Sanitizers`
+ * Using git:
+`git clone https://github.com/PuneetGopinath/Sanitizers.git`
+ * Using github cli:
+`gh repo clone PuneetGopinath/Sanitizers`
 
 - ### Installation 🔧
 
@@ -77,7 +89,7 @@ use Sanitizers\Sanitizers\Sanitizer;
 
 require "src/Sanitizers.php";
 
-// passing `true` in Sanitize class enables exceptions
+// passing `true` in Sanitizer class enables exceptions
 $sanitizer = new Sanitizer(true);
 try {
     echo $sanitizer->sanitize("username", $_GET["username"]);
@@ -109,12 +121,14 @@ try {
 
 <h2><a name="status">Status</a></h2>
 
+This project is currently being maintained. And Will Be Maintained. If You Like This Project And Want This Project To Never Exhaust. Please Consider Donating.
+
 [![Join the chat at https://gitter.im/BaalKrshna/Sanitizers](https://badges.gitter.im/BaalKrshna/Sanitizers.svg)](https://gitter.im/BaalKrshna/Sanitizers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers?ref=badge_shield)
 
 #### Workflows
 
-![PHP Composer](https://github.com/PuneetGopinath/Sanitizers/actions/workflows/php.yml/badge.svg)
+[![PHP Composer](https://github.com/PuneetGopinath/Sanitizers/actions/workflows/php.yml/badge.svg)](https://github.com/PuneetGopinath/Sanitizers/actions/workflows/php.yml)
 
 #### GitHub
 
@@ -135,21 +149,15 @@ try {
 [![Latest Stable Version](https://poser.pugx.org/sanitizers/sanitizers/v)](https://packagist.org/packages/sanitizers/sanitizers)
 [![PHP Support](https://img.shields.io/packagist/php-v/sanitizers/sanitizers)](https://packagist.org/packages/sanitizers/sanitizers)
 [![Latest Unstable Version](https://poser.pugx.org/sanitizers/sanitizers/v/unstable)](https://packagist.org/packages/sanitizers/sanitizers)
-[![Total Downloads](https://poser.pugx.org/sanitizers/sanitizers/downloads)](//packagist.org/packages/sanitizers/sanitizers)
-[![Monthly Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/monthly)](//packagist.org/packages/sanitizers/sanitizers)
-[![Daily Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/daily)](//packagist.org/packages/sanitizers/sanitizers)
+[![Total Downloads](https://poser.pugx.org/sanitizers/sanitizers/downloads)](https://packagist.org/packages/sanitizers/sanitizers)
+[![Monthly Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/monthly)](https://packagist.org/packages/sanitizers/sanitizers)
+[![Daily Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/daily)](https://packagist.org/packages/sanitizers/sanitizers)
 
 #### Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/PuneetGopinath/Sanitizers.svg)](https://starchart.cc/PuneetGopinath/Sanitizers)
 
-<!--[![Sparkline](https://stars.medv.io/PuneetGopinath/Sanitizers.svg)](https://stars.medv.io/PuneetGopinath/Sanitizers)
-
-#### Contributors
-
-Thanks to all contributors !!
-
-[![GitHub Contributors Image](https://contrib.rocks/image?repo=PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/contributors)-->
+<!--[![Sparkline](https://stars.medv.io/PuneetGopinath/Sanitizers.svg)](https://stars.medv.io/PuneetGopinath/Sanitizers)-->
 
 <h2><a name="about">About ℹ️</a></h2>
 
@@ -173,9 +181,9 @@ XSS stands for Cross Site Scripting.
 
 - ### How can I clean user input 🧹 ?
 
- * First, Sanitize
- * Then, Validate
- * Last, Escape output.
+1. Sanitize
+2. Validate
+3. Escape output.
 ![Validating process image](gif/Sanitize.jpg)
 
 <h2><a name="visuals">Visuals 📽️</a></h2>
@@ -230,11 +238,12 @@ Get updates on Sanitizers's development and chat with the BKS maintainers and co
 
 - Chat in IRC. On the `irc.freenode.net` server, in the `#bksanitizers` channel.
 - Also you can chat in [gitter](https://gitter.im/BaalKrshna/Sanitizers)
-- Follow our blog on [hashnode.dev](https://baalkrshna.hashnode.dev)
+- Subscribe our blog on [hashnode.dev](https://baalkrshna.hashnode.dev)
+- Join in [google groups](https://groups.google.com/g/bk-sanitizers)
 
 <h2><a name="authors">Authors ✒️</a></h2>
 
- * Puneet Gopinath - [PuneetGopinath](https://github.com/PuneetGopinath)
+ * Puneet Gopinath - [GitHub](https://github.com/PuneetGopinath) - [Email](mailto:baalkrshna@gmail.com)
 
 See also the list of [contributors](https://github.com/PuneetGopinath/Sanitizers/graphs/contributors) who participated in building this project.
 
@@ -246,11 +255,17 @@ You have proved that BK Sanitizers has some value !!
 
 ### Stargazers
 
-[![Stargazers repo roster for @PuneetGopinath/Sanitizers](https://reporoster.com/stars/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/stargazers)
+[![Stargazers for @PuneetGopinath/Sanitizers](https://reporoster.com/stars/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/stargazers)
 
 ### Forks
 
-[![Forkers repo roster for @PuneetGopinath/Sanitizers](https://reporoster.com/forks/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/network/members)
+[![Forkers for @PuneetGopinath/Sanitizers](https://reporoster.com/forks/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/network/members)
+
+### Contributors
+
+Thanks to all contributors again !!
+
+[![GitHub Contributors Image](https://contrib.rocks/image?repo=PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/contributors)
 
 <h2><a name="license">LICENSE 📄</a></h2>
 
@@ -267,7 +282,9 @@ Then, you need to know difference between HTMLPurifier and BKS
 
 <h2><a name="support-us">Support Us</a></h2>
 
-This is optional (we don't force you anything) and you can also try to give at least a star.
+This is optional (we don't force you anything) and you can also try to give at least a star at GitHub.
+
+### Review
 
 <a href="https://www.producthunt.com/posts/bk-sanitizers?utm_source=badge-review&utm_medium=badge&utm_souce=badge-bk-sanitizers#discussion-body" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/review.svg?post_id=289099&theme=light" alt="BK Sanitizers - Quickly Sanitize user data | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
@@ -282,15 +299,15 @@ Your name will be displayed here.
 
 Help spread awareness about BK Sanitizers by:
 
- * Twitter: [![](https://img.shields.io/badge/Share-Twitter-%231DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Opensource%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
+ * Twitter: [![Share](https://img.shields.io/badge/Share-Twitter-%231DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers\&hashtags=php,backend,sanitizers,php-sanitizer,developers)
 
- * Facebook: [![](https://img.shields.io/badge/Share-Facebook-%233b5998?style=flat-square)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/PuneetGopinath/Sanitizers)
+ * Facebook: [![Share](https://img.shields.io/badge/Share-Facebook-%233b5998?style=flat-square)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/PuneetGopinath/Sanitizers)
 
- * Linkedin: [![](https://img.shields.io/badge/Share-Linkedin-%230e76a8?style=flat-square)](https://www.linkedin.com/shareArticle?mini=true\&url=https://github.com/PuneetGopinath/Sanitizers)
+ * Linkedin: [![Share](https://img.shields.io/badge/Share-Linkedin-%230e76a8?style=flat-square)](https://www.linkedin.com/shareArticle?mini=true\&url=https://github.com/PuneetGopinath/Sanitizers)
 
- * Pinterest: [![](https://img.shields.io/badge/Share-Pinterest-%23c8232c?style=flat-square)](https://pinterest.com/pin/create/button/?media=\&description=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Opensource%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
+ * Pinterest: [![Share](https://img.shields.io/badge/Share-Pinterest-%23c8232c?style=flat-square)](https://pinterest.com/pin/create/button/?media=\&description=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
 
- * Email: [![](https://img.shields.io/badge/Share-Email-green?style=flat-square)](mailto:info@example.com?\&subject=See%20this%20Awesome%20PHP%20Sanitizers\&cc=\&bcc=\&body=https://github.com/PuneetGopinath/Sanitizers%0AThis%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Opensource%20Projects.%20Make%20Sure%20To%20Check%20It%20Out)
+ * Email: [![Share](https://img.shields.io/badge/Share-Email-green?style=flat-square)](mailto:info@example.com?\&subject=See%20this%20Awesome%20PHP%20Sanitizers\&cc=\&bcc=\&body=https://github.com/PuneetGopinath/Sanitizers%0AThis%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out)
 
 <h2><a name="code-of-conduct">CODE_OF_CONDUCT</a></h2>
 
