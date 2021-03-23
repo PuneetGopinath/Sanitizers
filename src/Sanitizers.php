@@ -51,7 +51,7 @@ class Sanitizer
      * 
      * @var string
      */
-    const VERSION = "1.0.2";
+    const VERSION = "1.1.0";
 
     /**
      * Are we using config settings from ini ?

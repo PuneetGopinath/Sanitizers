@@ -54,6 +54,19 @@
     "archive": {
         "name": "BK-Sanitizers"
     },
+    "autoload": {
+        "classmap": ["src/"],
+        "psr-4": {
+            "Sanitizers\\Sanitizers\\": "src/"
+        }
+    },
+    "support": {
+        "docs": "https://puneetgopinath.github.io/Sanitizers/docs",
+        "wiki":"https://github.com/PuneetGopinath/Sanitizers/wiki",
+        "issues": "https://github.com/PuneetGopinath/Sanitizers/issues",
+        "source": "https://github.com/PuneetGopinath/Sanitizers/"
+    },
+    "prefer-stable": true,
     "scripts": {
         "setup": [
             "composer validate",
@@ -73,40 +86,10 @@
         ]
     },
     "scripts-descriptions": {
-        "setup": "Setup composer, generate autoload files, etc...",
+        "setup": "Generate composer autoload files and install dependencies",
         "test": "Run Sanitizers built-in test!",
         "test-ini": "Test using config from ini",
         "test-autoload": "Run test with composer autoload",
         "test-all": "Run test without and with composer autoload"
-    },
-    "autoload": {
-        "classmap": ["src/"],
-        "psr-4": {
-            "Sanitizers\\Sanitizers\\": "src/"
-        }
-    },
-    "support": {
-        "docs": "https://puneetgopinath.github.io/Sanitizers/docs",
-        "wiki":"https://github.com/PuneetGopinath/Sanitizers/wiki",
-        "issues": "https://github.com/PuneetGopinath/Sanitizers/issues",
-        "source": "https://github.com/PuneetGopinath/Sanitizers/"
-    },
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/PuneetGopinath/Sanitizers"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "sanitizers/sanitizers",
-                "version": "v1.0.2",
-                "dist": {
-                    "url": "https://github.com/PuneetGopinath/Sanitizers/archive/v1.0.2.zip",
-                    "type": "zip"
-                }
-            }
-        }
-    ]
+    }
 }

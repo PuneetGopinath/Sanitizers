@@ -24,8 +24,16 @@ If you want to encode strings then; you need php iconv extension also.
 
 Installing from composer:
 > Run `composer require sanitizers/sanitizers`
-> OR
-> Add this line to the require key **composer.json** file. `"sanitizers/sanitizers": "^1.1"`
+
+*OR*
+
+> Add this line to your **composer.json** file.
+
+```
+"require": {
+    "sanitizers/sanitizers": "^1.1"
+}
+```
 
 Installing from github:
 > [Download source code from releases page](https://github.com/PuneetGopinath/Sanitizers/releases/)
