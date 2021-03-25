@@ -79,6 +79,9 @@ class Sanitizer
 
     public function clean($text, $trim=true, $html_entities=true)
     {
+        if ($trim)
+            $text = trim($text);
+
         if (strlen($text) > $this->config["maxInputLength"]) {
             $text = substr($text, 0, $this->config["maxInputLength"]);
         }
@@ -86,9 +89,6 @@ class Sanitizer
         if ($html_entities) {
             $text = htmlspecialchars($text, /*flags=*/ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
         }
-
-        if ($trim)
-            $text = trim($text);
 
         return $text;
     }

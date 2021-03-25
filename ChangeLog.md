@@ -20,7 +20,7 @@ Format is `version (*dd-mm-yyyy*)`
  * Change message in tests to an example of xss
 
 #### Functions
- * 
+ * Before removing extra characters, use trim function if enabled
 
 #### Additions
  * If `vendor/autoload.php` file exists then use composer autoload in tests
