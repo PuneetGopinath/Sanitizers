@@ -1,6 +1,8 @@
-# BK Sanitizers Fuctions
+<h2 align="center">BK Sanitizers Docs - Functions</h2>
 
 <link rel="stylesheet" href="css/main.css" />
+
+Explanation of BK Sanitizers functions
 
 ## 1. function set
 
@@ -20,34 +22,36 @@ Modifies a config setting temporarily and returns true if it is modified or else
 <table class="card">
     <thead>
         <tr>
-            <th>value of case</th>
+            <th>case parameter</th>
             <th>description</th>
-            <th>value</th>
+            <th>value parameter</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <th>maxInputLength</th>
-            <td>Maximum length of string (user input). If length of user input is more than maxInputLength then extra characters will be removed</td>
+            <td>Maximum input length of user input.</td>
             <td>A integer specifing the Maximum length of user input</td>
         </tr>
         <tr>
             <th>encoding</th>
-            <td>Encodes user input to that character set</td>
-            <td>See https://www.php.net/manual/en/function.htmlspecialchars</td>
+            <td>Encodes user input to the specifed encoding</td>
+            <td>See [php function htmlspecialchars](https://www.php.net/manual/en/function.htmlspecialchars)</td>
         </tr>
         <tr>
             <th>preventXSS</th>
             <td>Do you want to prevent XSS?</td>
-            <td>A bool</td>
+            <td>true/false</td>
         </tr>
         <tr>
             <th>slashes</th>
             <td>Do you want to escape user input?</td>
-            <td>A bool</td>
+            <td>true/false</td>
         </tr>
     </tbody>
 </table>
+
+**Note:** For maxInputLength, if length of user input is more than maxInputLength then extra characters will be removed.
 
 <b>value</b><br>
 &emsp;The value of the setting. It is based on the case parameter. See the value column in case parameter
@@ -280,3 +284,5 @@ Uses php `parse_ini_file` function to get config settings.
 
 ### Return values
 &emsp;Returns null
+
+[Back to home](README.md)
