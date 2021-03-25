@@ -17,7 +17,10 @@ You can [Report bug](https://github.com/PuneetGopinath/Sanitizers/issues/new?tem
 
 ## Pull request
 
-1. Check whether all dependencies are installed
+1. Fork the repo
+2. Clone it
+3. Edit
+4. Now commit, push and give us a pull request
 
 ## Where can I contribute to BKS?
 
