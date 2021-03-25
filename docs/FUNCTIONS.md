@@ -36,7 +36,7 @@ Modifies a config setting temporarily and returns true if it is modified or else
         <tr>
             <th>encoding</th>
             <td>Encodes user input to the specifed encoding</td>
-            <td>See [php function htmlspecialchars](https://www.php.net/manual/en/function.htmlspecialchars)</td>
+            <td>See https://www.php.net/manual/en/function.htmlspecialchars</td>
         </tr>
         <tr>
             <th>preventXSS</th>
@@ -60,7 +60,7 @@ Modifies a config setting temporarily and returns true if it is modified or else
 
 1. Using set
 ```
-$sanitizer = new Sanitize();
+$sanitizer = new Sanitizer();
 if ($sanitizer->set("preventXSS", true)) {
     $name = $sanitizer->sanitize("name", $_POST["name"]);
 }
@@ -88,20 +88,29 @@ And returns the sanitized string
 &emsp;The input data.
 
 <b>trim</b><br>
-&emsp;A boolen indicting whether to trim the input data.
+&emsp;Do you want to trim the input data? True/False.
 
 <b>htmlspecialchars</b><br>
-&emsp;A boolen indicting whether to use htmlspecialchars in input data.
+&emsp;Do you want to use htmlspecialchars in input data? True/False.
 
 <b>alpha_num</b><br>
-&emsp;A boolen indicting whether the input data is alpha_numeric.
+&emsp;Is the input data alpha numeric? True/False.
+
+<b>ucwords</b><br>
+&emsp;Do you want to automatically add upper case letters to each words? True/False.
 
 ### Example
 
 1. Using clean
 ```
-$sanitizer = new Sanitize();
-$uid = $sanitizer->clean($_POST["uid"]);
+$sanitizer = new Sanitizer();
+echo $sanitizer->clean("XSS <script>alert('XSS');</script>");
+```
+
+Will output:
+
+```
+XSS
 ```
 
 ### Return values
@@ -127,7 +136,7 @@ And returns the sanitized string
 <table class="card">
     <thead>
         <tr>
-            <th>value of type</th>
+            <th>type parameter</th>
             <th>description</th>
         </tr>
     </thead>
@@ -280,9 +289,9 @@ Uses php `parse_ini_file` function to get config settings.
 ### Parameters
 
 <b>file</b><br>
-&emsp;The configuration file (default: `config.ini`).
+&emsp;Path to config.ini file (default: `config.ini`).
 
 ### Return values
-&emsp;Returns null
+&emsp;Returns `null`
 
 [Back to home](README.md)
