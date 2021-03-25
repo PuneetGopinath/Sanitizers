@@ -160,15 +160,15 @@ class Sanitizer
     public function clean($text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=true)
     {
         if ($this->config["slashes"])
-            $text = addslashes(stripslashes($text));
+            $text = addslashes(stripslashes((string)$text));
 
         $text = preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/si",'<$1$2>', $text); //See: https://stackoverflow.com/a/3026235
         //We are not sanitizing html code so remove all html code and attributes
-        $text = strip_tags($text);
+        $text = strip_tags($this->HTML($text));
         if ($alpha_num)
             $text = preg_replace("/\W/si", "", $text);
 
-        $text = str_replace(chr(0)/*NULL character*/, "", (string)$text); //Remove NULL character
+        $text = str_replace(chr(0)/*NULL character*/, "", $text); //Remove NULL character
 
         if (mb_strlen($text) > $this->config["maxInputLength"]) {
             $text = mb_substr($text, 0, $this->config["maxInputLength"]);

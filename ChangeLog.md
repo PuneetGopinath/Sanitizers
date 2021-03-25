@@ -51,6 +51,7 @@ Format is `version (*dd-mm-yyyy*)`
 #### Docs
  * Clearly added how to use `psr/log` library
  * Explained about sanitizers function in a new file `FUNCTIONS.md`
+ * New file `getting-started.md` for Getting Started guide
  * Added extending in examples
 
 #### Depreciated

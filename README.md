@@ -7,11 +7,12 @@
   </p>
   <h2 align="center">BK Sanitizers (BKS)</h2>
 
+> *Quickly Sanitize user data*
+
   <img alt="Welcome" src="gif/Welcome.gif" />
 
   <p align="center">
-    <blockquote><b>BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.</b></blockquote>
-    Tagline: Quickly Sanitize user data<br><br>
+    <b>BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.</b><br><br>
     An acronym or abbreviation for <b>B</b>aal-<b>K</b>rshna <b>Sanitizers</b> is BK Sanitizers
     <br><br>
     Latest release: <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers"><br>
@@ -21,7 +22,7 @@
     Pages &rArr;
     <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md">Report bug(s)</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/releases">Releases</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=feature_request.md">Request feature</a> • <a href="https://baalkrshna.hashnode.dev/series/bks">Blog</a>
   </p><br><br>
-  <a href="https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers&hashtags=php,backend,sanitizers,php-sanitizer,developers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
+  <a href="https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers\&hashtags=php,backend,developer,opensource,bksanitizers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
   <a href="https://gitter.im/BaalKrshna/Sanitizers?utm_source=badge&utm_medium=badge"><img alt="Join the chat at https://gitter.im/BaalKrshna/Sanitizers" src="https://badges.gitter.im/BaalKrshna/Sanitizers.svg" /></a>
   <a href="https://github.com/PuneetGopinath/Sanitizers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/PuneetGopinath/Sanitizers?style=social"></a><br>
 </div>
@@ -76,6 +77,10 @@
 - ### Installation 🔧
 
 See [INSTALL.md](INSTALL.md) file for Installation guide.
+
+- ### Documentation
+
+Plz see [docs](docs/README.md) folder
 
 - ### Usage
 
@@ -141,7 +146,6 @@ This project is currently being maintained. And Will Be Maintained. If You Like 
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/PuneetGopinath/Sanitizers)
 [![GitHub top language](https://img.shields.io/github/languages/top/PuneetGopinath/Sanitizers)]()
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/PuneetGopinath/Sanitizers)]()
-[![GitHub language count](https://img.shields.io/github/languages/count/PuneetGopinath/Sanitizers)]()
 [![GitHub repo size](https://img.shields.io/github/repo-size/PuneetGopinath/Sanitizers)]()
 
 #### Packagist
@@ -236,10 +240,7 @@ Plz read [CONTRIBUTING.md](.github/CONTRIBUTING.md)</a> file.
 
 Get updates on Sanitizers's development and chat with the BKS maintainers and community members.
 
-- Chat in IRC. On the `irc.freenode.net` server, in the `#bksanitizers` channel.
-- Also you can chat in [gitter](https://gitter.im/BaalKrshna/Sanitizers)
-- Subscribe our blog on [hashnode.dev](https://baalkrshna.hashnode.dev)
-- Join in [google groups](https://groups.google.com/g/bk-sanitizers)
+Plz see [SUPPORT.md](https://github.com/PuneetGopinath/Sanitizers/blob/main/.github/SUPPORT.md) file.
 
 <h2><a name="authors">Authors ✒️</a></h2>
 
@@ -299,7 +300,7 @@ Your name will be displayed here.
 
 Help spread awareness about BK Sanitizers by:
 
- * Twitter: [![Share](https://img.shields.io/badge/Share-Twitter-%231DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers\&hashtags=php,backend,sanitizers,php-sanitizer,developers)
+ * Twitter: [![Share](https://img.shields.io/badge/Share-Twitter-%231DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers\&hashtags=php,backend,developer,opensource,bksanitizers)
 
  * Facebook: [![Share](https://img.shields.io/badge/Share-Facebook-%233b5998?style=flat-square)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/PuneetGopinath/Sanitizers)
 

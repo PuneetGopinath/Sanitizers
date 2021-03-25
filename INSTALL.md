@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="docs/css/main.css" />
 
-# How-to install Sanitizers
+# How-to install BK Sanitizers
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ If you want to encode strings then; you need php iconv extension also.
 
 <h2><a name="installing-sanitizers">Installing Sanitizers 📥</a></h2>
 
-1. Install package
+1. Install source code
 
 Installing from composer:
 > Run `composer require sanitizers/sanitizers`
@@ -40,5 +40,6 @@ Installing from github:
 > Extract files to your project's folder
 
 2. Edit src/bootstrap.php or src/config.ini if you want to modify default config settings
-3. If you are going to use src/config.ini, Then add this line to your php app before sanitizing any user input `$sanitizer->configFromIni("path/to/src/config.ini");`
-4. Now sanitize user input !!
+3. Add `use Sanitizers\Sanitizers\Sanitizer;` in the top of your php file not inside any function, then add `$sanitizer = new Sanitizer();`
+4. If you are going to use src/config.ini, Then add this line to your php app before sanitizing any user input but `$sanitizer->configFromIni("path/to/src/config.ini");`
+5. Now sanitize user input !!
