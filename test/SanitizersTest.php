@@ -73,7 +73,8 @@ $testValues = array(
     "message" => "Hi <script src=http://ha.ckers.org/xss.js></script>",
     "username" => "PuneetGopinath", // It will become to smaller case if you want upper case also then use name instead `$sanitizer->sanitize("name", $username)`
     "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">XSS</a>",
-    "password" => "\$UnIQUe|`_-#pass•WORD%!?"
+    "password" => "\$UnIQUe|`_-#pass•WORD%!?",
+    "function_clean" => "XSS <script>alert('XSS');</script>"
 );
 
 if ($configFromIni && is_readable($baseDir . "/src/config.ini"))
@@ -90,7 +91,8 @@ $values = array(
     "message" => $sanitizer->sanitize("message", $testValues["message"], false, true),
     "username" => $sanitizer->sanitize("username", $testValues["username"]),
     "html" => $sanitizer->HTML($testValues["html"]),
-    "password" => $sanitizer->sanitize("password", $testValues["password"])
+    "password" => $sanitizer->sanitize("password", $testValues["password"]),
+    "function_clean" => $sanitizer->clean($testValues["function_clean"])
 );
 $filters = array(
     "types" => array(
@@ -101,7 +103,8 @@ $filters = array(
         "email" => "email",
         "message" => "message",
         "username" => "username",
-        "html" => "html"
+        "html" => "html",
+        "function_clean" => "" //Will use clean function
     ),
     "message" => array(
         "trim" => false, //Enables php trim function, default:true

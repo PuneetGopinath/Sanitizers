@@ -21,7 +21,8 @@ Format is `version (*dd-mm-yyyy*)`
  * Use `mb_strlen` and `mb_substr` instead of `strlen` and `substr` respectively because they return exact length and correctly remove extra characters
  * Replaced `[]` with `array()` for backward compability
  * Rename config.php to bootstrap.php
- * Changed variable `$html_entities` to `$htmlspecialchars`
+ * Renamed variable `$html_entities` to `$htmlspecialchars`
+ * Add testing clean function in tests
  * `Integer($number)` changed to `sanitize("integer", $number)`
  * `Hex($hex)` changed to `sanitize("hex", $hex)`
  * `Email($email)` changed to `sanitize("email", $email)`
