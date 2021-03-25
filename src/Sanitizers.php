@@ -19,7 +19,12 @@ require dirname(__FILE__) . "/bootstrap.php";
 class Sanitizer
 {
     /**
-     * Optional LoggerInterface for debugging used if psr/log package is installed.
+     * Optional LoggerInterface for debugging, You can pass an instance of a PSR-3 compatible logger in __construct method
+     * 
+     * ```php
+     * $logger = new myPsr3Logger();
+     * $sanitizer = new Sanitizer(false, $logger);
+     * ```
      * 
      * @var \Psr\Log\LoggerInterface|null
      */
@@ -63,8 +68,8 @@ class Sanitizer
     /**
      * Sanitizer class constructor.
      * 
-     * @param bool|null $exceptions
-     * @param \Psr\Log\LoggerInterface|null $logger
+     * @param bool|null $exceptions Do you want to enable exceptions?
+     * @param \Psr\Log\LoggerInterface|null $logger You can pass an instance of a PSR-3 compatible logger here
      * @return Sanitizer
      */
     public function __construct($exceptions=null, $logger=null)
@@ -78,7 +83,7 @@ class Sanitizer
     /**
      * Load configuration from ini file
      * 
-     * @param string $file
+     * @param string $file Path to config.ini file
      * @return null
      */
     public function configFromIni($file="config.ini")
@@ -92,8 +97,8 @@ class Sanitizer
     /**
      * Change configuration options
      * 
-     * @param string $case
-     * @param string|array $value
+     * @param string $case The key of the setting
+     * @param string|array $value The value of the setting
      * @return bool
      */
     public function set($case, $value="default")
@@ -150,15 +155,18 @@ class Sanitizer
     /**
      * Default Sanitizing user input function
      * 
-     * @param string $text
-     * @param bool $trim
-     * @param bool $htmlspecialchars
-     * @param bool $alpha_num
-     * @param bool $ucwords
+     * @param string $text The input data.
+     * @param bool $trim Do you want to trim the input data?
+     * @param bool $htmlspecialchars Do you want to use htmlspecialchars in input data?
+     * @param bool $alpha_num Is the input data alpha numeric?
+     * @param bool $ucwords Do you want to automatically add upper case letters to each words?
      * @return string
      */
-    public function clean($text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=true)
+    public function clean($text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=false)
     {
+        if ($trim)
+            $text = trim($text);
+
         if ($this->config["slashes"])
             $text = addslashes(stripslashes((string)$text));
 
@@ -178,17 +186,14 @@ class Sanitizer
             $text = htmlspecialchars($text, /*flags=*/ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
         }
 
+        if ($this->config["preventXSS"]) {
+            $text = utf8_encode($text);
+        }
+
         if (function_exists("iconv") && $this->config["preventXSS"]) {
             $text = iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
         } else if (!function_exists("iconv")) {
             error_log($this->warn . "PHP extension iconv not installed.");
-        }
-
-        if ($trim)
-            $text = trim($text);
-
-        if ($this->config["preventXSS"]) {
-            $text = utf8_encode($text);
         }
 
         if ($ucwords)
@@ -208,7 +213,7 @@ class Sanitizer
      * @param bool $ucwords
      * @return string|int|float
      */
-    public function sanitize($type, $text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=true)
+    public function sanitize($type, $text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=false)
     {
         $input = $text;
         if (!isset($type) || is_null($type)) {
@@ -243,7 +248,7 @@ class Sanitizer
                 $text = filter_var($this->clean((string)$text, false, false, false, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
                 break;
             case "name":
-                $text = $this->clean(preg_replace("/[^A-Za-z\s+]/s", "", filter_var((string)$text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)), $trim, $htmlspecialchars, $alpha_num, $ucwords);
+                $text = $this->clean(preg_replace("/[^A-Za-z\s+]/s", "", filter_var((string)$text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)), $trim, $htmlspecialchars, $alpha_num, true);
                 break;
             case "message":
                 $text = $this->clean($text, false, true, false, false);
