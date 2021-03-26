@@ -4,7 +4,24 @@
 
 Explanation of BK Sanitizers functions
 
-## 1. function set
+## 1. function configFromIni
+
+configFromIni - Use config settings from ini
+### Description
+
+    public function configFromIni($file="config.ini")
+
+Uses php `parse_ini_file` function to get config settings.
+
+### Parameters
+
+<b>file</b><br>
+&emsp;Path to config.ini file (default: `config.ini`).
+
+### Return values
+&emsp;Returns `null`
+
+## 2. function set
 
 set - Modifies a config setting
 
@@ -70,7 +87,7 @@ if ($sanitizer->set("preventXSS", true)) {
 
 &emsp;Returns true if config setting is modified or else false if it is not modified
 
-## 2. function clean
+## 3. function clean
 
 clean - Sanitize a string without specifing the type parameter of sanitize function
 
@@ -116,7 +133,7 @@ XSS
 ### Return values
 &emsp;Returns the sanitized string
 
-## 3. function sanitize
+## 4. function sanitize
 
 sanitize - Sanitize a string
 
@@ -199,7 +216,36 @@ And returns the sanitized string
 ### Return values
 &emsp;Returns the sanitized string
 
-## 3. function sanitizeArray
+## 5. function HTML
+
+HTML - Sanitize html code
+
+### Description
+
+    public function HTML($text, $tags="<b><i><em><p><a><br>")
+
+Cleans html code given by users.<br>
+And returns the sanitized html code
+
+### Parameters
+
+<b>text</b><br>
+&emsp;The input code.
+
+<b>tags</b><br>
+&emsp;Optional, the allowed html tags to keep in the code.
+
+It should be in the format like in the below example:
+
+```
+<b><a>
+```
+Which will keep both `<b>` and `</b>`, `<a>` and `</a>` in this example.
+
+### Return values
+&emsp;Returns the sanitized html code
+
+## 6. function sanitizeArray
 
 sanitizeArray - Sanitize an array
 
@@ -247,51 +293,5 @@ See parameters in sanitize function for understanding about filters and see the 
 
 ### Return values
 &emsp;Returns the sanitized array
-
-## 4. function HTML
-
-HTML - Sanitize html code
-
-### Description
-
-    public function HTML($text, $tags="<b><i><em><p><a><br>")
-
-Cleans html code given by users.<br>
-And returns the sanitized html code
-
-### Parameters
-
-<b>text</b><br>
-&emsp;The input code.
-
-<b>tags</b><br>
-&emsp;Optional, the allowed html tags to keep in the code.
-
-It should be in the format like in the below example:
-
-```
-<b><a>
-```
-Which will keep both `<b>` and `</b>`, `<a>` and `</a>` in this example.
-
-### Return values
-&emsp;Returns the sanitized html code
-
-## 5. function configFromIni
-
-configFromIni - Use config settings from ini
-### Description
-
-    public function configFromIni($file="config.ini")
-
-Uses php `parse_ini_file` function to get config settings.
-
-### Parameters
-
-<b>file</b><br>
-&emsp;Path to config.ini file (default: `config.ini`).
-
-### Return values
-&emsp;Returns `null`
 
 [Back to home](README.md)
