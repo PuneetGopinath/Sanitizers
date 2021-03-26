@@ -44,6 +44,7 @@ Format is `version (*dd-mm-yyyy*)`
  * Added Sanitize HTML code using `$sanitizer->HTML($code)`
  * Added loading config from Ini file using `configFromIni("/path/to/src/config.ini");`
  * Add testing password, url in tests
+ * Use php `strip_tags` function in urls
 
 #### Deletions
  * Removed fallback values and removed `error_log` if config file not found
