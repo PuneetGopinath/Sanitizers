@@ -43,6 +43,7 @@ Format is `version (*dd-mm-yyyy*)`
  * Added `sanitize("message", $message);`, for strings that contains EOL (END OF LINE) [commonly used for contact forms]
  * Added Sanitize HTML code using `$sanitizer->HTML($code)`
  * Added loading config from Ini file using `configFromIni("/path/to/src/config.ini");`
+ * Add testing password, url in tests
 
 #### Deletions
  * Removed fallback values and removed `error_log` if config file not found

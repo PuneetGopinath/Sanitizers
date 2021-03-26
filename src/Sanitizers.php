@@ -19,7 +19,18 @@ require dirname(__FILE__) . "/bootstrap.php";
 class Sanitizer
 {
     /**
-     * Optional LoggerInterface for debugging, You can pass an instance of a PSR-3 compatible logger in __construct method
+     * Do you want to enable exceptions? You can pass a bool in __construct method in parameter 1
+     * 
+     * ```php
+     * $sanitizer = new Sanitizer(true);
+     * ```
+     * 
+     * @var bool
+     */
+    protected $exceptions = null;
+
+    /**
+     * Optional LoggerInterface for debugging, You can pass an instance of a PSR-3 compatible logger in __construct method in parameter 2
      * 
      * ```php
      * $logger = new myPsr3Logger();
@@ -94,8 +105,8 @@ class Sanitizer
         return null;
     }
 
-    /**
-     * Change configuration options
+    /*
+     * Modify configuration options temporarily
      * 
      * @param string $case The key of the setting
      * @param string|array $value The value of the setting
@@ -153,7 +164,7 @@ class Sanitizer
     }
 
     /**
-     * Default Sanitizing user input function
+     * Default Sanitizing input function
      * 
      * @param string $text The input data.
      * @param bool $trim Do you want to trim the input data?
@@ -205,8 +216,8 @@ class Sanitizer
     /**
      * Sanitize a input
      * 
-     * @param string $type
-     * @param string|int|float $text
+     * @param string $type The input type.
+     * @param string|int|float $text The input data.
      * @param bool $trim
      * @param bool $htmlspecialchars
      * @param bool $alpha_num
@@ -242,7 +253,7 @@ class Sanitizer
                 $text = preg_replace("/[^a-f0-9]/s", "", filter_var($this->clean((string)$text, $trim, $htmlspecialchars, $alpha_num, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
                 break;
             case "url":
-                $text = filter_var((string)$text, FILTER_SANITIZE_URL);
+                $text = filter_var(strip_tags((string)$text), FILTER_SANITIZE_URL);
                 break;
             case "password":
                 $text = filter_var($this->clean((string)$text, false, false, false, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
@@ -280,7 +291,7 @@ class Sanitizer
      */
     public function NonNumericText($text, $trim=true, $htmlspecialchars=true, $alpha_num=false)
     {
-        error_log($this->warn . "You are using the depreciated function NonNumericText instead use the type parameter as \"text\" in sanitize function (see FUNCTIONS.md in docs)");
+        error_log($this->warn . "You are using the depreciated function NonNumericText instead use the sanitize function with type parameter as \"text\" (see FUNCTIONS.md in docs for understanding sanitize function)");
         $text = preg_replace("/[^A-Za-z]/s", "", $this->sanitize("text", (string)$text, $trim, $htmlspecialchars));
         return $text;
     }

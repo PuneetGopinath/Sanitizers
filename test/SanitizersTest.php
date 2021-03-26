@@ -71,9 +71,10 @@ $testValues = array(
     "name" => "\0saNiTiZeRs ä\x80",
     "email" => "AdMiN@ExAmPle.cOm",
     "message" => "Hi <script src=http://ha.ckers.org/xss.js></script>",
-    "username" => "PuneetGopinath", // It will become to smaller case if you want upper case also then use name instead `$sanitizer->sanitize("name", $username)`
+    "url" => "http://example.com/index.php?username=<script>alert('XSS');</script>",
+    "username" => "PuneetGopinath", // It will become to smaller case if you want upper case also then use sanitize function with type parameter as name e.g. `$sanitizer->sanitize("name", $username)`
     "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">XSS</a>",
-    "password" => "\$UnIQUe|`_-#pass•WORD%!?",
+    "password" => "\$UnIQUe|`_-<script>alert('XSS')</script>#pass•WorD%!?",
     "function_clean" => "XSS <script>alert('XSS');</script>"
 );
 
@@ -89,6 +90,7 @@ $values = array(
     "name" => $sanitizer->sanitize("name", $testValues["name"]),
     "email" => $sanitizer->sanitize("email", $testValues["email"]),
     "message" => $sanitizer->sanitize("message", $testValues["message"], false, true),
+    "url" => $sanitizer->sanitize("url", $testValues["url"]),
     "username" => $sanitizer->sanitize("username", $testValues["username"]),
     "html" => $sanitizer->HTML($testValues["html"]),
     "password" => $sanitizer->sanitize("password", $testValues["password"]),
@@ -102,6 +104,7 @@ $filters = array(
         "name" => "name",
         "email" => "email",
         "message" => "message",
+        "url" => "url",
         "username" => "username",
         "html" => "html",
         "function_clean" => "" //Will use clean function
