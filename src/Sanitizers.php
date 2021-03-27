@@ -178,18 +178,14 @@ class Sanitizer
      */
     public function clean($text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=false)
     {
+        $text = strip_tags($this->HTML($text));
+
         if ($trim)
-            $text = trim($text);
+            $text = trim((string)$text);
 
         if ($this->config["escape"])
-            $text = $this->escape((string)$text);
+            $text = $this->escape($text);
 
-        // Remove any attribute starting with on or xmlns
-        $text = preg_replace('#(<[^>]+?[\x00-\x20"\'])(?:on|xmlns)[^>]*+>#iu', '$1>', $text);
-
-        $text = preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/si",'<$1$2>', $text); //See: https://stackoverflow.com/a/3026235
-        //We are not sanitizing html code so remove all html code and attributes
-        $text = strip_tags($this->HTML($text));
         if ($alpha_num)
             $text = preg_replace("/\W/si", "", $text);
 
@@ -354,8 +350,9 @@ class Sanitizer
      */
     public function HTML($text, $tags="<b><i><em><p><a><br>")
     {
-
-        $text = $this->strip_tags_content(preg_replace(array("/javascript:/si", "/src=/si"), "", (string)$text), $tags);
+        // Remove any attribute starting with on or xmlns
+        $text = preg_replace('#(<[^>]+?[\x00-\x20"\'])(?:on|xmlns)[^>]*+>#iu', '$1>', (string)$text);
+        $text = $this->strip_tags_content((string)$text, $tags);
 
         return $text;
     }
