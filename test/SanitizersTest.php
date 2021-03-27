@@ -70,13 +70,13 @@ $testValues = array(
     "float" => $len-0.5,
     "name" => "\0saNiTiZeRs ä\x80",
     "email" => "AdMiN@ExAmPle.cOm",
-    "message" => "Hi <script src=http://ha.ckers.org/xss.js></script>",
+    "message" => "Hi <img src=http://example.com/No_file.png onerror=alert('XSS');></img>",
     "url" => "http://example.com/index.php?username=<script>alert('XSS');</script>",
     "username" => "PuneetGopinath", // It will become to smaller case if you want upper case also then use sanitize function with type parameter as name e.g. `$sanitizer->sanitize("name", $username)`
-    "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">XSS</a>",
+    "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">Click here</a>",
     "password" => "\$UnIQUe|`_-<script>alert('XSS')</script>#pass•WorD%!?",
     "function_clean" => "XSS <script>alert('XSS');</script>",
-    "function_escape" => "Sanitizers\"; DELETE FROM users; ---"
+    "function_escape" => "Sanitizers'; DELETE FROM users; ---"
 );
 
 if ($configFromIni && is_readable($baseDir . "/src/config.ini"))
