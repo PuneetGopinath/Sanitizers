@@ -61,7 +61,7 @@ Modifies a config setting temporarily and returns true if it is modified or else
             <td>true/false</td>
         </tr>
         <tr>
-            <th>slashes</th>
+            <th>escape</th>
             <td>Do you want to escape user input?</td>
             <td>true/false</td>
         </tr>
@@ -133,7 +133,28 @@ XSS
 ### Return values
 &emsp;Returns the sanitized string
 
-## 4. function sanitize
+## 4. function escape
+
+escape - Escape input.
+
+### Description
+
+    public function escape($input)
+
+Escapes the input string.<br>
+And returns the escaped string.
+
+**Note:** No need to use this function if you used clean or sanitize function on the input string and have enabled the escape in config settings.
+
+### Parameters
+
+<b>input</b><br>
+&emsp;The input data.
+
+### Return values
+&emsp;Returns the escaped string.
+
+## 5. function sanitize
 
 sanitize - Sanitize a string
 
@@ -216,7 +237,7 @@ And returns the sanitized string
 ### Return values
 &emsp;Returns the sanitized string
 
-## 5. function HTML
+## 6. function HTML
 
 HTML - Sanitize html code
 
@@ -245,7 +266,7 @@ Which will keep both `<b>` and `</b>`, `<a>` and `</a>` in this example.
 ### Return values
 &emsp;Returns the sanitized html code
 
-## 6. function sanitizeArray
+## 7. function sanitizeArray
 
 sanitizeArray - Sanitize an array
 
