@@ -125,18 +125,21 @@ class Sanitizer
             case "maxInputLength":
                 $this->config["maxInputLength"] = (int)$value;
                 break;
-            case "slashes":
-                $this->config["slashes"] = (bool)$value;
+            case "escape":
+                $this->config["escape"] = (bool)$value;
                 break;
             case "preventXSS":
                 $this->config["preventXSS"] = (bool)$value;
                 break;
             case "*":
-                $this->set("encoding", $value["encoding"]);
-                $this->set("maxInputLength", $value["maxInputLength"]);
-                $this->set("slashes", $value["slashes"]);
-                $this->set("preventXSS", $value["preventXSS"]);
-                return true;
+                if (
+                    $this->set("encoding", $value["encoding"]) &&
+                    $this->set("maxInputLength", $value["maxInputLength"]) &&
+                    $this->set("escape", $value["escape"]) &&
+                    $this->set("preventXSS", $value["preventXSS"])
+                ) {
+                    return true;
+                }
                 break;
             default:
                 if ($this->exceptions) {
@@ -146,9 +149,9 @@ class Sanitizer
                 break;
         }
 
-        if (isset($this->config["preventXSS"]) && isset($this->config["encoding"])) {
-            if ($this->config["preventXSS"] === true && strtoupper($this->config["encoding"]) !== "UTF-8") {
-                $msg = $this->fatal . "If you set preventXSS as true then you should also set encoding to UTF-8";
+        if (isset($this->config["preventXSS"]) && (isset($this->config["encoding"]) || isset($this->config["escape"]))) {
+            if ($this->config["preventXSS"] === true && (strtoupper($this->config["encoding"]) !== "UTF-8" || $this->config["escape"] !== true)) {
+                $msg = $this->fatal . "If you set preventXSS as true then you should also set encoding to \"UTF-8\" and escape to true";
                 if ($this->logger) {
                     $this->logger->error($msg);
                 }
@@ -178,8 +181,11 @@ class Sanitizer
         if ($trim)
             $text = trim($text);
 
-        if ($this->config["slashes"])
-            $text = addslashes(stripslashes((string)$text));
+        if ($this->config["escape"])
+            $text = $this->escape((string)$text);
+
+        // Remove any attribute starting with on or xmlns
+        $text = preg_replace('#(<[^>]+?[\x00-\x20"\'])(?:on|xmlns)[^>]*+>#iu', '$1>', $text);
 
         $text = preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/si",'<$1$2>', $text); //See: https://stackoverflow.com/a/3026235
         //We are not sanitizing html code so remove all html code and attributes
@@ -193,8 +199,10 @@ class Sanitizer
             $text = mb_substr($text, 0, $this->config["maxInputLength"]);
         }
 
-        if ($htmlspecialchars) {
-            $text = htmlspecialchars($text, /*flags=*/ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
+        if ($htmlspecialchars && $this->config["escape"]) {
+            $text = htmlspecialchars(htmlspecialchars_decode($text, ENT_QUOTES), ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
+        } else if ($htmlspecialchars && !($this->config["escape"])) {
+            $text = htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
         }
 
         if ($this->config["preventXSS"]) {
@@ -211,6 +219,19 @@ class Sanitizer
             $text = ucwords(strtolower($text));
 
         return $text;
+    }
+
+    /**
+     * Escape input
+     * 
+     * No need to use this function if you used clean or sanitize function on the input string.
+     * 
+     * @param $input The input data.
+     * @return string
+     */
+    public function escape($input)
+    {
+        return htmlspecialchars(addslashes(stripslashes($input)), ENT_QUOTES, "UTF-8");
     }
 
     /**
