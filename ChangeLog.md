@@ -38,7 +38,7 @@ Format is `version (*dd-mm-yyyy*)`
  * Added `.github/SUPPORT.md` for SUPPORT
  * Added `debug_info` in tests
  * Added removing null character in user input
- * Added whether to use `addslashes` function and to `preventXSS` in configuration
+ * Added whether to `escape` and to `preventXSS` in configuration
  * Added `sanitizeArray()` function - sanitizes an array
  * Added `sanitize("message", $message);`, for strings that contains EOL (END OF LINE) [commonly used for contact forms]
  * Added Sanitize HTML code using `$sanitizer->HTML($code)`

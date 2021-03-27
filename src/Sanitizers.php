@@ -291,6 +291,9 @@ class Sanitizer
             case "username":
                 $text = preg_replace("/[^a-z0-9]/s", "", strtolower($this->sanitize("text", (string)$text, $trim, $htmlspecialchars, $alpha_num, false)));
                 break;
+            case "escape":
+                $text = $this->escape($text);
+                break;
             default:
                 $text = $this->clean($text, $trim, $htmlspecialchars, $alpha_num, $ucwords);
                 break;
@@ -368,7 +371,7 @@ class Sanitizer
     {
         foreach ($array as $key => $value)
         {
-            $settings = array("trim" => true, "htmlspecialchars" => true, "alpha_num" => false, "ucwords" => true);
+            $settings = array("trim" => true, "htmlspecialchars" => true, "alpha_num" => false, "ucwords" => false);
             if (isset($filters[$key]))
             {
                 if (is_string($filters[$key])) {
@@ -399,6 +402,9 @@ class Sanitizer
                 case "integer":
                     $sanitized = $this->sanitize("integer", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
                     break;
+                case "float":
+                    $sanitized = $this->sanitize("float", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
+                    break;
                 case "string":
                 case "text":
                     $sanitized = $this->sanitize("text", $value, $settings["trim"], $settings["htmlspecialchars"]);
@@ -406,29 +412,28 @@ class Sanitizer
                 case "hex":
                     $sanitized = $this->sanitize("hex", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
                     break;
-                case "float":
-                    $sanitized = $this->sanitize("float", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
+                case "url":
+                    $sanitized = $this->sanitize("url", $value);
                     break;
+                case "password":
+                    $sanitized = $this->sanitize("password", $value);
                 case "name":
                     $sanitized = $this->sanitize("name", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
                     break;
-                case "username":
-                    $sanitized = $this->sanitize("username", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
+                case "message":
+                    $sanitized = $this->clean($value, false, true, false, false);
                     break;
                 case "email":
                     $sanitized = $this->sanitize("email", $value, $settings["trim"], $settings["htmlspecialchars"], false);
                     break;
+                case "username":
+                    $sanitized = $this->sanitize("username", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
+                    break;
                 case "html":
                     $sanitized = $this->HTML($value, $filters[$key]["tags"]);
                     break;
-                case "array":
-                    $sanitized = $this->sanitizeArray($value, $settings);
-                    break;
-                case "url":
-                    $sanitized = $this->sanitize("url", $value);
-                    break;
-                case "message":
-                    $sanitized = $this->clean($value, false, true, false, false);
+                case "escape":
+                    $sanitized = $this->escape($value);
                     break;
                 default:
                     $sanitized = $this->clean($value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);

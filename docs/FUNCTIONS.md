@@ -310,7 +310,32 @@ $filters = array(
     )
 );
 ```
-See parameters in sanitize function for understanding about filters and see the table in type parameter in sanitize function for understanding about types.
+See parameters in sanitize function for understanding about filters execpt type parameter.
+
+The `types` key in the array can be any one of these. And also it can be any one from the value of type parameter in sanitize function.
+
+<table class="card">
+    <thead>
+        <tr>
+            <th>value for types array</th>
+            <th>description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>any one from the value of type parameter in sanitize function</th>
+            <td>No description</td>
+        </tr>
+        <tr>
+            <th>html</th>
+            <td>For HTML code</td>
+        </tr>
+        <tr>
+            <th>escape</th>
+            <td>For escaping a string</td>
+        </tr>
+    </tbody>
+</table>
 
 ### Return values
 &emsp;Returns the sanitized array
