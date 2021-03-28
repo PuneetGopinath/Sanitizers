@@ -43,12 +43,13 @@ Format is `version (*dd-mm-yyyy*)`
  * Added `sanitize("message", $message);`, for strings that contains EOL (END OF LINE) [commonly used for contact forms]
  * Added Sanitize HTML code using `$sanitizer->HTML($code)`
  * Added loading config from Ini file using `configFromIni("/path/to/src/config.ini");`
- * Add testing password, url, clean functions in tests
- * Add onerror attribute to message in tests
+ * Added testing password, url, clean functions in tests
+ * Added onerror attribute to message in tests
  * Use php `strip_tags` function when sanitizing urls
  * Added whether to use `ucwords` in `clean` and some types of `sanitize` function
  * Always use `ucwords` in sanitize function in type "name"
- * Add example output for test in `test/example.md`
+ * Added example output for test in `test/example.md`
+ * Added asking questions in contributing guidelines
 
 #### Deletions
  * Removed fallback values and removed `error_log` if config file not found
