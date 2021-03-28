@@ -1,6 +1,6 @@
-# Sanitizers ChangeLog 1.1
+# BK Sanitizers ChangeLog 1.1
 
-All notable changes to BKS Sanitizers library will be added to this file.
+All notable changes to BK Sanitizers library will be added to this file.
 
 [Older ChangeLogs](#older-changelogs)
 
