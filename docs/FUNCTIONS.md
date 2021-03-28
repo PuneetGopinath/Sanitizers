@@ -248,6 +248,8 @@ HTML - Sanitize html code
 Cleans html code given by users.<br>
 And returns the sanitized html code
 
+**Note:** It will remove any attribute starting with on or xmlns.
+
 ### Parameters
 
 <b>text</b><br>
