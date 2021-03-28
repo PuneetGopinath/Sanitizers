@@ -1,6 +1,5 @@
 <div class="card">
   <h2 align="center">BK Sanitizers Docs</h2>
-    Latest release: <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers">
 </div>
 
 <link rel="stylesheet" href="css/main.css" />
@@ -33,7 +32,7 @@ require "/path/to/vendor/autoload.php";
 For example,<br>
 
 ```
-// passing `false` in Sanitize class disables exceptions
+// passing `false` in Sanitizer class disables exceptions
 $sanitizer = new Sanitizer(false);
 $username = $sanitizer->Username($_POST['username']);
 $password = $sanitizer->Password($_POST['password']);
@@ -42,7 +41,7 @@ $password = $sanitizer->Password($_POST['password']);
 <b>OR if you want to enable exceptions</b>
 
 ```
-// passing `true` in Sanitize class enables exceptions
+// passing `true` in Sanitizer class enables exceptions
 $sanitizer = new Sanitizer(true);
 
 try {
