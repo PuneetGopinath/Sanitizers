@@ -29,7 +29,7 @@
 
 <hr>
 
-**Note**: See the [1.0-dev](https://github.com/PuneetGopinath/Sanitizers/tree/1.0-dev) branch, as main branch is developing 1.1.0 minor release so, readme and docs are not for 1.0 releases.
+**Note**: See the [1.0-dev](https://github.com/PuneetGopinath/Sanitizers/tree/1.0-dev) branch, as main branch is developing 1.1.0 minor release so, the readme and docs are not for 1.0 releases.
 <details open="true">
     <summary align="center">Table of contents</summary>
 
@@ -84,7 +84,7 @@ Plz see [docs](docs/README.md) folder
 
 - ### Usage
 
-Just include the file and Sanitize the user input.
+Just include the file and Sanitize user input.
 - Example Usage without composer autoload:
 
 ```php
