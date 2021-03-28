@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="css/main.css" />
 
-Explanation of BK Sanitizers functions
+Explanation of BK Sanitizers functions.
 
 ## 1. function configFromIni
 
@@ -29,7 +29,7 @@ set - Modifies a config setting
 
     public function set($case, $value="default")
 
-Modifies a config setting temporarily and returns true if it is modified or else false if it is not modified
+Modifies a config setting temporarily and returns true if it is modified or else false if it is not modified.
 
 ### Parameters
 
@@ -114,7 +114,7 @@ And returns the sanitized string
 &emsp;Is the input data alpha numeric? True/False.
 
 <b>ucwords</b><br>
-&emsp;Do you want to automatically add upper case letters to each words? True/False.
+&emsp;Do you want to automatically convert the first letter to upper case letter in each word? True/False.
 
 ### Example
 
@@ -144,7 +144,7 @@ escape - Escape input.
 Escapes the input string.<br>
 And returns the escaped string.
 
-**Note:** No need to use this function if you used clean or sanitize function on the input string and have enabled the escape in config settings.
+**Note:** No need to use this function if you used clean or sanitize function on the input string and have enabled the escape in the config settings.
 
 ### Parameters
 
@@ -294,7 +294,7 @@ $array = array(
 ```
 
 <b>filters</b><br>
-&emsp;The filters to apply to the array.
+&emsp;The filters to apply on the array.
 
 It should be in the format like in the below example:
 
@@ -312,9 +312,9 @@ $filters = array(
     )
 );
 ```
-See parameters in sanitize function for understanding about filters execpt type parameter.
+See parameters in sanitize function for understanding about filters except type parameter.
 
-The `types` key in the array can be any one of these. And also it can be any one from the value of type parameter in sanitize function.
+The `types` key in the array can be any one of these. And also it can be any one from the value of the type parameter in sanitize function.
 
 <table class="card">
     <thead>

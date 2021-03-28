@@ -2,11 +2,11 @@
 
 <link rel="stylesheet" href="../css/main.css" />
 
-Get started with BK Sanitizers, the library for sanitizing all types of user input in php.
+Get started with BK Sanitizers, the library for sanitizing all types of user input in PHP.
 
 ## Introduction
 
-A Web Sanitizer is used to prevent XSS attacks. Not only that to prevent XSS, we also need to validate all sanitized user input.
+A Web Sanitizer is used to prevent XSS attacks. Not only Sanitizers are enough to prevent XSS, we also need to validate all sanitized user input.
 
 Sanitization is one of the most important topic of web security or cybersecurity.
 
@@ -14,7 +14,7 @@ BKS is one such library for protecting your site from XSS. We aim to give you th
 
 We try to cover all types of user input like name, username, password, messages, email, etc...
 
-Have we missed any common type of user input? If so, please try to read the contributing guidelines and contribute to BK Sanitizers.
+Have we missed any common type of user input? If so, please try to read the contributing guidelines and try to contribute to BK Sanitizers.
 
 ### Installation
 
