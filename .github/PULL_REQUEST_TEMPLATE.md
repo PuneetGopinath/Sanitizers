@@ -1,12 +1,13 @@
-Thank you for contributing! Plz check the following things before submiting your PR:
+Thank you for contributing! Please check the following things before submiting your PR:
 
 Required:
 - [ ] I have read and followed the [contributing guidelines](https://github.com/PuneetGopinath/Sanitizers/blob/main/.github/CONTRIBUTING.md)
 
-Optional:
-- [ ] I have updated the docs (if you have changes in source code)
+If necessary:
+- [ ] I have updated the README and documentation.
+- [ ] I have updated the ChangeLog with the changes I have made.
 
-> Replace this line with the main changes you have made e.g. Corrected spelling mistakes in docs
+> Replace this line with the changes you have made in this PR e.g. Corrected spelling mistakes in docs
 
 ---------------------------------------------------------------------
 
