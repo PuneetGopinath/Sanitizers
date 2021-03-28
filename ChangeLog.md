@@ -40,11 +40,14 @@ Format is `version (*dd-mm-yyyy*)`
  * Added removing null character in user input
  * Added whether to `escape` and to `preventXSS` in configuration
  * Added `sanitizeArray()` function - sanitizes an array
+ * Added `escape()` function - escape a string
  * Added `sanitize("message", $message);`, for strings that contains EOL (END OF LINE) [commonly used for contact forms]
  * Added Sanitize HTML code using `$sanitizer->HTML($code)`
  * Added loading config from Ini file using `configFromIni("/path/to/src/config.ini");`
  * Add testing password, url in tests
  * Use php `strip_tags` function in urls
+ * Added whether to use `ucwords` in `clean` and some types of `sanitize` function
+ * Always use `ucwords` in sanitize function in type "name"
 
 #### Deletions
  * Removed fallback values and removed `error_log` if config file not found

@@ -149,8 +149,14 @@ class Sanitizer
                 break;
         }
 
-        if (isset($this->config["preventXSS"]) && (isset($this->config["encoding"]) || isset($this->config["escape"]))) {
-            if ($this->config["preventXSS"] === true && (strtoupper($this->config["encoding"]) !== "UTF-8" || $this->config["escape"] !== true)) {
+        if (
+            isset($this->config["preventXSS"]) &&
+            (isset($this->config["encoding"]) || isset($this->config["escape"]))
+        ) {
+            if (
+                $this->config["preventXSS"] === true &&
+                (strtoupper($this->config["encoding"]) !== "UTF-8" || $this->config["escape"] !== true)
+            ) {
                 $msg = $this->fatal . "If you set preventXSS as true then you should also set encoding to \"UTF-8\" and escape to true";
                 if ($this->logger) {
                     $this->logger->error($msg);
@@ -178,10 +184,16 @@ class Sanitizer
      */
     public function clean($text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=false)
     {
-        $text = strip_tags($this->HTML($text));
+        $text = strip_tags($this->HTML((string)$text));
+
+        if ($htmlspecialchars && $this->config["escape"]) {
+            $text = htmlspecialchars(htmlspecialchars_decode($text, ENT_QUOTES), ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
+        } else if ($htmlspecialchars && !($this->config["escape"])) {
+            $text = htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
+        }
 
         if ($trim)
-            $text = trim((string)$text);
+            $text = trim($text);
 
         if ($this->config["escape"])
             $text = $this->escape($text);
@@ -193,12 +205,6 @@ class Sanitizer
 
         if (mb_strlen($text) > $this->config["maxInputLength"]) {
             $text = mb_substr($text, 0, $this->config["maxInputLength"]);
-        }
-
-        if ($htmlspecialchars && $this->config["escape"]) {
-            $text = htmlspecialchars(htmlspecialchars_decode($text, ENT_QUOTES), ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
-        } else if ($htmlspecialchars && !($this->config["escape"])) {
-            $text = htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
         }
 
         if ($this->config["preventXSS"]) {
@@ -220,14 +226,14 @@ class Sanitizer
     /**
      * Escape input
      * 
-     * No need to use this function if you used clean or sanitize function on the input string.
+     * No need to use this function if you used clean or sanitize function on the input string with escape in config enabled.
      * 
      * @param $input The input data.
      * @return string
      */
     public function escape($input)
     {
-        return htmlspecialchars(addslashes(stripslashes($input)), ENT_QUOTES, "UTF-8");
+        return htmlspecialchars(addslashes(stripslashes((string)$input)), ENT_QUOTES, "UTF-8");
     }
 
     /**
