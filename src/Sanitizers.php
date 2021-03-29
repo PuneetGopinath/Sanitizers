@@ -291,7 +291,7 @@ class Sanitizer
                 $text = filter_var(strtolower($this->clean((string)$text, $trim, $htmlspecialchars, false, false)), FILTER_SANITIZE_EMAIL);
                 break;
             case "username":
-                $text = preg_replace("/[^a-z0-9]/s", "", strtolower($this->sanitize("text", (string)$text, $trim, $htmlspecialchars, $alpha_num, false)));
+                $text = preg_replace("/[^a-z0-9]/s", "", strtolower($this->sanitize("text", (string)$text, $trim, $htmlspecialchars, true, false)));
                 break;
             case "escape":
                 $text = $this->escape($text);
