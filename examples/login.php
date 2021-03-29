@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This example shows how to use Sanitizers in a login form
+ * This example shows how to use BK Sanitizers in a login form
  */
 
 //Import Sanitizer class into the global namespace

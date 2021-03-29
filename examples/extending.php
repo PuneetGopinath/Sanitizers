@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This example shows how to extend Sanitizers to simplify your coding and add more features.
+ * This example shows how to extend Sanitizer class to simplify your coding and add more features.
  */
 
 //Import Sanitizer class into the global namespace
@@ -18,15 +18,17 @@ class MySanitizer extends Sanitizer
      * MySanitizer class constructor.
      *
      * @param bool|null $exceptions
-     * @param \Psr\Log\LoggerInterface $logger
+     * @param \Psr\Log\LoggerInterface|null $logger
      * @return MySanitizer
      */
     public function __construct($exceptions=null, $logger=null)
     {
         //Don't forget to do this or other things may not be set correctly!
         parent::__construct($exceptions, $logger);
-        //Set config options
-        $this->set("maxInputLength", 1000);
+        //Load config from ini
+        //Comment it out, if you don't want config from ini
+
+        $this->configFromIni("../src/config.ini"); //replace ../src/config.ini with path to config.ini
 
     }
 
@@ -37,7 +39,7 @@ class MySanitizer extends Sanitizer
      * @param string $text
      * @return bool
      */
-    public function validate($type, $text, $trim=true, $html_entities=true, $alpha_num=false, $ucwords=true)
+    public function validate($type, $text, $trim=true, $htmlspecialchars=true, $alpha_num=false, $ucwords=false)
     {
         if (!isset($type) || is_null($type)) {
             $type = gettype($text);
@@ -46,10 +48,12 @@ class MySanitizer extends Sanitizer
                 $type = "message";
             }
         }
-        $text = parent::sanitize($type, $text, $trim, $html_entities, $alpha_num, $ucwords);
+
+        $text = parent::sanitize($type, $text, $trim, $htmlspecialchars, $alpha_num, $ucwords);
         if (empty($text)) {
             return false;
         }
+
         switch (strtolower($type)) {
             case "int":
             case "integer":
@@ -67,12 +71,14 @@ class MySanitizer extends Sanitizer
             case "email":
                 return filter_var($text, FILTER_VAIDATE_EMAIL)?true:false;
                 break;
+            case "username":
+                return preg_match_all("/[^a-z0-9]/s", "", $text)?true:false;
+                break;
             case "string":
             case "text":
             case "password":
             case "name":
             case "message":
-            case "username":
             default:
                 return is_string($text);
                 break;
