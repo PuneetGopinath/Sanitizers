@@ -13,13 +13,14 @@
 
   <p align="center">
     <b>BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.</b><br><br>
-    An acronym or abbreviation for <b>B</b>aal-<b>K</b>rshna <b>Sanitizers</b> is BK Sanitizers
+    An acronym/abbreviation for <b>B</b>aal-<b>K</b>rshna <b>Sanitizers</b> is BK Sanitizers
+    <br><br>
+    And an acronym/abbreviation for <b>BK S</b>anitizers is BKS
     <br><br>
     Latest release: <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers"><br>
     <br><br>Explore:<br>
-    <a href="https://puneetgopinath.github.io/Sanitizers/docs"><b>Sanitizers Docs</b></a> &raquo;<br>
-    <a href="https://github.com/PuneetGopinath/Sanitizers/wiki"><b>Sanitizers Wiki</b></a> &raquo;<br><br>
-    Pages &rArr;
+    <a href="https://puneetgopinath.github.io/Sanitizers/docs"><b>BKS Docs</b></a> &raquo;<br>
+    <a href="https://github.com/PuneetGopinath/Sanitizers/wiki"><b>BKS Wiki</b></a> &raquo;<br><br>
     <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md">Report bug(s)</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/releases">Releases</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=feature_request.md">Request feature</a> • <a href="https://baalkrshna.hashnode.dev/series/bks">Blog</a>
   </p><br><br>
   <a href="https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers\&hashtags=php,backend,developer,opensource,bksanitizers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
@@ -61,7 +62,9 @@
 3. Built-in tests
 4. Examples for how-to use BKS
 5. Escape values
-6. Easy to Use
+6. Use configuration from ini file
+7. Easy to Use
+8. And many more...
 
 <h2><a name="quick-start">Quick Start 🚀</a></h2>
 
@@ -71,12 +74,13 @@
 
  * Using git:
 `git clone https://github.com/PuneetGopinath/Sanitizers.git`
+ * OR
  * Using github cli:
 `gh repo clone PuneetGopinath/Sanitizers`
 
 - ### Installation 🔧
 
-See [INSTALL.md](INSTALL.md) file for Installation guide.
+Please read [INSTALL.md](INSTALL.md) file for The installation guide.
 
 - ### Documentation
 
