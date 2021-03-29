@@ -62,6 +62,7 @@ Format is `version (*dd-mm-yyyy*)`
  * Explained about sanitizers function in a new file `FUNCTIONS.md`
  * New file `getting-started.md` for Getting Started guide
  * Added extending in examples
+ * Added Asking question section in wiki
 
 #### Depreciated
  * Depreciated function `NonNumericText`
