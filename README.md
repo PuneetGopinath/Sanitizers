@@ -19,8 +19,8 @@
     <br><br>
     Latest release: <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers"><br>
     <br><br>Explore:<br>
-    <a href="https://puneetgopinath.github.io/Sanitizers/docs"><b>BKS Docs</b></a> &raquo;<br>
-    <a href="https://github.com/PuneetGopinath/Sanitizers/wiki"><b>BKS Wiki</b></a> &raquo;<br><br>
+    <a href="https://puneetgopinath.github.io/Sanitizers/docs"><b>BK Sanitizers Docs</b></a> &raquo;<br>
+    <a href="https://github.com/PuneetGopinath/Sanitizers/wiki"><b>BK Sanitizers Wiki</b></a> &raquo;<br><br>
     <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md">Report bug(s)</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/releases">Releases</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=feature_request.md">Request feature</a> • <a href="https://baalkrshna.hashnode.dev/series/bks">Blog</a>
   </p><br><br>
   <a href="https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers\&hashtags=php,backend,developer,opensource,bksanitizers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
@@ -28,7 +28,7 @@
   <a href="https://github.com/PuneetGopinath/Sanitizers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/PuneetGopinath/Sanitizers?style=social"></a><br>
 </div>
 
-<hr>
+---------------------------------------------------------------------
 
 **Note**: See the [1.0-dev](https://github.com/PuneetGopinath/Sanitizers/tree/1.0-dev) branch, as main branch is developing 1.1.0 minor release so, the readme and docs are not for 1.0 releases.
 <details open="true">
@@ -49,7 +49,6 @@
  * [LICENSE](#license)
  * [Comparing](#comparing)
  * [Support Us](#support-us)
- * [CODE_OF_CONDUCT](#code-of-conduct)
  * [Versioning](#versioning)
  * [Conclusion](#conclusion)
 
@@ -296,9 +295,16 @@ This is optional (we don't force you anything) and you can also try to give at l
 ### Sponsor
 
 Support BK Sanitizers by becoming a sponsor.
-Your name will be displayed here.
+Your name will be added manually (by us) below `Click here to sponsor`.
 
-[Click here to sponsor](https://patreon.com/PuneetGopinath)
+Click here to sponsor:
+
+1. [at patreon](https://patreon.com/PuneetGopinath)
+2. [at liberapay](https://liberapay.com/PuneetGopinath)
+
+Project sponsored by:
+
+1. No sponsors, be the first to sponsor now itself by clicking any one of the above links!
 
 ### Spread
 
@@ -313,10 +319,6 @@ Help spread awareness about BK Sanitizers by:
  * Pinterest: [![Share](https://img.shields.io/badge/Share-Pinterest-%23c8232c?style=flat-square)](https://pinterest.com/pin/create/button/?media=\&description=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
 
  * Email: [![Share](https://img.shields.io/badge/Share-Email-green?style=flat-square)](mailto:info@example.com?\&subject=See%20this%20Awesome%20PHP%20Sanitizers\&cc=\&bcc=\&body=https://github.com/PuneetGopinath/Sanitizers%0AThis%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out)
-
-<h2><a name="code-of-conduct">CODE_OF_CONDUCT</a></h2>
-
-Plz read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for our CODE OF CONDUCT.
 
 <h2><a name="versioning">Versioning</a></h2>
 

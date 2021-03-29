@@ -3,10 +3,13 @@
     "description": "BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.",
     "version": "v1.1.0",
     "license": "MIT",
-    "funding": {
-        "type": "patreon",
-        "url": "https://patreon.com/PuneetGopinath"
-    },
+    "funding": [
+        {
+            "type": "patreon",
+            "url": "https://patreon.com/PuneetGopinath"
+        },
+        "https://liberapay.com/PuneetGopinath"
+    ],
     "homepage": "https://github.com/PuneetGopinath/Sanitizers#readme",
     "config": {
         "version_short": "1.1"

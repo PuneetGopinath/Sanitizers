@@ -32,6 +32,10 @@
         {
             "type": "patreon",
             "url": "https://www.patreon.com/PuneetGopinath"
+        },
+        {
+            "type": "other",
+            "url": "https://liberapay.com/PuneetGopinath"
         }
     ],
     "readme": "https://github.com/PuneetGopinath/Sanitizers#readme",
