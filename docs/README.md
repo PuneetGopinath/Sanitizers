@@ -7,4 +7,4 @@ Welcome to the documentation for BK Sanitizers.
 ### Pages
 
 1. Read [getting-started.md](getting-started.md) for Getting Started with BK Sanitizers.
-2. Read [FUNCTIONS.md](FUNCTIONS.md) for understaning functions of BK Sanitizers.
+2. Read [FUNCTIONS.md](FUNCTIONS.md) for understaning functions and methods of BK Sanitizers.

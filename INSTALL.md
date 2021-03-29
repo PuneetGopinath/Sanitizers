@@ -12,7 +12,7 @@
 To install Sanitizers, you need:
 
  * #### PHP
-Minimum php 5.6.0 compiler.
+Minimum php 5.3.0 compiler.
  * #### PHP Extensions
 You need filter and mbstring extension.
 

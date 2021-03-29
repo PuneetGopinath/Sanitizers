@@ -15,13 +15,14 @@
         "version_short": "1.1"
     },
     "keywords": [
-        "Sanitizers",
+        "sanitizers",
+        "bksanitizers",
         "back-end",
         "backend",
         "security",
         "sanitization",
         "validate",
-        "Sanitize",
+        "sanitize",
         "web",
         "php",
         "PHP Sanitizers",

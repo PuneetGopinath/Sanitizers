@@ -81,14 +81,18 @@ class Sanitizer
      * 
      * @param bool|null $exceptions Do you want to enable exceptions?
      * @param \Psr\Log\LoggerInterface|null $logger You can pass an instance of a PSR-3 compatible logger here
+     * @pram SanitizerData|null $sanitizerData The SanitizerData class
      * @return Sanitizer
      */
-    public function __construct($exceptions=null, $logger=null)
+    public function __construct($exceptions=null, $logger=null, $sanitizerData=null)
     {
+        if (empty($sanitizerData)) {
+            $sanitizerData = new SanitizerData();
+        }
         $this->exceptions = (bool) $exceptions;
         $this->logger = $logger;
 
-        $this->set("*", config);
+        $this->set("*", $sanitizerData::$config);
     }
 
     /**
@@ -167,7 +171,7 @@ class Sanitizer
         }
 
         if ($value === "default") {
-            $this->config[$case] = config[$case];
+            $this->config[$case] = SanitizerData::$config[$case];
         }
         return true;
     }

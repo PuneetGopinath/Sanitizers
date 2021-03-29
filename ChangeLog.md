@@ -17,7 +17,7 @@ Format is `version (*dd-mm-yyyy*)`
  * 
 
 #### Changes
- * Moved global variable `$config` to constant `\Sanitizers\Sanitizers\config`
+ * Moved global variable `$config` to `\Sanitizers\Sanitizers\SanitizerData::$config`
  * Use `mb_strlen` and `mb_substr` instead of `strlen` and `substr` respectively because they return exact length and correctly remove extra characters
  * Replaced `[]` with `array()` for backward compability
  * Rename config.php to bootstrap.php
@@ -50,6 +50,7 @@ Format is `version (*dd-mm-yyyy*)`
  * Always use `ucwords` in sanitize function in type "name"
  * Added example output for test in `test/example.md`
  * Added asking questions in contributing guidelines
+ * Added SanitizerData class for keeping data for Sanitizers in it (like configuration settings)
 
 #### Deletions
  * Removed fallback values and removed `error_log` if config file not found

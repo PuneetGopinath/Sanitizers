@@ -2,7 +2,12 @@
 
 <link rel="stylesheet" href="css/main.css" />
 
-Explanation of BK Sanitizers functions.
+# Table of contents
+
+ * [Explanation of BK Sanitizers functions](#explanation-of-bk-sanitizers-functions)
+ * [Explanation of BK Sanitizers methods](#explanation-of-bk-sanitizers-methods)
+
+# Explanation of BK Sanitizers functions:
 
 ## 1. function configFromIni
 
@@ -341,5 +346,41 @@ The `types` key in the array can be any one of these. And also it can be any one
 
 ### Return values
 &emsp;Returns the sanitized array
+
+# Explanation of BK Sanitizers methods:
+
+## 1. __construct
+
+__construct - Sanitizer class constructor.
+
+### Description
+
+    public function __construct($exceptions=null, $logger=null, $sanitizerData=null)
+
+Constructs the class Sanitizer.<br>
+And returns the class Sanitizer after constructing.
+
+### Parameters
+
+<b>exceptions</b><br>
+&emsp;Do you want to enable exceptions? True/False
+
+```php
+$sanitizer = new Sanitizer(true);
+```
+
+<b>logger</b><br>
+&emsp;You can pass an instance of a PSR-3 compatible logger here
+
+```php
+$logger = new myPsr3Logger();
+$sanitizer = new Sanitizer(false, $logger);
+```
+
+<b>sanitizerData</b><br>
+&emsp;The SanitizerData class. If null will automatically create new one.
+
+### Return values
+&emsp;Returns the class Sanitizer.
 
 [Back to home](README.md)

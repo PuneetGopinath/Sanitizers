@@ -11,12 +11,20 @@
 
 namespace Sanitizers\Sanitizers;
 
-const config = array(
-    "maxInputLength" => 100, // 1
-    "encoding" => "UTF-8", // 2
-    "preventXSS" => true, // 3
-    "escape" => true // 4
-);
+class SanitizerData
+{
+    /**
+     * Default configuration options
+     * 
+     * @var array
+     */
+    public static $config = array(
+        "maxInputLength" => 100, // 1
+        "encoding" => "UTF-8", // 2
+        "preventXSS" => true, // 3
+        "escape" => true // 4
+    );
+}
 /*
 1. Maximum length of string (user input)
 If user input is more than maxInputLength then extra characters will be removed
