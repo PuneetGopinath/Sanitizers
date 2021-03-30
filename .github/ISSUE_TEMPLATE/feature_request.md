@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+Please check these things before submitting your issue:
+
 - [ ] I searched for duplicate or closed feature request [here](https://github.com/PuneetGopinath/Sanitizers/issues?q=is%3Aissue)
 
 ### Feature requests include:
