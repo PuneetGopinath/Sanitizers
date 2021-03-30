@@ -1,6 +1,6 @@
 <?php
 /**
- * Sanitizers - Quickly Sanitize user data
+ * BK Sanitizers - Quickly Sanitize user data
  * Copyright (c) 2021 The BK Sanitizers Team
  * 
  * @see https://github.com/PuneetGopinath/Sanitizers
@@ -39,7 +39,14 @@ class Sanitizer
      * 
      * @var \Psr\Log\LoggerInterface|null
      */
-    public $logger = null;
+    protected $logger = null;
+
+    /**
+     * The SanitizerData class
+     * 
+     * @var SanitizerData|null
+     */
+    protected $sanitizerData = null;
 
     /**
      * Configuration settings
@@ -47,20 +54,6 @@ class Sanitizer
      * @var array
      */
     public $config = array();
-
-    /**
-     * Message for fatal error
-     * 
-     * @var string
-     */
-    private $fatal = "Fatal Error: Sanitizers: ";
-
-    /**
-     * Message for warning
-     * 
-     * @var string
-     */
-    private $warn = "Warning: Sanitizers: ";
 
     /**
      * Sanitizers Version number.
@@ -74,7 +67,7 @@ class Sanitizer
      * 
      * @var bool
      */
-    public $ini = false;
+    protected $ini = false;
 
     /**
      * Sanitizer class constructor.
@@ -86,13 +79,43 @@ class Sanitizer
      */
     public function __construct($exceptions=null, $logger=null, $sanitizerData=null)
     {
-        if (empty($sanitizerData)) {
-            $sanitizerData = new SanitizerData();
+        if (empty($sanitizerData) || !(is_a($sanitizerData, __NAMESPACE__ . "SanitizerData"))) {
+            $this->sanitizerData = new SanitizerData();
+        } else if (empty($this->sanitizerData) && is_a($sanitizerData, __NAMESPACE__ . "SanitizerData")) {
+            $this->sanitizerData = $sanitizerData;
         }
+
+        $sanitizerData = null;
         $this->exceptions = (bool) $exceptions;
         $this->logger = $logger;
 
-        $this->set("*", $sanitizerData::$config);
+        $this->set("*", $this->sanitizerData::config);
+    }
+
+    /**
+     * Warning message
+     * 
+     * @param $msg The Warning message
+     * @return string
+     */
+    private function warn($msg)
+    {
+        $msg = "Warning: BK Sanitizers: " . $msg;
+        error_log($msg);
+        return $msg;
+    }
+
+    /**
+     * Fatal Error message
+     * 
+     * @param $msg The Fatal Error message
+     * @return string
+     */
+    private function fatal($msg)
+    {
+        $msg = "Fatal Error: BK Sanitizers: " . $msg;
+        error_log($msg);
+        return $msg;
     }
 
     /**
@@ -147,7 +170,7 @@ class Sanitizer
                 break;
             default:
                 if ($this->exceptions) {
-                    throw new \Exception($this->fatal . "Invalid config key: $case with value: $value");
+                    throw new \Exception($this->fatal("Invalid config key: $case with value: $value"));
                 }
                 return false;
                 break;
@@ -161,7 +184,7 @@ class Sanitizer
                 $this->config["preventXSS"] === true &&
                 (strtoupper($this->config["encoding"]) !== "UTF-8" || $this->config["escape"] !== true)
             ) {
-                $msg = $this->fatal . "If you set preventXSS as true then you should also set encoding to \"UTF-8\" and escape to true";
+                $msg = $this->fatal("If you set preventXSS as true then you should also set encoding to \"UTF-8\" and escape to true");
                 if ($this->logger) {
                     $this->logger->error($msg);
                 }
@@ -171,7 +194,7 @@ class Sanitizer
         }
 
         if ($value === "default") {
-            $this->config[$case] = SanitizerData::$config[$case];
+            $this->config[$case] = SanitizerData::config[$case];
         }
         return true;
     }
@@ -191,7 +214,7 @@ class Sanitizer
         $text = strip_tags($this->HTML((string)$text));
 
         if ($htmlspecialchars && $this->config["escape"]) {
-            $text = htmlspecialchars(htmlspecialchars_decode($text, ENT_QUOTES), ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
+            $text = htmlspecialchars($text, ENT_QUOTES, "UTF-8");
         } else if ($htmlspecialchars && !($this->config["escape"])) {
             $text = htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
         }
@@ -200,7 +223,7 @@ class Sanitizer
             $text = trim($text);
 
         if ($this->config["escape"])
-            $text = $this->escape($text);
+            $text = $this->escape(htmlspecialchars_decode($text, ENT_QUOTES));
 
         if ($alpha_num)
             $text = preg_replace("/\W/si", "", $text);
@@ -218,7 +241,7 @@ class Sanitizer
         if (function_exists("iconv") && $this->config["preventXSS"]) {
             $text = iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
         } else if (!function_exists("iconv")) {
-            error_log($this->warn . "PHP extension iconv not installed.");
+            $msg = $this->warn("PHP extension iconv not installed.");
         }
 
         if ($ucwords)
@@ -233,11 +256,18 @@ class Sanitizer
      * No need to use this function if you used clean or sanitize function on the input string with escape in config enabled.
      * 
      * @param $input The input data.
+     * @param $strict Do you want escape function to be strict?
      * @return string
      */
-    public function escape($input)
+    public function escape($input, $strict=true)
     {
-        return htmlspecialchars(addslashes(stripslashes((string)$input)), ENT_QUOTES, "UTF-8");
+        if ($strict) {
+            $input = htmlspecialchars((string)$input, ENT_QUOTES, "UTF-8");
+        } else {
+            $input = (string)$input;
+        }
+
+        return addslashes(stripslashes($input));
     }
 
     /**
@@ -321,7 +351,7 @@ class Sanitizer
      */
     public function NonNumericText($text, $trim=true, $htmlspecialchars=true, $alpha_num=false)
     {
-        error_log($this->warn . "You are using the depreciated function NonNumericText instead use the sanitize function with type parameter as \"text\" (see FUNCTIONS.md in docs for understanding sanitize function)");
+        $msg = $this->warn("You are using the depreciated function NonNumericText use instead the sanitize function with type parameter as \"text\" (see FUNCTIONS.md in docs to understand sanitize function)");
         $text = preg_replace("/[^A-Za-z]/s", "", $this->sanitize("text", (string)$text, $trim, $htmlspecialchars));
         return $text;
     }
@@ -329,9 +359,9 @@ class Sanitizer
     /**
      * https://www.php.net/manual/en/function.strip-tags.php#86964
      * 
-     * @param string $text
-     * @param string $tags
-     * @param bool $invert
+     * @param string $text The html code.
+     * @param string $tags The allowed html tags.
+     * @param bool $invert Do you want to change parameter #2 to `The disallowed html tags.`?
      * @return string
      */
     private function strip_tags_content($text, $tags="", $invert=false)

@@ -17,7 +17,7 @@ Format is `version (*dd-mm-yyyy*)`
  * 
 
 #### Changes
- * Moved global variable `$config` to `\Sanitizers\Sanitizers\SanitizerData::$config`
+ * Moved global variable `$config` to constant `\Sanitizers\Sanitizers\SanitizerData::config`
  * Use `mb_strlen` and `mb_substr` instead of `strlen` and `substr` respectively because they return exact length and correctly remove extra characters
  * Replaced `[]` with `array()` for backward compability
  * Rename config.php to bootstrap.php
