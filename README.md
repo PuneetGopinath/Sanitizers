@@ -6,9 +6,7 @@
     </a>
   </p>
   <h2 align="center">BK Sanitizers (BKS)</h2>
-
-> *Quickly Sanitize user data*
-
+  <blockquote><b>Quickly Sanitize user data</b></blockquote>
   <img alt="Welcome" src="gif/Welcome.gif" />
 
   <p align="center">
@@ -32,8 +30,10 @@
 ---------------------------------------------------------------------
 
 **Note**: See the [1.0-dev](https://github.com/PuneetGopinath/Sanitizers/tree/1.0-dev) branch, as main branch is developing 1.1.0 minor release so, the readme and docs are not for 1.0 releases.
+
 <details open="true">
     <summary align="center">Table of contents</summary>
+    <div markdown="1">
 
  * [Features](#features)
  * [Quick Start](#quick-start)
@@ -53,6 +53,7 @@
  * [Versioning](#versioning)
  * [Conclusion](#conclusion)
 
+    </div>
 </details>
 
 <h2><a name="features">Features</a></h2>
@@ -188,7 +189,7 @@ This project is currently being maintained. And Will Be Maintained. If You Like 
 
 XSS stands for Cross Site Scripting.
 
-- ### How can I clean user input 🧹 ?
+- ### How can I clean user input ?
 
 1. Sanitize
 2. Validate
@@ -209,7 +210,7 @@ composer update # Update dependencies and install autoload
 composer test # Test with composer autoload
 ```
 
-<h2><a name="files">Files 🗃️</a></h2>
+<h2><a name="files">Files️</a></h2>
 
 ```text
 Sanitizers/
@@ -284,7 +285,7 @@ MIT License. Read [LICENSE](LICENSE) file.
 
 Then, you need to know difference between HTMLPurifier and BKS
 
-1. HTMLPurifier aims at creating safe and valid HTML as close as possible to a given input. But we aim to cover all types of input like name, username, password, etc
+1. HTMLPurifier aims at creating safe and valid HTML as close as possible to a given input. But we aim to cover sanitizing all types of input like name, username, password, etc
 
 <h2><a name="support-us">Support Us</a></h2>
 
@@ -320,7 +321,7 @@ Help spread awareness about BK Sanitizers by:
 
  * Pinterest: [![Share](https://img.shields.io/badge/Share-Pinterest-%23c8232c?style=flat-square)](https://pinterest.com/pin/create/button/?media=\&description=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
 
- * Email: [![Share](https://img.shields.io/badge/Share-Email-green?style=flat-square)](mailto:info@example.com?\&subject=See%20this%20Awesome%20PHP%20Sanitizers\&cc=\&bcc=\&body=https://github.com/PuneetGopinath/Sanitizers%0AThis%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out)
+ * Email: [![Share](https://img.shields.io/badge/Share-Email-green?style=flat-square)](mailto:info@example.com?\&subject=See%20this%20Awesome%20PHP%20Sanitizers\&cc=\&bcc=\&body=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:%0Ahttps://github.com/PuneetGopinath/Sanitizers)
 
 <h2><a name="versioning">Versioning</a></h2>
 

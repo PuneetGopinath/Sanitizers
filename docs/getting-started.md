@@ -69,7 +69,7 @@ Replace **/path/to/vendor/autoload.php** with path to **vendor/autoload.php** fi
 require "/path/to/vendor/autoload.php";
 ```
 
-2. Then, Sanitize input.<br>
+2. Then, Sanitize input (also add configFromIni if you want to use configuration settings from ini file).<br>
 
 Add `$sanitizer->configFromIni("src/config.ini");` if you want to use config settings from a ini file after defining `$sanitizer` variable.
 
