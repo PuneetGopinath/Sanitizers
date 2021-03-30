@@ -144,7 +144,7 @@ escape - Escape input.
 
 ### Description
 
-    public function escape($input)
+    public function escape($input, $strict=true)
 
 Escapes the input string.<br>
 And returns the escaped string.
@@ -155,6 +155,9 @@ And returns the escaped string.
 
 <b>input</b><br>
 &emsp;The input data.
+
+<b>strict</b><br>
+&emsp;Do you want escape function to be strict? default:true
 
 ### Return values
 &emsp;Returns the escaped string.

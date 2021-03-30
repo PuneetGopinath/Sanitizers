@@ -23,7 +23,7 @@
   </p><br><br>
   <a href="https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers\&hashtags=php,backend,developer,opensource,bksanitizers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
   <a href="https://gitter.im/BaalKrshna/Sanitizers?utm_source=badge&utm_medium=badge"><img alt="Join the chat at https://gitter.im/BaalKrshna/Sanitizers" src="https://badges.gitter.im/BaalKrshna/Sanitizers.svg" /></a>
-  <a href="https://discord.gg/UqRgmKrYB3"><img alt="Discord Chat" src="https://img.shields.io/discord/826082157259915264?label=discord"></a>
+  <a href="https://discord.gg/UqRgmKrYB3"><img alt="Discord Chat" src="https://img.shields.io/discord/826082157259915264?color=%237289da&label=discord"></a>
   <a href="https://github.com/PuneetGopinath/Sanitizers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/PuneetGopinath/Sanitizers?style=social"></a><br>
 </div>
 
@@ -62,10 +62,11 @@
 2. Namespaced to prevent name clashes
 3. Built-in tests
 4. Examples for how-to use BKS
-5. Escape values
+5. Sanitize urls
 6. Use configuration from ini file
-7. Easy to Use
-8. And many more...
+7. Escape strings
+8. Easy to Use
+9. And many more...
 
 <h2><a name="quick-start">Quick Start 🚀</a></h2>
 
@@ -134,7 +135,7 @@ try {
 This project is currently being maintained. And Will Be Maintained. If You Like This Project And Want This Project To Never Exhaust. Please Consider Donating.
 
 [![Join the chat at https://gitter.im/BaalKrshna/Sanitizers](https://badges.gitter.im/BaalKrshna/Sanitizers.svg)](https://gitter.im/BaalKrshna/Sanitizers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Discord Chat](https://img.shields.io/discord/826082157259915264?label=discord)](https://discord.gg/UqRgmKrYB3)
+[![Discord Chat](https://img.shields.io/discord/826082157259915264?color=%237289da&label=discord)](https://discord.gg/UqRgmKrYB3)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers?ref=badge_shield)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](.github/CODE_OF_CONDUCT.md)
 
@@ -172,30 +173,12 @@ This project is currently being maintained. And Will Be Maintained. If You Like 
 
 <h2><a name="about">About ℹ️</a></h2>
 
-- ### What is Sanitize ??
+Read the [getting started guide](docs/getting-started.md) in docs to understand these:
 
-/ˈsanɪtʌɪz/ - to make something completely clean and free from bacteria.<br>
-
-> In web development to sanitize means that you remove unsafe characters from the input.<br>
-> Sanitize is a function to check (and remove) harmful data (which can harm the software) from user input.<br>
-> Sanitizing user input is the most secure method of user input validation to strip out anything that is not on the whitelist.<br>
-
-- ### When and why should I use Sanitizers ?
-
-> Whenever you store user's data (in database or anywhere), or if that data will be read/available to (unsuspecting) users, then you have to sanitize it.<br>
-> See also HTML_sanitization in
-[wikipedia](https://en.m.wikipedia.org/wiki/HTML_sanitization)<br>
-
-- ### What is XSS ??
-
-XSS stands for Cross Site Scripting.
-
-- ### How can I clean user input ?
-
-1. Sanitize
-2. Validate
-3. Escape output.
-![Validating process image](gif/Sanitize.jpg)
+ * What is XSS ??
+ * What is Sanitize ??
+ * When and why should I use Sanitizers ?
+ * How can I clean user input ?
 
 <h2><a name="visuals">Visuals 📽️</a></h2>
 
@@ -251,7 +234,7 @@ Plz see [SUPPORT.md](https://github.com/PuneetGopinath/Sanitizers/blob/main/.git
 
 <h2><a name="authors">Authors ✒️</a></h2>
 
- * Puneet Gopinath - [GitHub](https://github.com/PuneetGopinath) - [Email](mailto:baalkrshna@gmail.com)
+ * Puneet Gopinath - [GitHub](https://github.com/PuneetGopinath) - [Email](mailto:puneet2007@icloud.com)
 
 See also the list of [contributors](https://github.com/PuneetGopinath/Sanitizers/graphs/contributors) who participated in building this project.
 
@@ -288,9 +271,11 @@ Then, you need to know difference between HTMLPurifier and BKS
 
 1. HTMLPurifier aims at creating safe and valid HTML as close as possible to a given input. But we aim to cover sanitizing all types of input like name, username, password, etc
 
+But we always recomend HTMLPurifier for sanitizing html code.
+
 <h2><a name="support-us">Support Us</a></h2>
 
-This is optional (we don't force you anything) and you can also try to give at least a star at GitHub.
+At least you can give a star at our GitHub repo.
 
 ### Review
 
@@ -298,7 +283,7 @@ This is optional (we don't force you anything) and you can also try to give at l
 
 ### Sponsor
 
-Support BK Sanitizers by becoming a sponsor.
+Support BK Sanitizers by becoming a **sponsor**.
 Your name will be added manually (by us) below `Click here to sponsor`.
 
 Click here to sponsor:
@@ -306,7 +291,7 @@ Click here to sponsor:
 1. [at patreon](https://patreon.com/PuneetGopinath)
 2. [at liberapay](https://liberapay.com/PuneetGopinath)
 
-Project sponsored by:
+##### Project sponsored by:
 
 1. No sponsors, be the first to sponsor now itself by clicking any one of the above links!
 
@@ -314,15 +299,15 @@ Project sponsored by:
 
 Help spread awareness about BK Sanitizers by:
 
- * Twitter: [![Share](https://img.shields.io/badge/Share-Twitter-%231DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers\&hashtags=php,backend,developer,opensource,bksanitizers)
+ * Twitter: [![Share at Twitter](https://img.shields.io/badge/Share-Twitter-%231DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers\&hashtags=php,backend,developer,opensource,bksanitizers)
 
- * Facebook: [![Share](https://img.shields.io/badge/Share-Facebook-%233b5998?style=flat-square)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/PuneetGopinath/Sanitizers)
+ * Facebook: [![Share at Facebook](https://img.shields.io/badge/Share-Facebook-%233b5998?style=flat-square)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/PuneetGopinath/Sanitizers)
 
- * Linkedin: [![Share](https://img.shields.io/badge/Share-Linkedin-%230e76a8?style=flat-square)](https://www.linkedin.com/shareArticle?mini=true\&url=https://github.com/PuneetGopinath/Sanitizers)
+ * Linkedin: [![Share at Linkedin](https://img.shields.io/badge/Share-Linkedin-%230e76a8?style=flat-square)](https://www.linkedin.com/shareArticle?mini=true\&url=https://github.com/PuneetGopinath/Sanitizers)
 
- * Pinterest: [![Share](https://img.shields.io/badge/Share-Pinterest-%23c8232c?style=flat-square)](https://pinterest.com/pin/create/button/?media=\&description=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
+ * Pinterest: [![Share at Pinterest](https://img.shields.io/badge/Share-Pinterest-%23c8232c?style=flat-square)](https://pinterest.com/pin/create/button/?media=\&description=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
 
- * Email: [![Share](https://img.shields.io/badge/Share-Email-green?style=flat-square)](mailto:info@example.com?\&subject=See%20this%20Awesome%20PHP%20Sanitizers\&cc=\&bcc=\&body=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:%0Ahttps://github.com/PuneetGopinath/Sanitizers)
+ * Email: [![Share at Email](https://img.shields.io/badge/Share-Email-green?style=flat-square)](mailto:bksanitizers@gmail.com?\&subject=See%20this%20Awesome%20PHP%20Sanitizers\&cc=\&bcc=\&body=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:%0Ahttps://github.com/PuneetGopinath/Sanitizers)
 
 <h2><a name="versioning">Versioning</a></h2>
 
