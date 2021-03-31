@@ -54,4 +54,4 @@ jobs:
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
     - name: Run tests
-      run: composer run-script test
+      run: composer run-script test-all
