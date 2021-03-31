@@ -65,11 +65,6 @@ Modifies a config setting temporarily and returns true if it is modified or else
             <td>Do you want to prevent XSS?</td>
             <td>true/false</td>
         </tr>
-        <tr>
-            <th>escape</th>
-            <td>Do you want to escape user input?</td>
-            <td>true/false</td>
-        </tr>
     </tbody>
 </table>
 
@@ -138,31 +133,7 @@ XSS
 ### Return values
 &emsp;Returns the sanitized string
 
-## 4. function escape
-
-escape - Escape input.
-
-### Description
-
-    public function escape($input, $strict=true)
-
-Escapes the input string.<br>
-And returns the escaped string.
-
-**Note:** No need to use this function if you used clean or sanitize function on the input string and have enabled the escape in the config settings.
-
-### Parameters
-
-<b>input</b><br>
-&emsp;The input data.
-
-<b>strict</b><br>
-&emsp;Do you want escape function to be strict? default:true
-
-### Return values
-&emsp;Returns the escaped string.
-
-## 5. function sanitize
+## 4. function sanitize
 
 sanitize - Sanitize a string
 
@@ -245,7 +216,7 @@ And returns the sanitized string
 ### Return values
 &emsp;Returns the sanitized string
 
-## 6. function HTML
+## 5. function HTML
 
 HTML - Sanitize html code
 
@@ -276,7 +247,7 @@ Which will keep both `<b>` and `</b>`, `<a>` and `</a>` in this example.
 ### Return values
 &emsp;Returns the sanitized html code
 
-## 7. function sanitizeArray
+## 6. function sanitizeArray
 
 sanitizeArray - Sanitize an array
 
@@ -339,10 +310,6 @@ The `types` key in the array can be any one of these. And also it can be any one
         <tr>
             <th>html</th>
             <td>For HTML code</td>
-        </tr>
-        <tr>
-            <th>escape</th>
-            <td>For escaping a string</td>
         </tr>
     </tbody>
 </table>

@@ -21,8 +21,7 @@ class SanitizerData
     const config = array(
         "maxInputLength" => 100, // 1
         "encoding" => "UTF-8", // 2
-        "preventXSS" => true, // 3
-        "escape" => true // 4
+        "preventXSS" => true // 3
     );
 }
 /*
@@ -33,10 +32,8 @@ If user input is more than maxInputLength then extra characters will be removed
 For a list of encoding options
 
 3. A bool indicating whether to prevent XSS
-
-4. A bool indicating whether to escape the input
 */
 
-//If you set preventXSS as true then you should also set encoding to "UTF-8" and escape to true
+//If you set preventXSS as true then you should also set encoding to "UTF-8"
 
 ?>

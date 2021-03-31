@@ -64,9 +64,8 @@
 4. Examples for how-to use BKS
 5. Sanitize urls
 6. Use configuration from ini file
-7. Escape strings
-8. Easy to Use
-9. And many more...
+7. Easy to Use
+8. And many more...
 
 <h2><a name="quick-start">Quick Start 🚀</a></h2>
 

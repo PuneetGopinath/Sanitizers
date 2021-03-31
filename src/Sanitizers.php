@@ -152,9 +152,6 @@ class Sanitizer
             case "maxInputLength":
                 $this->config["maxInputLength"] = (int)$value;
                 break;
-            case "escape":
-                $this->config["escape"] = (bool)$value;
-                break;
             case "preventXSS":
                 $this->config["preventXSS"] = (bool)$value;
                 break;
@@ -162,7 +159,6 @@ class Sanitizer
                 if (
                     $this->set("encoding", $value["encoding"]) &&
                     $this->set("maxInputLength", $value["maxInputLength"]) &&
-                    $this->set("escape", $value["escape"]) &&
                     $this->set("preventXSS", $value["preventXSS"])
                 ) {
                     return true;
@@ -178,13 +174,13 @@ class Sanitizer
 
         if (
             isset($this->config["preventXSS"]) &&
-            (isset($this->config["encoding"]) || isset($this->config["escape"]))
+            isset($this->config["encoding"])
         ) {
             if (
                 $this->config["preventXSS"] === true &&
-                (strtoupper($this->config["encoding"]) !== "UTF-8" || $this->config["escape"] !== true)
+                strtoupper($this->config["encoding"]) !== "UTF-8"
             ) {
-                $msg = $this->fatal("If you set preventXSS as true then you should also set encoding to \"UTF-8\" and escape to true");
+                $msg = $this->fatal("If you set preventXSS as true then you should also set encoding to \"UTF-8\"");
                 if ($this->logger) {
                     $this->logger->error($msg);
                 }
@@ -213,17 +209,14 @@ class Sanitizer
     {
         $text = strip_tags($this->HTML((string)$text));
 
-        if ($htmlspecialchars && $this->config["escape"]) {
+        if ($htmlspecialchars && $this->config["preventXSS"]) {
             $text = htmlspecialchars($text, ENT_QUOTES, "UTF-8");
-        } else if ($htmlspecialchars && !($this->config["escape"])) {
-            $text = htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE, $this->config["encoding"]);
+        } else if ($htmlspecialchars && !($this->config["preventXSS"])) {
+            $text = htmlspecialchars($text, ENT_QUOTES, $this->config["encoding"]);
         }
 
         if ($trim)
             $text = trim($text);
-
-        if ($this->config["escape"])
-            $text = $this->escape(htmlspecialchars_decode($text, ENT_QUOTES));
 
         if ($alpha_num)
             $text = preg_replace("/\W/si", "", $text);
@@ -248,26 +241,6 @@ class Sanitizer
             $text = ucwords(strtolower($text));
 
         return $text;
-    }
-
-    /**
-     * Escape input
-     * 
-     * No need to use this function if you used clean or sanitize function on the input string with escape in config enabled.
-     * 
-     * @param $input The input data.
-     * @param $strict Do you want escape function to be strict?
-     * @return string
-     */
-    public function escape($input, $strict=true)
-    {
-        if ($strict) {
-            $input = htmlspecialchars((string)$input, ENT_QUOTES, "UTF-8");
-        } else {
-            $input = (string)$input;
-        }
-
-        return addslashes(stripslashes($input));
     }
 
     /**
@@ -326,9 +299,6 @@ class Sanitizer
                 break;
             case "username":
                 $text = preg_replace("/[^a-z0-9]/s", "", strtolower($this->sanitize("text", (string)$text, $trim, $htmlspecialchars, true, false)));
-                break;
-            case "escape":
-                $text = $this->escape($text);
                 break;
             default:
                 $text = $this->clean($text, $trim, $htmlspecialchars, $alpha_num, $ucwords);
@@ -468,9 +438,6 @@ class Sanitizer
                     break;
                 case "html":
                     $sanitized = $this->HTML($value, $filters[$key]["tags"]);
-                    break;
-                case "escape":
-                    $sanitized = $this->escape($value);
                     break;
                 default:
                     $sanitized = $this->clean($value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);

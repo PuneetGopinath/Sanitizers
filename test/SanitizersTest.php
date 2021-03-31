@@ -75,8 +75,7 @@ $testValues = array(
     "username" => "PuneetGopinath", // It will become to smaller case if you want upper case also then use sanitize function with type parameter as name e.g. `$sanitizer->sanitize("name", $username)`
     "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">Click here</a>",
     "password" => "\$UnIQUe|`_-<script>alert('XSS')</script>#pass•WorD%!?",
-    "function_clean" => "XSS <script>alert('XSS');</script>",
-    "function_escape" => "Sanitizers'; DELETE FROM users; ---"
+    "function_clean" => "XSS <script>alert('XSS');</script>"
 );
 
 if ($configFromIni && is_readable($baseDir . "/src/config.ini"))
@@ -95,8 +94,7 @@ $values = array(
     "username" => $sanitizer->sanitize("username", $testValues["username"]),
     "html" => $sanitizer->HTML($testValues["html"]),
     "password" => $sanitizer->sanitize("password", $testValues["password"]),
-    "function_clean" => $sanitizer->clean($testValues["function_clean"]),
-    "function_escape" => $sanitizer->escape($testValues["function_escape"])
+    "function_clean" => $sanitizer->clean($testValues["function_clean"])
 );
 $filters = array(
     "types" => array(
@@ -109,8 +107,7 @@ $filters = array(
         "url" => "url",
         "username" => "username",
         "html" => "html",
-        "function_clean" => "", //Will use clean function
-        "function_escape" => "escape"
+        "function_clean" => "" //Will use clean function
     ),
     "message" => array(
         "trim" => false, //Enables php trim function, default:true
