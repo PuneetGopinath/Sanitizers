@@ -20,7 +20,7 @@ class SanitizerData
      * 
      * @var array
      */
-    const config = array(
+    public static $config = array(
         "maxInputLength" => 100, // 1
         "encoding" => "UTF-8", // 2
         "preventXSS" => true // 3

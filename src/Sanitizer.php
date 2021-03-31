@@ -87,7 +87,7 @@ class Sanitizer
         $this->exceptions = (bool) $exceptions;
         $this->logger = $logger;
 
-        $this->set("*", $this->sanitizerData::config);
+        $this->set("*", $this->sanitizerData->config);
     }
 
     /**
@@ -188,7 +188,7 @@ class Sanitizer
         }
 
         if ($value === "default") {
-            $this->config[$case] = SanitizerData::config[$case];
+            $this->config[$case] = $this->sanitizerData->config[$case];
         }
         return true;
     }
