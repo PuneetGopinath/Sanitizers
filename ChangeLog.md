@@ -18,6 +18,7 @@ Format is `version (*dd-mm-yyyy*)`
 
 #### Changes
  * Change message in tests to an example of xss
+ * Correct grammer in `INSTALL.md`
 
 #### Functions
  * Before removing extra characters, use trim function if enabled
