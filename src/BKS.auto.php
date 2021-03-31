@@ -13,8 +13,6 @@ namespace Sanitizers\Sanitizers;
 
 require_once dirname(__FILE__) . "/Sanitizer.php";
 
-namespace Sanitizers\Sanitizers;
-
 class SanitizerData
 {
     /**
