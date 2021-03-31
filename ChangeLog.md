@@ -49,7 +49,6 @@ Format is `version (*dd-mm-yyyy*)`
  * Added whether to use `ucwords` in `clean` and some types of `sanitize` function
  * Always use `ucwords` in sanitize function in type "name"
  * Added example output for test in `test/example.md`
- * Added asking questions in contributing guidelines
  * Added SanitizerData class for keeping data for Sanitizers in it (like configuration settings)
 
 #### Deletions
@@ -59,10 +58,13 @@ Format is `version (*dd-mm-yyyy*)`
 
 #### Docs
  * Clearly added how to use `psr/log` library
- * Explained about sanitizers function in a new file `FUNCTIONS.md`
+ * New file `FUNCTIONS.md` for understanding sanitizers functions
  * New file `getting-started.md` for Getting Started guide
+ * New file `config.md` for Configuring BKS guide
+ * New file `files.md` for explanation of main files in BKS
  * Added extending in examples
  * Added Asking question section in wiki
+ * Added asking questions in contributing guidelines
 
 #### Depreciated
  * Depreciated function `NonNumericText`
