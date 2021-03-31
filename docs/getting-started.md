@@ -51,14 +51,14 @@ Installation guide can be read in [INSTALL.md](https://github.com/PuneetGopinath
 
 A basic template for sanitizing user input with BK Sanitizers.
 
-If you are using composer, then replace `require "src/Sanitizers.php";` with `require "vendor/autoload.php";`
+If you are using composer, then replace `require_once "src/BKS.auto.php";` with `require_once "vendor/autoload.php";`
 
 ```php
 <?php
 // Import classes
 use Sanitizers\Sanitizers\Sanitizer;
 
-require "src/Sanitizers.php";
+require_once "src/BKS.auto.php";
 
 // passing `true` in Sanitizer class enables exceptions
 $sanitizer = new Sanitizer(true);
@@ -82,10 +82,10 @@ use Sanitizers\Sanitizers\Sanitizer;
 
  * without composer autoload:
 
-Replace **/path/to/src/Sanitizers.php** with path to **src/Sanitizers.php** file in the code below.
+Replace **/path/to/src/BKS.auto.php** with path to **src/BKS.auto.php** file in the code below.
 
 ```
-require "/path/to/src/Sanitizers.php";
+require_once "/path/to/src/BKS.auto.php";
 ```
 
  * with composer autoload:
@@ -93,7 +93,7 @@ require "/path/to/src/Sanitizers.php";
 Replace **/path/to/vendor/autoload.php** with path to **vendor/autoload.php** file in the code below.
 
 ```
-require "/path/to/vendor/autoload.php";
+require_once "/path/to/vendor/autoload.php";
 ```
 
 2. Then, Sanitize input (also add configFromIni if you want to use configuration settings from ini file).<br>

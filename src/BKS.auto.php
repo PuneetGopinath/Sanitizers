@@ -1,13 +1,17 @@
 <?php
 /**
  * This file is part of the BK Sanitizers project.
- * Bootstrap file for BK Sanitizers
+ * Autoload file for BK Sanitizers
  * 
  * @see https://github.com/PuneetGopinath/Sanitizers
  * @license MIT
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
+namespace Sanitizers\Sanitizers;
+
+require_once dirname(__FILE__) . "/Sanitizer.php";
 
 namespace Sanitizers\Sanitizers;
 
@@ -35,5 +39,4 @@ For a list of encoding options
 */
 
 //If you set preventXSS as true then you should also set encoding to "UTF-8"
-
 ?>

@@ -47,7 +47,7 @@ if (is_readable($baseDir . "/vendor/autoload.php")) {
     require $baseDir . "/vendor/autoload.php";
     echo "Using composer autoload files" . EOL;
 } else {
-    require $baseDir . "/src/Sanitizers.php";
+    require $baseDir . "/src/BKS.auto.php";
     echo "Not using composer autoload files" . EOL;
 }
 $sanitizer = new Sanitizer(false);

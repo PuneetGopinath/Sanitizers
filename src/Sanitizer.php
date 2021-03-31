@@ -11,8 +11,6 @@
 
 namespace Sanitizers\Sanitizers;
 
-require dirname(__FILE__) . "/bootstrap.php";
-
 /**
  * Sanitizer class for Sanitizing user input
  */

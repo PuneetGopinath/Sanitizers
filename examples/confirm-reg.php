@@ -7,7 +7,7 @@
 //Import Sanitizer class into the global namespace
 use Sanitizers\Sanitizers\Sanitizer;
 
-require "../src/Sanitizers.php";
+require_once "../src/BKS.auto.php";
 
 if (isset($_POST["Submit"]))
 {

@@ -97,7 +97,7 @@ Just include the file and Sanitize user input.
 // Import classes
 use Sanitizers\Sanitizers\Sanitizer;
 
-require "src/Sanitizers.php";
+require "src/BKS.auto.php";
 
 // passing `true` in Sanitizer class enables exceptions
 $sanitizer = new Sanitizer(true);
@@ -198,16 +198,9 @@ composer test # Test with composer autoload
 ```text
 Sanitizers/
 └── src/
-    ├── Sanitizers.php
+    ├── Sanitizer.php
     └── config.ini
-    └── bootstrap.php
-└── examples/
-    └── README.md
-    └── extending.php
-    └── confirm-reg.php
-    └── contact-form.php
-    └── login.php
-    └── register.php
+    └── BKS.auto.php
 └── test/
     └── SanitizersTest.php
     └── README.md

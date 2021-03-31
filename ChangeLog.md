@@ -20,7 +20,8 @@ Format is `version (*dd-mm-yyyy*)`
  * Moved global variable `$config` to constant `\Sanitizers\Sanitizers\SanitizerData::config`
  * Use `mb_strlen` and `mb_substr` instead of `strlen` and `substr` respectively because they return exact length and correctly remove extra characters
  * Replaced `[]` with `array()` for backward compability
- * Rename config.php to bootstrap.php
+ * Rename `config.php` to `BKS.auto.php`
+ * Rename `Sanitizers.php` to `Sanitizer.php`
  * Renamed variable `$html_entities` to `$htmlspecialchars`
  * `Integer($number)` changed to `sanitize("integer", $number)`
  * `Hex($hex)` changed to `sanitize("hex", $hex)`
