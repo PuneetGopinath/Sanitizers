@@ -6,7 +6,7 @@ Get started with BK Sanitizers, the library for sanitizing all types of user inp
 
 ## Introduction
 
-A Web Sanitizer is used to prevent XSS attacks. Not only Sanitizers are enough to prevent XSS, we also need to validate all sanitized user input.
+A Web Sanitizer is used to prevent XSS attacks. Not only sanitizing user input is enough to prevent XSS, we also need to validate all sanitized user input.
 
 Sanitization is one of the most important topic of web security or cybersecurity.
 
@@ -51,7 +51,7 @@ Installation guide can be read in [INSTALL.md](https://github.com/PuneetGopinath
 
 A basic template for sanitizing user input with BK Sanitizers.
 
-If you are using composer, then replace `require_once "src/BKS.auto.php";` with `require_once "vendor/autoload.php";`
+If you are using composer, then replace `require_once "src/BKS.auto.php";` with `require_once "vendor/autoload.php";`.
 
 ```php
 <?php

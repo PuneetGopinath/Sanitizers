@@ -4,10 +4,12 @@
 
 # Table of contents
 
- * [Explanation of BK Sanitizers functions](#explanation-of-bk-sanitizers-functions)
- * [Explanation of BK Sanitizers methods](#explanation-of-bk-sanitizers-methods)
+Explanation of BK Sanitizers:
 
-# Explanation of BK Sanitizers functions:
+ * [functions](#functions)
+ * [methods](#methods)
+
+# functions:
 
 ## 1. function configFromIni
 
@@ -34,7 +36,7 @@ set - Modifies a config setting
 
     public function set($case, $value="default")
 
-Modifies a config setting temporarily and returns true if it is modified or else false if it is not modified.
+Modifies a config setting temporarily and returns true if it is modified or else returns false if it is not modified.
 
 ### Parameters
 
@@ -71,7 +73,7 @@ Modifies a config setting temporarily and returns true if it is modified or else
 **Note:** For maxInputLength, if length of user input is more than maxInputLength then extra characters will be removed.
 
 <b>value</b><br>
-&emsp;The value of the setting. It is based on the case parameter. See the value column in case parameter
+&emsp;The value of the setting. It is based on the case parameter. See the value column in case parameter.
 
 ### Example
 
@@ -85,11 +87,11 @@ if ($sanitizer->set("preventXSS", true)) {
 
 ### Return values
 
-&emsp;Returns true if config setting is modified or else false if it is not modified
+&emsp;Returns true if config setting is modified or else false if it is not modified.
 
 ## 3. function clean
 
-clean - Sanitize a string without specifing the type parameter of sanitize function
+clean - Sanitize a string without specifing the type parameter of sanitize function.
 
 ### Description
 
@@ -97,7 +99,7 @@ clean - Sanitize a string without specifing the type parameter of sanitize funct
 
 Cleans a user input. It sanitizes the input string through various functions.
 The input string is given parameter 1.<br>
-And returns the sanitized string
+And returns the sanitized string.
 
 ### Parameters
 
@@ -131,7 +133,7 @@ XSS
 ```
 
 ### Return values
-&emsp;Returns the sanitized string
+&emsp;Returns the sanitized string.
 
 ## 4. function sanitize
 
@@ -143,7 +145,7 @@ sanitize - Sanitize a string
 
 Cleans a user input. It sanitizes the input string through `filter_var` and somtimes uses above `clean` function based on the type parameter.
 The input string is given parameter 2.<br>
-And returns the sanitized string
+And returns the sanitized string.
 
 ### Parameters
 
@@ -205,16 +207,16 @@ And returns the sanitized string
 &emsp;The input data.
 
 <b>trim</b><br>
-&emsp;Same as mentioned above in clean function
+&emsp;Same as mentioned above in clean function.
 
 <b>htmlspecialchars</b><br>
-&emsp;Same as mentioned above in clean function
+&emsp;Same as mentioned above in clean function.
 
 <b>alpha_num</b><br>
-&emsp;Same as mentioned above in clean function
+&emsp;Same as mentioned above in clean function.
 
 ### Return values
-&emsp;Returns the sanitized string
+&emsp;Returns the sanitized string.
 
 ## 5. function HTML
 
@@ -225,7 +227,7 @@ HTML - Sanitize html code
     public function HTML($text, $tags="<b><i><em><p><a><br>")
 
 Cleans html code given by users.<br>
-And returns the sanitized html code
+And returns the sanitized html code.
 
 **Note:** It will remove any attribute starting with on or xmlns.
 
@@ -245,7 +247,7 @@ It should be in the format like in the below example:
 Which will keep both `<b>` and `</b>`, `<a>` and `</a>` in this example.
 
 ### Return values
-&emsp;Returns the sanitized html code
+&emsp;Returns the sanitized html code.
 
 ## 6. function sanitizeArray
 
@@ -256,7 +258,7 @@ sanitizeArray - Sanitize an array
     public function sanitizeArray($array, $filters=array("types"=>array()))
 
 Cleans a whole array one by one. It sanitizes the input string through above sanitize function according to the types given in `$filters["types"][$array_key]`.<br>
-And returns the sanitized array
+And returns the sanitized array.
 
 You can sanitize whole `$_POST`, `$_GET`, `$_REQUEST`, etc...
 
@@ -315,9 +317,9 @@ The `types` key in the array can be any one of these. And also it can be any one
 </table>
 
 ### Return values
-&emsp;Returns the sanitized array
+&emsp;Returns the sanitized array.
 
-# Explanation of BK Sanitizers methods:
+# methods:
 
 ## 1. __construct
 
@@ -333,14 +335,14 @@ And returns the class Sanitizer after constructing.
 ### Parameters
 
 <b>exceptions</b><br>
-&emsp;Do you want to enable exceptions? True/False
+&emsp;Do you want to enable exceptions? True/False.
 
 ```php
 $sanitizer = new Sanitizer(true);
 ```
 
 <b>logger</b><br>
-&emsp;You can pass an instance of a PSR-3 compatible logger here
+&emsp;You can pass an instance of a PSR-3 compatible logger here.
 
 ```php
 $logger = new myPsr3Logger();
