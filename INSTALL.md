@@ -12,7 +12,7 @@
 To install Sanitizers, you need:
 
  * #### PHP
-Minimum php 5.6.0 compiler.
+Minimum php 5.3.0 compiler.
  * #### PHP Extensions
 You need filter and mbstring extension.
 
@@ -41,5 +41,5 @@ Installing from github:
 
 2. Edit src/bootstrap.php or src/config.ini if you want to modify default config settings
 3. Add `use Sanitizers\Sanitizers\Sanitizer;` in the top of your php file not inside any function, then add `$sanitizer = new Sanitizer();`
-4. If you are going to use src/config.ini, Then add this line to your php app before sanitizing any user input but `$sanitizer->configFromIni("path/to/src/config.ini");`
-5. Now sanitize user input !!
+4. If you are going to use src/config.ini, Then add this line `$sanitizer->configFromIni("path/to/src/config.ini");` just after `$sanitizer = new Sanitizer();`
+5. Now you can sanitize user input !!

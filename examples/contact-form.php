@@ -1,13 +1,13 @@
 <?php
 
 /**
- * This example shows how to use Sanitizers in a contact form
+ * This example shows how to use BK Sanitizers in a contact form
  */
 
 //Import Sanitizer class into the global namespace
 use Sanitizers\Sanitizers\Sanitizer;
 
-require "../src/Sanitizers.php";
+require_once "../src/BKS.auto.php";
 
 if (isset($_POST["Submit"]))
 {

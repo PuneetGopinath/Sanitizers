@@ -10,8 +10,14 @@ updates:
       day: "sunday"
       time: "12:00"
       timezone: "Asia/Kolkata"
+    labels:
+      - "github-actions"
+      - "dependencies"
     pull-request-branch-name:
       separator: "-"
+    commit-message:
+      prefix: "Github Actions"
+      include: "scope"
     reviewers:
       - PuneetGopinath
 
@@ -22,7 +28,13 @@ updates:
       day: "sunday"
       time: "12:00"
       timezone: "Asia/Kolkata"
+    labels:
+      - "composer"
+      - "dependencies"
     pull-request-branch-name:
       separator: "-"
+    commit-message:
+      prefix: "Composer"
+      include: "scope"
     reviewers:
       - PuneetGopinath

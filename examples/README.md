@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="../docs/css/main.css" />
 
-This folder contains of examples of how to use PHP Sanitizers
+This folder contains examples of how to use PHP Sanitizers.
 
 ## Files
 

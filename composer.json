@@ -4,6 +4,7 @@
     "type": "library",
     "keywords": [
         "sanitizers",
+        "bksanitizers",
         "back-end",
         "backend",
         "security",
@@ -24,7 +25,6 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true,
         "process-timeout": 500,
         "platform-check": true
     },
@@ -32,6 +32,10 @@
         {
             "type": "patreon",
             "url": "https://www.patreon.com/PuneetGopinath"
+        },
+        {
+            "type": "other",
+            "url": "https://liberapay.com/PuneetGopinath"
         }
     ],
     "readme": "https://github.com/PuneetGopinath/Sanitizers#readme",
@@ -39,20 +43,21 @@
     "authors": [
         {
             "name": "Puneet Gopinath",
+            "email": "baalkrshna@gmail.com",
             "role": "developer"
         }
     ],
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=5.3.0",
         "ext-filter": "*",
         "ext-mbstring": "*"
     },
     "suggest": {
-        "ext-iconv": "Optional for encoding user input",
-        "psr/log": "Optional library for debugging"
+        "ext-iconv": "Optional library required if you want to encode user input",
+        "psr/log": "Optional library used for debugging"
     },
     "archive": {
-        "name": "BK-Sanitizers"
+        "name": "BKSanitizers"
     },
     "autoload": {
         "classmap": ["src/"],

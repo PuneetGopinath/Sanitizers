@@ -2,8 +2,8 @@
 
 # Sanitizers Test
 
-You can test PHP Sanitizers using the file **SanitizersTest.php**
+You can test PHP Sanitizers executing the file **SanitizersTest.php** in this folder.
 
-If you run `composer test` or `php test/SanitizersTest.php -- --debug`
+You can run `composer test` or `php test/SanitizersTest.php debug` to test **SanitizersTest.php** file.
 
-See example output in [exampleTest.txt](exampleTest.txt) file.
+See example output in [example.md](example.md) file.

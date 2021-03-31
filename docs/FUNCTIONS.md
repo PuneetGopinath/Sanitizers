@@ -2,9 +2,33 @@
 
 <link rel="stylesheet" href="css/main.css" />
 
-Explanation of BK Sanitizers functions
+# Table of contents
 
-## 1. function set
+Explanation of BK Sanitizers:
+
+ * [functions](#functions)
+ * [methods](#methods)
+
+# functions:
+
+## 1. function configFromIni
+
+configFromIni - Use config settings from ini
+### Description
+
+    public function configFromIni($file="config.ini")
+
+Uses php `parse_ini_file` function to get config settings.
+
+### Parameters
+
+<b>file</b><br>
+&emsp;Path to config.ini file (default: `config.ini`).
+
+### Return values
+&emsp;Returns `null`
+
+## 2. function set
 
 set - Modifies a config setting
 
@@ -12,7 +36,7 @@ set - Modifies a config setting
 
     public function set($case, $value="default")
 
-Modifies a config setting temporarily and returns true if it is modified or else false if it is not modified
+Modifies a config setting temporarily and returns true if it is modified or else returns false if it is not modified.
 
 ### Parameters
 
@@ -43,18 +67,13 @@ Modifies a config setting temporarily and returns true if it is modified or else
             <td>Do you want to prevent XSS?</td>
             <td>true/false</td>
         </tr>
-        <tr>
-            <th>slashes</th>
-            <td>Do you want to escape user input?</td>
-            <td>true/false</td>
-        </tr>
     </tbody>
 </table>
 
 **Note:** For maxInputLength, if length of user input is more than maxInputLength then extra characters will be removed.
 
 <b>value</b><br>
-&emsp;The value of the setting. It is based on the case parameter. See the value column in case parameter
+&emsp;The value of the setting. It is based on the case parameter. See the value column in case parameter.
 
 ### Example
 
@@ -68,11 +87,11 @@ if ($sanitizer->set("preventXSS", true)) {
 
 ### Return values
 
-&emsp;Returns true if config setting is modified or else false if it is not modified
+&emsp;Returns true if config setting is modified or else false if it is not modified.
 
-## 2. function clean
+## 3. function clean
 
-clean - Sanitize a string without specifing the type parameter of sanitize function
+clean - Sanitize a string without specifing the type parameter of sanitize function.
 
 ### Description
 
@@ -80,7 +99,7 @@ clean - Sanitize a string without specifing the type parameter of sanitize funct
 
 Cleans a user input. It sanitizes the input string through various functions.
 The input string is given parameter 1.<br>
-And returns the sanitized string
+And returns the sanitized string.
 
 ### Parameters
 
@@ -97,7 +116,7 @@ And returns the sanitized string
 &emsp;Is the input data alpha numeric? True/False.
 
 <b>ucwords</b><br>
-&emsp;Do you want to automatically add upper case letters to each words? True/False.
+&emsp;Do you want to automatically convert the first letter to upper case letter in each word? True/False.
 
 ### Example
 
@@ -114,9 +133,9 @@ XSS
 ```
 
 ### Return values
-&emsp;Returns the sanitized string
+&emsp;Returns the sanitized string.
 
-## 3. function sanitize
+## 4. function sanitize
 
 sanitize - Sanitize a string
 
@@ -126,7 +145,7 @@ sanitize - Sanitize a string
 
 Cleans a user input. It sanitizes the input string through `filter_var` and somtimes uses above `clean` function based on the type parameter.
 The input string is given parameter 2.<br>
-And returns the sanitized string
+And returns the sanitized string.
 
 ### Parameters
 
@@ -188,67 +207,18 @@ And returns the sanitized string
 &emsp;The input data.
 
 <b>trim</b><br>
-&emsp;Same as mentioned above in clean function
+&emsp;Same as mentioned above in clean function.
 
 <b>htmlspecialchars</b><br>
-&emsp;Same as mentioned above in clean function
+&emsp;Same as mentioned above in clean function.
 
 <b>alpha_num</b><br>
-&emsp;Same as mentioned above in clean function
+&emsp;Same as mentioned above in clean function.
 
 ### Return values
-&emsp;Returns the sanitized string
+&emsp;Returns the sanitized string.
 
-## 3. function sanitizeArray
-
-sanitizeArray - Sanitize an array
-
-### Description
-
-    public function sanitizeArray($array, $filters=array("types"=>array()))
-
-Cleans a whole array one by one. It sanitizes the input string through above sanitize function according to the types given in `$filters["types"][$array_key]`.<br>
-And returns the sanitized array
-
-You can sanitize whole `$_POST`, `$_GET`, `$_REQUEST`, etc...
-
-### Parameters
-
-<b>array</b><br>
-&emsp;The input array.
-
-Example:
-```
-$array = array(
-    "array_key" => "saNiTiZeRs"
-);
-```
-
-<b>filters</b><br>
-&emsp;The filters to apply to the array.
-
-It should be in the format like in the below example:
-
-Example:
-```
-$filters = array(
-    "types" => array( //Types also Optional, if string detected then we will treat it as message
-        "array_key" => "string" //The type of array_key
-    ),
-    "array_key" => array( //Optional What filters you want to apply to array_key
-        "trim" => true,
-        "htmlentities" => true,
-        "alpha_num" => false,
-        "ucwords" => true
-    )
-);
-```
-See parameters in sanitize function for understanding about filters and see the table in type parameter in sanitize function for understanding about types.
-
-### Return values
-&emsp;Returns the sanitized array
-
-## 4. function HTML
+## 5. function HTML
 
 HTML - Sanitize html code
 
@@ -257,7 +227,9 @@ HTML - Sanitize html code
     public function HTML($text, $tags="<b><i><em><p><a><br>")
 
 Cleans html code given by users.<br>
-And returns the sanitized html code
+And returns the sanitized html code.
+
+**Note:** It will remove any attribute starting with on or xmlns.
 
 ### Parameters
 
@@ -275,23 +247,112 @@ It should be in the format like in the below example:
 Which will keep both `<b>` and `</b>`, `<a>` and `</a>` in this example.
 
 ### Return values
-&emsp;Returns the sanitized html code
+&emsp;Returns the sanitized html code.
 
-## 5. function configFromIni
+## 6. function sanitizeArray
 
-configFromIni - Use config settings from ini
+sanitizeArray - Sanitize an array
+
 ### Description
 
-    public function configFromIni($file="config.ini")
+    public function sanitizeArray($array, $filters=array("types"=>array()))
 
-Uses php `parse_ini_file` function to get config settings.
+Cleans a whole array one by one. It sanitizes the input string through above sanitize function according to the types given in `$filters["types"][$array_key]`.<br>
+And returns the sanitized array.
+
+You can sanitize whole `$_POST`, `$_GET`, `$_REQUEST`, etc...
 
 ### Parameters
 
-<b>file</b><br>
-&emsp;Path to config.ini file (default: `config.ini`).
+<b>array</b><br>
+&emsp;The input array.
+
+Example:
+```
+$array = array(
+    "array_key" => "saNiTiZeRs"
+);
+```
+
+<b>filters</b><br>
+&emsp;The filters to apply on the array.
+
+It should be in the format like in the below example:
+
+Example:
+```
+$filters = array(
+    "types" => array( //Types also Optional, if string detected then we will treat it as message
+        "array_key" => "string" //The type of array_key
+    ),
+    "array_key" => array( //Optional What filters you want to apply to array_key
+        "trim" => true,
+        "htmlentities" => true,
+        "alpha_num" => false,
+        "ucwords" => true
+    )
+);
+```
+See parameters in sanitize function for understanding about filters except type parameter.
+
+The `types` key in the array can be any one of these. And also it can be any one from the value of the type parameter in sanitize function.
+
+<table class="card">
+    <thead>
+        <tr>
+            <th>value for types array</th>
+            <th>description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>any one from the value of type parameter in sanitize function</th>
+            <td>No description</td>
+        </tr>
+        <tr>
+            <th>html</th>
+            <td>For HTML code</td>
+        </tr>
+    </tbody>
+</table>
 
 ### Return values
-&emsp;Returns `null`
+&emsp;Returns the sanitized array.
+
+# methods:
+
+## 1. __construct
+
+__construct - Sanitizer class constructor.
+
+### Description
+
+    public function __construct($exceptions=null, $logger=null, $sanitizerData=null)
+
+Constructs the class Sanitizer.<br>
+And returns the class Sanitizer after constructing.
+
+### Parameters
+
+<b>exceptions</b><br>
+&emsp;Do you want to enable exceptions? True/False.
+
+```php
+$sanitizer = new Sanitizer(true);
+```
+
+<b>logger</b><br>
+&emsp;You can pass an instance of a PSR-3 compatible logger here.
+
+```php
+$logger = new myPsr3Logger();
+$sanitizer = new Sanitizer(false, $logger);
+```
+
+<b>sanitizerData</b><br>
+&emsp;The SanitizerData class. If null will automatically create new one.
+
+### Return values
+&emsp;Returns the class Sanitizer.
 
 [Back to home](README.md)

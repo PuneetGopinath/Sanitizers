@@ -47,7 +47,7 @@ if (is_readable($baseDir . "/vendor/autoload.php")) {
     require $baseDir . "/vendor/autoload.php";
     echo "Using composer autoload files" . EOL;
 } else {
-    require $baseDir . "/src/Sanitizers.php";
+    require $baseDir . "/src/BKS.auto.php";
     echo "Not using composer autoload files" . EOL;
 }
 $sanitizer = new Sanitizer(false);
@@ -70,10 +70,10 @@ $testValues = array(
     "float" => $len-0.5,
     "name" => "\0saNiTiZeRs ä\x80",
     "email" => "AdMiN@ExAmPle.cOm",
-    "message" => "Hi <script src=http://ha.ckers.org/xss.js></script>",
+    "message" => "Hi <img src=http://example.com/No_file.png onerror=alert('XSS');></img>",
     "url" => "http://example.com/index.php?username=<script>alert('XSS');</script>",
     "username" => "PuneetGopinath", // It will become to smaller case if you want upper case also then use sanitize function with type parameter as name e.g. `$sanitizer->sanitize("name", $username)`
-    "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">XSS</a>",
+    "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">Click here</a>",
     "password" => "\$UnIQUe|`_-<script>alert('XSS')</script>#pass•WorD%!?",
     "function_clean" => "XSS <script>alert('XSS');</script>"
 );
@@ -124,13 +124,13 @@ $auto_values = $sanitizer->sanitizeArray($testValues, $filters);
 echo "Array Key -- Original Value => Sanitized Value -- same: bool" . EOL;
 
 foreach ($testValues as $i => $value) {
-    echo $i . " -- " . $value . " => " . $values[$i] . " -- same: " . (($value === $values[$i])?"true":"false") . EOL;
+    echo $i . " -- \"" . $value . "\" => \"" . $values[$i] . "\" -- same: " . (($value === $values[$i])?"true":"false") . EOL;
 }
 
 echo EOL . "Array Key -- Original Value => Auto Sanitized Value -- same: bool" . EOL;
 
 foreach ($testValues as $i => $value) {
-    echo $i . " -- " . $value . " => " . $auto_values[$i] . " -- same: " . (($value === $auto_values[$i])?"true":"false") . EOL;
+    echo $i . " -- \"" . $value . "\" => \"" . $auto_values[$i] . "\" -- same: " . (($value === $auto_values[$i])?"true":"false") . EOL;
 }
 
 if ($debug)

@@ -9,6 +9,12 @@ We welcome Pull requests !!
 
 For major changes, please open an [discussion](https://github.com/PuneetGopinath/Sanitizers/discussions/new) to discuss what you would like to change.
 
+## Asking Questions
+
+Please read [SUPPORT.md](SUPPORT.md) for knowing where to ask questions
+
+Don't use GitHub issues for asking questions, we use GitHub issues for bug reports and feature requests.
+
 ## Using the Issue tracker
 
 Reporting bugs and Requesting features should be done using the issue tracker
@@ -51,7 +57,6 @@ Thank you very much !!
 ## Other options
 
  * You can also contribute by funding the Author
- * If you found something wrong or not working or you found bug(s) then, [Open an issue](https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md) in github.
  * Even asking questions will help us improve our docs and wiki, Ask at gitter or at IRC #bksanitizers channel in `irc.freenode.net` server
 
 # Code of Conduct
