@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="docs/css/main.css" />
+<link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
 <div class="card">
   <p align="center">
     <a href="https://puneetgopinath.github.io/Sanitizers">

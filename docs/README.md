@@ -1,6 +1,6 @@
 <h2 align="center">BK Sanitizers Docs - Home</h2>
 
-<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
 
 Welcome to the documentation for BK Sanitizers.
 

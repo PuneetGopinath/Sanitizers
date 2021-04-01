@@ -1,6 +1,6 @@
 <h2 align="center">BK Sanitizers Docs - Configuring settings</h2>
 
-<link rel="stylesheet" href="../css/main.css" />
+<link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
 
 To Configure BK Sanitizers read this guide.
 

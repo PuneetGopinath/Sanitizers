@@ -1,5 +1,5 @@
 @import "bootstrap.min.css";
-@import "../docs/css/main.css";
+@import "https://puneetgopinath.github.io/Sanitizers/css/main.css";
 label {
   padding-top: calc(0.375rem + 1px);
   padding-bottom: calc(0.375rem + 1px);

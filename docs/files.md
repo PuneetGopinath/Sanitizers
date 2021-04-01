@@ -1,6 +1,6 @@
 <h2 align="center">BK Sanitizers Docs - Files</h2>
 
-<link rel="stylesheet" href="../css/main.css" />
+<link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
 
 To understand what files required for using BKS read this guide.
 
