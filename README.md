@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="docs/css/main.css" />
 <div class="card">
   <p align="center">
-    <a href="https://puneetgopinath.github.io/Sanitizers/docs">
+    <a href="https://puneetgopinath.github.io/Sanitizers">
       <img src="docs/images/Sanitizers-logo-transparent.png" alt="Sanitizers logo" style="width:300;height:300;" height="300" width="300" />
     </a>
   </p>
