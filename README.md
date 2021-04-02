@@ -172,14 +172,13 @@ This project is currently being maintained. And Will Be Maintained. If You Like 
 
 <!--[![Sparkline](https://stars.medv.io/PuneetGopinath/Sanitizers.svg)](https://stars.medv.io/PuneetGopinath/Sanitizers)-->
 
-<h2><a name="about">About ℹ️</a></h2>
+<h2><a name="faq">FAQ</a></h2>
 
-Read the [getting started guide](docs/getting-started.md) in docs to understand these:
+Read the [FAQ.md](docs/FAQ.md) file in docs to understand the frequently asked questions to BKS:
 
  * What is XSS ??
  * What is Sanitize ??
- * When and why should I use Sanitizers ?
- * How can I clean user input ?
+ * And many more...
 
 <h2><a name="visuals">Visuals 📽️</a></h2>
 
