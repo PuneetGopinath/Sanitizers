@@ -62,6 +62,7 @@ Format is `version (*dd-mm-yyyy*)`
  * New file `getting-started.md` for Getting Started guide
  * New file `config.md` for Configuring BKS guide
  * New file `files.md` for explanation of main files in BKS
+ * New file `FAQ.md` for the faqs asked to BKS
  * Added extending in examples
  * Added Asking question section in wiki
  * Added asking questions in contributing guidelines
