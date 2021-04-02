@@ -3,6 +3,7 @@
  * BK Sanitizers - Quickly Sanitize user data
  * Copyright (c) 2021 The BK Sanitizers Team
  * 
+ * @package BK Sanitizers
  * @see https://github.com/PuneetGopinath/Sanitizers
  * @see https://packagist.org/packages/sanitizers/sanitizers
  * @license MIT

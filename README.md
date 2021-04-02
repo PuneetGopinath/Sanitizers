@@ -29,13 +29,8 @@
 
 ---------------------------------------------------------------------
 
-### BKS 1.0
-
-If you are looking for BKS 1.0, Then see the [1.0-dev](https://github.com/PuneetGopinath/Sanitizers/tree/1.0-dev) branch, as main branch is developing 1.1.0 minor release so, the readme and docs are not for 1.0 releases.
-
 <details open="true">
     <summary align="center">Table of contents</summary>
-    <div markdown="1">
 
  * [Features](#features)
  * [Quick Start](#quick-start)
@@ -55,7 +50,6 @@ If you are looking for BKS 1.0, Then see the [1.0-dev](https://github.com/Puneet
  * [Versioning](#versioning)
  * [Conclusion](#conclusion)
 
-    </div>
 </details>
 
 <h2><a name="features">Features</a></h2>
