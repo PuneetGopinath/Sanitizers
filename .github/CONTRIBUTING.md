@@ -23,6 +23,38 @@ You can [Report bug](https://github.com/PuneetGopinath/Sanitizers/issues/new?tem
 
 ## Pull request
 
+**Note:** Before submitting your PR, check whether your code adheres to BKS coding standards (which is mostly [PSR-12](https://www.php-fig.org/psr/psr-12/)) by running [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer):
+
+```
+# If you downloaded from Composer:
+./vendor/bin/phpcs src/Sanitizer.php
+./vendor/bin/phpcs src/BKS.auto.php
+
+# Or else if you downloaded from cURL:
+php phpcs.phar src/Sanitizer.php
+php phpcs.phar src/BKS.auto.php
+
+# Or else if it is in the /bin or $PREFIX/bin folder
+phpcs src/Sanitizer.php
+phpcs src/BKS.auto.php
+```
+
+Any problems reported can probably be fixed automatically by using its partner tool, PHP code beautifier:
+
+```
+# If you downloaded from Composer:
+./vendor/bin/phpcbf src/Sanitizer.php
+./vendor/bin/phpcbf src/BKS.auto.php
+
+# Or else if you downloaded from cURL:
+php phpcbf.phar src/Sanitizer.php
+php phpcbf.phar src/BKS.auto.php
+
+# Or else if it is in the /bin or $PREFIX/bin folder
+phpcbf src/Sanitizer.php
+phpcbf src/BKS.auto.php
+```
+
 1. Fork the repo
 2. Clone it
 3. Edit

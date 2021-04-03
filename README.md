@@ -286,15 +286,15 @@ Click here to sponsor:
 
 Help spread awareness about BK Sanitizers by:
 
- * Twitter: [![Share at Twitter](https://img.shields.io/badge/Share-Twitter-%231DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers\&hashtags=php,backend,developer,opensource,bksanitizers)
+ * Twitter: [![Share at Twitter](https://img.shields.io/badge/Share-Twitter-%231DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers\&hashtags=php,backend,developer,opensource,bksanitizers)
 
  * Facebook: [![Share at Facebook](https://img.shields.io/badge/Share-Facebook-%233b5998?style=flat-square)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/PuneetGopinath/Sanitizers)
 
  * Linkedin: [![Share at Linkedin](https://img.shields.io/badge/Share-Linkedin-%230e76a8?style=flat-square)](https://www.linkedin.com/shareArticle?mini=true\&url=https://github.com/PuneetGopinath/Sanitizers)
 
- * Pinterest: [![Share at Pinterest](https://img.shields.io/badge/Share-Pinterest-%23c8232c?style=flat-square)](https://pinterest.com/pin/create/button/?media=\&description=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
+ * Pinterest: [![Share at Pinterest](https://img.shields.io/badge/Share-Pinterest-%23c8232c?style=flat-square)](https://pinterest.com/pin/create/button/?media=\&description=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https://github.com/PuneetGopinath/Sanitizers)
 
- * Email: [![Share at Email](https://img.shields.io/badge/Share-Email-green?style=flat-square)](mailto:bksanitizers@gmail.com?\&subject=See%20this%20Awesome%20PHP%20Sanitizers\&cc=\&bcc=\&body=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot%20In%20My%20Projects.%20Make%20Sure%20To%20Check%20It%20Out:%0Ahttps://github.com/PuneetGopinath/Sanitizers)
+ * Email: [![Share at Email](https://img.shields.io/badge/Share-Email-green?style=flat-square)](mailto:bksanitizers@gmail.com?\&subject=See%20this%20Awesome%20PHP%20Sanitizers\&cc=\&bcc=\&body=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot.%20Make%20Sure%20To%20Check%20It%20Out:%0Ahttps://github.com/PuneetGopinath/Sanitizers)
 
 <h2><a name="versioning">Versioning</a></h2>
 
