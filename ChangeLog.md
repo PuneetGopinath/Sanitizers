@@ -66,6 +66,7 @@ Format is `version (*dd-mm-yyyy*)`
  * Added extending in examples
  * Added Asking question section in wiki
  * Added asking questions in contributing guidelines
+ * Grammer improvements in `INSTALL.md`
 
 #### Depreciated
  * Depreciated function `NonNumericText`
