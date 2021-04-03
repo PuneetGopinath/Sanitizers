@@ -1,4 +1,5 @@
 <?php
+
 use Sanitizers\Sanitizers\Sanitizer;
 
 for ($i = 0; $i < count($argv); $i++) {
@@ -37,8 +38,9 @@ if (!defined("PHP_EOL")) {
 }
 
 $debug_info = array();
-if ($debug)
+if ($debug) {
     error_reporting(E_ALL);
+}
 
 const EOL = PHP_EOL . PHP_EOL;
 $currentDir = dirname(__FILE__);
@@ -55,22 +57,20 @@ $sanitizer = new Sanitizer(false);
 echo "Using Sanitizers version: " . $sanitizer::VERSION . EOL;
 $len = 32; //32 bytes = 256 bits
 
-if (function_exists("random_bytes"))
-{
+if (function_exists("random_bytes")) {
     $bytes = random_bytes($len);
-} else if (function_exists("openssl_random_pseudo_bytes"))
-{
+} elseif (function_exists("openssl_random_pseudo_bytes")) {
     $bytes = openssl_random_pseudo_bytes($len);
 } else {
     $bytes = hash("sha256", uniqid((string) mt_rand(), true), true);
 }
 $testValues = array(
     "hex" => bin2hex($bytes),
-    "int" => $len-0.5,
-    "float" => $len-0.5,
+    "int" => $len - 0.5,
+    "float" => $len - 0.5,
     "name" => "\0saNiTiZeRs ä\x80",
     "email" => "AdMiN@ExAmPle.cOm",
-    "message" => "Hi <img src=http://example.com/No_file.png onerror=alert('XSS');></img>",
+    "message" => "Hi Name, <br>\r\n<img src=http://example.com/No_file.png onerror=alert('XSS');></img>",
     "url" => "http://example.com/index.php?username=<script>alert('XSS');</script>",
     "username" => "PuneetGopinath", // It will become to smaller case if you want upper case also then use sanitize function with type parameter as name e.g. `$sanitizer->sanitize("name", $username)`
     "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">Click here</a>",
@@ -78,10 +78,11 @@ $testValues = array(
     "function_clean" => "XSS <script>alert('XSS');</script>"
 );
 
-if ($configFromIni && is_readable($baseDir . "/src/config.ini"))
+if ($configFromIni && is_readable($baseDir . "/src/config.ini")) {
     $sanitizer->configFromIni($baseDir . "/src/config.ini");
+}
 
-$debug_info[] = "configFromIni: " . ($configFromIni?"true":"false");
+$debug_info[] = "configFromIni: " . ($configFromIni ? "true" : "false");
 
 $values = array(
     "hex" => $sanitizer->sanitize("hex", $testValues["hex"]),
@@ -109,12 +110,13 @@ $filters = array(
         "html" => "html",
         "function_clean" => "" //Will use clean function
     ),
-    "message" => array(
+    /*"message" => array(
         "trim" => false, //Enables php trim function, default:true
-        "htmlentities" => true, //Enables using htmlentities, default:true
+        "htmlspecialchars" => true, //Enables using htmlspecialchars, default:true
         "alpha_num" => false, //Sets value to be alpha_numeric, default:false
         "ucwords" => false
-    ),
+    ),*/
+    "message" => "htmlspecialchars",
     "html" => array(
         "tags" => "<b><i><em><p><a><br>"//Optinal Allowed tags
     )
@@ -124,17 +126,17 @@ $auto_values = $sanitizer->sanitizeArray($testValues, $filters);
 echo "Array Key -- Original Value => Sanitized Value -- same: bool" . EOL;
 
 foreach ($testValues as $i => $value) {
-    echo $i . " -- \"" . $value . "\" => \"" . $values[$i] . "\" -- same: " . (($value === $values[$i])?"true":"false") . EOL;
+    echo $i . " -- \"" . $value . "\" => \"" . $values[$i] . "\" -- same: " . (($value === $values[$i]) ? "true" : "false") . EOL;
 }
 
 echo EOL . "Array Key -- Original Value => Auto Sanitized Value -- same: bool" . EOL;
 
 foreach ($testValues as $i => $value) {
-    echo $i . " -- \"" . $value . "\" => \"" . $auto_values[$i] . "\" -- same: " . (($value === $auto_values[$i])?"true":"false") . EOL;
+    echo $i . " -- \"" . $value . "\" => \"" . $auto_values[$i] . "\" -- same: " . (($value === $auto_values[$i]) ? "true" : "false") . EOL;
 }
 
-if ($debug)
-    $debug_info[] = json_encode(array("Sanitizer"=>$sanitizer,"version"=>$sanitizer::VERSION));
+if ($debug) {
+    $debug_info[] = json_encode(array("Sanitizer" => $sanitizer,"version" => $sanitizer::VERSION));
+}
 
 echo "Debug_info: " . implode(", ", $debug_info) . PHP_EOL;
-?>

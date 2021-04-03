@@ -1,10 +1,14 @@
 <?php
+
 /**
  * This file is part of the BK Sanitizers project.
  * Autoload file for BK Sanitizers
- * 
- * @see https://github.com/PuneetGopinath/Sanitizers
- * @license MIT
+ * PHP Version 5.3.
+ *
+ * @package   BK_Sanitizers
+ * @copyright 2021 The BK Sanitizers Team
+ * @license   MIT
+ * @see       https://github.com/PuneetGopinath/Sanitizers BK Sanitizers on GitHub
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -13,11 +17,16 @@ namespace Sanitizers\Sanitizers;
 
 require_once dirname(__FILE__) . "/Sanitizer.php";
 
+/**
+ * SanitizerData class for Storing data required for Sanitizer class
+ *
+ * @author Puneet Gopinath (PuneetGopinath) <baalkrshna@gmail.com>
+ */
 class SanitizerData
 {
     /**
      * Default configuration options
-     * 
+     *
      * @var array
      */
     public $config = array(
@@ -37,4 +46,3 @@ For a list of encoding options
 */
 
 //If you set preventXSS as true then you should also set encoding to "UTF-8"
-?>
