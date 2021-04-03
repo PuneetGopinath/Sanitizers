@@ -9,8 +9,7 @@ use Sanitizers\Sanitizers\Sanitizer;
 
 require_once "../src/BKS.auto.php";
 
-if (isset($_POST["Submit"]))
-{
+if (isset($_POST["Submit"])) {
     $sanitizer = new Sanitizer();
     $name = $sanitizer->sanitize("name", $_POST["name"]);
     $email = $sanitizer->sanitize("email", $_POST["email"]);

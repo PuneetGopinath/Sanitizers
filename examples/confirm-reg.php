@@ -9,8 +9,7 @@ use Sanitizers\Sanitizers\Sanitizer;
 
 require_once "../src/BKS.auto.php";
 
-if (isset($_POST["Submit"]))
-{
+if (isset($_POST["Submit"])) {
     $sanitizer = new Sanitizer();
     $code = $sanitizer->sanitize("hex", $_POST["code"]);
 
