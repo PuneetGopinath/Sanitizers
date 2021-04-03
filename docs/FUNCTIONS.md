@@ -287,7 +287,7 @@ $filters = array(
     ),
     "array_key" => array( //Optional What filters you want to apply to array_key
         "trim" => true,
-        "htmlentities" => true,
+        "htmlspecialchars" => true,
         "alpha_num" => false,
         "ucwords" => true
     )
