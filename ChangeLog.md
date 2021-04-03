@@ -14,7 +14,7 @@ Format is `version (*dd-mm-yyyy*)`
  * 🚀 Feature update release
 
 ### Bug fixes
- * 
+ * No bug fixes
 
 #### Changes
  * Moved global variable `$config` to variable `\Sanitizers\Sanitizers\SanitizerData->config`
