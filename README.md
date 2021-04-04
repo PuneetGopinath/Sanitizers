@@ -35,8 +35,7 @@
  * [Features](#features)
  * [Quick Start](#quick-start)
  * [Status](#status)
- * [About](#about)
- * [Visuals](#visuals)
+ * [FAQ](#faq)
  * [Files](#files)
  * [Prerequisites](#prerequisites)
  * [Tests](#tests)
@@ -173,20 +172,6 @@ Read the [FAQ.md](docs/FAQ.md) file in docs to understand the frequently asked q
  * What is XSS ??
  * What is Sanitize ??
  * And many more...
-
-<h2><a name="visuals">Visuals 📽️</a></h2>
-
-- ### Testing with and without composer autoload in Termux (on Android)
-
-<img alt="Gif of testing on termux" src="gif/BK-Sanitizers-termux.gif" width="300" height="300" />
-
-I ran:
-```bash
-composer validate # Validates composer.json
-composer test # Test without composer autoload
-composer update # Update dependencies and install autoload
-composer test # Test with composer autoload
-```
 
 <h2><a name="files">Files️</a></h2>
 
