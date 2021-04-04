@@ -392,17 +392,10 @@ class Sanitizer
         foreach ($array as $key => $value) {
             $settings = array("trim" => true, "htmlspecialchars" => true, "alpha_num" => false, "ucwords" => false);
             if (isset($filters[$key])) {
-                /*if (is_string($filters[$key])) {
-                    $filters[$key] = explode("|", $filters[$key]);
-                    $filters[$key] = array_combine($filters[$key], $filters[$key]);
-                }*/
                 foreach ($settings as $key2 => $value2) {
                     if (isset($filters[$key][$key2])) {
                         $settings[$key2] = $filters[$key][$key2];
                     }
-                    /*if (is_string($settings[$key2])) {
-                        $settings[$key2] = true;
-                    }*/
                 }
             }
 
