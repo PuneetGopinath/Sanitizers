@@ -64,7 +64,7 @@ Modifies a config setting temporarily and returns true if it is modified or else
         </tr>
         <tr>
             <th>preventXSS</th>
-            <td>Do you want to prevent XSS?</td>
+            <td>Do you want to prevent XSS strictly?</td>
             <td>true/false</td>
         </tr>
     </tbody>

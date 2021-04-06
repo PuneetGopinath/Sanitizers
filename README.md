@@ -11,9 +11,9 @@
 
   <p align="center">
     <b>BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.</b><br><br>
-    An acronym/abbreviation for <b>B</b>aal-<b>K</b>rshna <b>Sanitizers</b> is BK Sanitizers
+    An acronym/abbreviation for <b>B</b>aal-<b>K</b>rshna <b>Sanitizers</b> is BK Sanitizers.
     <br><br>
-    And an acronym/abbreviation for <b>BK S</b>anitizers is BKS
+    And an acronym/abbreviation for <b>BK S</b>anitizers is BKS.
     <br><br>
     Latest release: <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers"><br>
     <br><br>Explore:<br>
@@ -53,14 +53,14 @@
 
 <h2><a name="features">Features</a></h2>
 
-1. Sanitize strings and arrays
-2. Namespaced to prevent name clashes
-3. Built-in tests
-4. Examples for how-to use BKS
-5. Sanitize urls
-6. Use configuration from ini file
-7. Easy to Use
-8. And many more...
+ * Sanitize strings and arrays
+ * Namespaced to prevent name clashes
+ * Built-in tests
+ * Examples for how-to use BKS
+ * Sanitize urls
+ * Use configuration from ini file
+ * Easy to Use
+ * And many more...
 
 <h2><a name="quick-start">Quick Start 🚀</a></h2>
 
@@ -80,9 +80,9 @@ Please read [INSTALL.md](INSTALL.md) file for The installation guide.
 
 - ### Documentation
 
-Plz see [docs](docs/README.md) folder
+Please see [docs](docs/README.md) folder.
 
-- ### Usage
+- ### Example Usage
 
 Just include the file and Sanitize user input.
 - Example Usage without composer autoload:
@@ -239,15 +239,13 @@ MIT License. Read [LICENSE](LICENSE) file.
 
 #### Are you comparing BKS library with HTMLPurifier ??
 
-Then, you need to know difference between HTMLPurifier and BKS
+Then, you need to know difference between HTMLPurifier and BKS.
 
-1. HTMLPurifier aims at creating safe and valid HTML as close as possible to a given input. But we aim to cover sanitizing all types of input like name, username, password, etc
+1. HTMLPurifier aims at creating safe and valid HTML as close as possible to a given input. But we aim to cover sanitizing all types of input like name, username, password, etc.
 
-But we always recomend HTMLPurifier for sanitizing html code.
+But we always recomend [HTMLPurifier](https://htmlpurifier.org) for sanitizing html code.
 
 <h2><a name="support-us">Support Us</a></h2>
-
-At least you can give a star at our GitHub repo.
 
 ### Review
 

@@ -42,7 +42,7 @@ If user input is more than maxInputLength then extra characters will be removed
 2. See https://www.php.net/manual/en/function.htmlspecialchars
 For a list of encoding options
 
-3. A bool indicating whether to prevent XSS
+3. A bool indicating whether to prevent XSS strictly
 */
 
 //If you set preventXSS as true then you should also set encoding to "UTF-8"

@@ -1,10 +1,10 @@
-<h2 align="center">BK Sanitizers Docs - FAQs</h2>
+<h2 align="center">BK Sanitizers Docs - FAQ</h2>
 
 <link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
 
 To know the frequently asked questions to BKS read this file.
 
-Below are the Frequently Asked Questions:
+The Frequently Asked Questions are:
 
 ## What is XSS ??
 

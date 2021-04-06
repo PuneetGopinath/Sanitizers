@@ -6,11 +6,11 @@ Welcome to the documentation for BK Sanitizers.
 
 ## Pages
 
-1. Read [getting-started.md](getting-started.md) for Getting Started with BKS.
-2. Read [FUNCTIONS.md](FUNCTIONS.md) for understaning functions and methods of BKS.
-3. Read [config.md](config.md) for configuring settings for BKS.
-4. Read [files.md](files.md) for understanding what files required for using BKS.
-5. Read [FAQ.md](FAQ.md) for the frequently asked questions to BKS.
+1. [Getting Started](getting-started.md)
+2. [Functions and Methods](FUNCTIONS.md)
+3. [Configuring settings](config.md)
+4. [Files](files.md)
+5. [Frequently Asked Questions(FAQ)](FAQ.md)
 
 ## Community
 

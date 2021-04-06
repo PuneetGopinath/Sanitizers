@@ -25,10 +25,11 @@ class MySanitizer extends Sanitizer
     {
         //Don't forget to do this or other things may not be set correctly!
         parent::__construct($exceptions, $logger);
+        $baseDir = dirname(dirname(__FILE__));
         //Load config from ini
         //Comment it out, if you don't want config from ini
 
-        $this->configFromIni("../src/config.ini"); //replace ../src/config.ini with path to config.ini
+        $this->configFromIni($baseDir . "/src/config.ini"); //replace `$baseDir . "/src/config.ini"` with path to config.ini
     }
 
     /**

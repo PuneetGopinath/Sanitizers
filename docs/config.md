@@ -20,6 +20,6 @@ For a list of encoding options
 
 ## 3. preventXSS
 
-Do you want to prevent XSS? True/False.
+Do you want to prevent XSS strictly? True/False.
 
 [Back to home](README.md)

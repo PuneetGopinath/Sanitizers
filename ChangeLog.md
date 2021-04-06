@@ -8,6 +8,26 @@ All notable changes to BK Sanitizers library will be added to this file.
 
 Format is `version (*dd-mm-yyyy*)`
 
+### v1.1.1 (*unreleased*)
+
+#### Info
+ * 🐛 Bug fix release
+
+### Bug fixes
+ * 
+
+#### Changes
+ * 
+
+#### Additions
+ * 
+
+#### Deletions
+ * 
+
+#### Docs
+ * Improve grammer in home page of docs
+
 ### v1.1.0 (*05-04-2021*)
 
 #### Info

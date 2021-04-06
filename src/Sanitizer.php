@@ -278,47 +278,49 @@ class Sanitizer
             }
         }
 
+        $text = (string)$text;
+
         switch (strtolower($type)) {
             case "int":
             case "integer":
-                $text = preg_replace("/[^0-9]/s", "", filter_var((string)$text, FILTER_SANITIZE_NUMBER_INT));
-                $text = (int)$text + 0;
+                $text = preg_replace("/[^0-9]/s", "", filter_var($text, FILTER_SANITIZE_NUMBER_INT));
+                $text = (int)intval($text) + 0;
                 break;
             case "float":
-                $text = preg_replace("/[^0-9.]/s", "", filter_var((string)$text, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
-                $text = (float)$text + 0;
+                $text = preg_replace("/[^0-9.]/s", "", filter_var($text, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+                $text = (float)floatval($text) + 0;
                 break;
             case "string":
             case "text":
-                $text = preg_replace("/[^A-Za-z0-9]/s", "", filter_var($this->clean((string)$text, $trim, $htmlspecialchars, $alpha_num, $ucwords), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
+                $text = preg_replace("/[^A-Za-z0-9]/s", "", filter_var($this->clean($text, $trim, $htmlspecialchars, $alpha_num, $ucwords), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
                 break;
             case "hex":
-                $text = preg_replace("/[^a-f0-9]/s", "", filter_var($this->clean((string)$text, $trim, $htmlspecialchars, $alpha_num, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
+                $text = preg_replace("/[^a-f0-9]/s", "", filter_var($this->clean($text, $trim, $htmlspecialchars, $alpha_num, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
                 break;
             case "url":
-                $text = filter_var(strip_tags((string)$text), FILTER_SANITIZE_URL);
+                $text = filter_var(strip_tags($text), FILTER_SANITIZE_URL);
                 break;
             case "password":
-                $text = filter_var($this->clean((string)$text, false, false, false, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+                $text = filter_var($this->clean($text, false, false, false, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
                 break;
             case "name":
-                $text = $this->clean(preg_replace("/[^A-Za-z\s+]/s", "", filter_var((string)$text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)), $trim, $htmlspecialchars, $alpha_num, true);
+                $text = $this->clean(preg_replace("/[^A-Za-z\s+]/s", "", filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)), $trim, $htmlspecialchars, $alpha_num, true);
                 break;
             case "message":
                 $text = $this->clean($text, false, true, false, false);
                 break;
             case "email":
-                $text = filter_var(strtolower($this->clean((string)$text, $trim, $htmlspecialchars, false, false)), FILTER_SANITIZE_EMAIL);
+                $text = filter_var(strtolower($this->clean($text, $trim, $htmlspecialchars, false, false)), FILTER_SANITIZE_EMAIL);
                 break;
             case "username":
-                $text = preg_replace("/[^a-z0-9]/s", "", strtolower($this->sanitize("text", (string)$text, $trim, $htmlspecialchars, true, false)));
+                $text = preg_replace("/[^a-z0-9]/s", "", strtolower($this->sanitize("text", $text, $trim, $htmlspecialchars, true, false)));
                 break;
             default:
                 $text = $this->clean($text, $trim, $htmlspecialchars, $alpha_num, $ucwords);
                 break;
         }
         if ($this->logger) {
-            $this->logger->debug("Sanitized given input \"{input}\" to \"{output}\".", array("input" => $input,"output" => $text));
+            $this->logger->debug("Sanitized input (\"{input}\") to (\"{output}\")", array("input" => $input,"output" => $text));
         }
         return $text;
     }
@@ -332,10 +334,10 @@ class Sanitizer
      * @param  bool   $alpha_num
      * @return string
      */
-    public function NonNumericText($text, $trim = true, $htmlspecialchars = true, $alpha_num = false)
+    public function NonNumericText($text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
     {
         $msg = $this->warn("You are using the depreciated function NonNumericText use instead the sanitize function with type parameter as \"text\" (see FUNCTIONS.md in docs to understand sanitize function)");
-        $text = preg_replace("/[^A-Za-z]/s", "", $this->sanitize("text", (string)$text, $trim, $htmlspecialchars, $alpha_num));
+        $text = preg_replace("/[^A-Za-z]/s", "", $this->sanitize("text", (string)$text, $trim, $htmlspecialchars, $alpha_num, $ucwords));
         return $text;
     }
 
