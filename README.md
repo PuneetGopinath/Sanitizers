@@ -64,7 +64,7 @@
 
 <h2><a name="quick-start">Quick Start 🚀</a></h2>
 
-- [Download the latest version](https://github.com/PuneetGopinath/Sanitizers/archive/v1.0.2.zip)
+- [Download the latest version](https://github.com/PuneetGopinath/Sanitizers/archive/v1.1.0.zip)
 
 - ### Clone the repo:
 
