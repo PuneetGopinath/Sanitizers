@@ -33,4 +33,9 @@ See also HTML_sanitization in
 
 <img src="../gif/Sanitize.jpg" alt="Validating process image" style="width:300;height:300;" height="300" width="300" />
 
+## What are the important things to do for preventing XSS ?
+
+1. Always sanitize and validate all user input.
+2. [Add a strict Content Security Policy (CSP)](https://web.dev/strict-csp/).
+
 [Back to home](README.md)

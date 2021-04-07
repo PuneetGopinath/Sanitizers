@@ -61,6 +61,7 @@ class Sanitizer
 
     /**
      * Sanitizers Version number.
+     * Used for easier checks, like if BKS is up to date or not
      *
      * @var string
      */
