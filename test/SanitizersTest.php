@@ -45,6 +45,7 @@ if ($debug) {
 const EOL = PHP_EOL . PHP_EOL;
 $currentDir = dirname(__FILE__);
 $baseDir = dirname($currentDir);
+
 if (is_readable($baseDir . "/vendor/autoload.php")) {
     require $baseDir . "/vendor/autoload.php";
     echo "Using composer autoload files" . EOL;
@@ -110,13 +111,12 @@ $filters = array(
         "html" => "html",
         "function_clean" => "" //Will use clean function
     ),
-    /*"message" => array(
+    "message" => array(
         "trim" => false, //Enables php trim function, default:true
         "htmlspecialchars" => true, //Enables using htmlspecialchars, default:true
         "alpha_num" => false, //Sets value to be alpha_numeric, default:false
         "ucwords" => false
-    ),*/
-    "message" => "htmlspecialchars",
+    ),
     "html" => array(
         "tags" => "<b><i><em><p><a><br>"//Optinal Allowed tags
     )
@@ -136,7 +136,7 @@ foreach ($testValues as $i => $value) {
 }
 
 if ($debug) {
-    $debug_info[] = json_encode(array("Sanitizer" => $sanitizer,"version" => $sanitizer::VERSION));
+    $debug_info[] = json_encode(array("version" => $sanitizer::VERSION,"config" => $sanitizer->getConfig()));
 }
 
 echo "Debug_info: " . implode(", ", $debug_info) . PHP_EOL;

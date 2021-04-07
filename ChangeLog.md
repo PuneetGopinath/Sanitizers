@@ -14,19 +14,24 @@ Format is `version (*dd-mm-yyyy*)`
  * 🐛 Bug fix release
 
 ### Bug fixes
- * 
+ * Fix bug in sanitizeArray function in type password, the `break;` statement is not added, so it would sanitize it as name instead of password
 
 #### Changes
- * 
+ * Change function `strip_tags_content` to `stripTagsContent`
+ * Move `SanitizerData` class (in BKS.auto.php) to `src/SanitizerData.php` (new file), for correcting PSR-12
+ * Instead of calling `is_a($sanitizerData, __NAMESPACE__ . "\SanitizerData")` 2 times, save it in a variable for faster performace.
 
 #### Additions
- * 
+ * Add `HTMLPurifier` as a dependency. And use `HTMLPurifier` when sanitizing html codes. (optinal if you are not using composer)
+ * New function `getConfig()` - Get current configuration for debugging purposes
 
 #### Deletions
- * 
+ * Remove `@package BK_Sanitizers`
 
 #### Docs
  * Improve grammer in home page of docs
+ * Add how to load HTMLPurifier in `INSTALL.md`
+ * Improve contributing guidelines
 
 ### v1.1.0 (*05-04-2021*)
 
@@ -54,7 +59,7 @@ Format is `version (*dd-mm-yyyy*)`
  * `Password($paasword)` changed to `sanitize("password", $paasword)`
 
 #### Additions
- * Optional include `psr/log` library for debuging
+ * Optional include `psr/log` library for debugging
  * Added `.github/SUPPORT.md` for SUPPORT
  * Added `debug_info` in tests
  * Added removing null character in user input

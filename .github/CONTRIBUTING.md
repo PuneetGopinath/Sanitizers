@@ -27,38 +27,35 @@ You can [Report bug](https://github.com/PuneetGopinath/Sanitizers/issues/new?tem
 
 ```
 # If you downloaded from Composer:
-./vendor/bin/phpcs src/Sanitizer.php
-./vendor/bin/phpcs src/BKS.auto.php
+./vendor/bin/phpcs --extensions=php --standard=PSR12 src
 
 # Or else if you downloaded from cURL:
-php phpcs.phar src/Sanitizer.php
-php phpcs.phar src/BKS.auto.php
+php phpcs.phar --extensions=php --standard=PSR12 src
 
 # Or else if it is in the /bin or $PREFIX/bin folder
-phpcs src/Sanitizer.php
-phpcs src/BKS.auto.php
+phpcs --extensions=php --standard=PSR12 src
 ```
 
-Any problems reported can probably be fixed automatically by using its partner tool, PHP code beautifier:
+Any problems can probably be fixed automatically by using its partner tool, PHP code beautifier (phpcbf):
 
 ```
 # If you downloaded from Composer:
-./vendor/bin/phpcbf src/Sanitizer.php
-./vendor/bin/phpcbf src/BKS.auto.php
+./vendor/bin/phpcbf --extensions=php --standard=PSR12 src
 
 # Or else if you downloaded from cURL:
-php phpcbf.phar src/Sanitizer.php
-php phpcbf.phar src/BKS.auto.php
+php phpcbf.phar --extensions=php --standard=PSR12 src
 
 # Or else if it is in the /bin or $PREFIX/bin folder
-phpcbf src/Sanitizer.php
-phpcbf src/BKS.auto.php
+phpcbf --extensions=php --standard=PSR12 src
 ```
+
+Steps to submit a pr:
 
 1. Fork the repo
 2. Clone it
 3. Edit
-4. Now commit, push and give us a pull request
+4. Now commit
+5. Then push and give us a pull request
 
 ## Where can I contribute to BKS?
 
@@ -78,9 +75,10 @@ Thank you very much !!
 1. Fork our repo
 2. Create new branch with the language name, for example: `en-us`
 3. Clone it
-4. Edit the docs, test, `.github/CONTRIBUTING.md` and readme
+4. Edit the docs, `INSTALL.md`, `.github/SUPPORT.md`, `.github/CONTRIBUTING.md` and readme
 5. At the end of readme add `Translated by your full name` in that language but not in english, replace `your full name` with your name in that language
-6. Now commit, push and give us a pull request
+6. Now commit
+7. The push and give us a pull request
 
 #### Languages already translated
 

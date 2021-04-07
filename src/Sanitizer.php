@@ -5,10 +5,9 @@
  * Copyright (c) 2021 The BK Sanitizers Team
  * PHP Version 5.3
  *
- * @package   BK_Sanitizers
  * @author    Puneet Gopinath (PuneetGopinath) <baalkrshna@gmail.com>
  * @copyright 2021 The BK Sanitizers Team
- * @license   MIT
+ * @license   http://www.opensource.org/licenses/MIT MIT
  * @see       https://github.com/PuneetGopinath/Sanitizers BK Sanitizers on GitHub
  * @see       https://packagist.org/packages/sanitizers/sanitizers BK Sanitizers on Packagist
  */
@@ -23,54 +22,58 @@ namespace Sanitizers\Sanitizers;
 class Sanitizer
 {
     /**
-     * Do you want to enable exceptions? You can pass a bool in __construct method in parameter 1
+     * BKS Version number.
+     * Used for easier checks, like if BKS is up to date or not
      *
+     * @var string VERSION The Version number
+     */
+    const VERSION = "1.1.0";
+
+    /**
+     * Do you want to enable exceptions?
+     * You can pass a bool in __construct method in parameter 1
+     *
+     * Example:
      * ```php
      * $sanitizer = new Sanitizer(true);
      * ```
      *
-     * @var bool
+     * @var bool|null $exceptions Do you want to throw exceptions?
      */
     protected $exceptions = null;
 
     /**
-     * Optional LoggerInterface for debugging, You can pass an instance of a PSR-3 compatible logger in __construct method in parameter 2
+     * Optional LoggerInterface for debugging
+     * You can pass an instance of a PSR-3 compatible logger in __construct method in parameter 2
      *
+     * Example:
      * ```php
      * $logger = new myPsr3Logger();
      * $sanitizer = new Sanitizer(false, $logger);
      * ```
      *
-     * @var \Psr\Log\LoggerInterface|null
+     * @var \Psr\Log\LoggerInterface|null $logger The PSR-3 compatible logger
      */
     protected $logger = null;
 
     /**
      * The SanitizerData class
      *
-     * @var SanitizerData|null
+     * @var SanitizerData|null $sanitizerData The SanitizerData class
      */
     protected $sanitizerData = null;
 
     /**
      * Configuration settings
      *
-     * @var array
+     * @var array $config The configuration options
      */
-    public $config = array();
-
-    /**
-     * Sanitizers Version number.
-     * Used for easier checks, like if BKS is up to date or not
-     *
-     * @var string
-     */
-    const VERSION = "1.1.0";
+    protected $config = array();
 
     /**
      * Are we using config settings from ini ?
      *
-     * @var bool
+     * @var bool $ini Are we using config settings from ini ?
      */
     protected $ini = false;
 
@@ -79,20 +82,15 @@ class Sanitizer
      *
      * @param  bool|null                     $exceptions Do you want to enable exceptions?
      * @param  \Psr\Log\LoggerInterface|null $logger     You can pass an instance of a PSR-3 compatible logger here
-     * @pram   SanitizerData|null $sanitizerData The SanitizerData class
-     * @return Sanitizer
+     * @param   SanitizerData|null $sanitizerData The SanitizerData class
+     * @return Sanitizer The Sanitizer class
      */
     public function __construct($exceptions = null, $logger = null, $sanitizerData = null)
     {
-        if (
-            empty($sanitizerData) ||
-            !is_a($sanitizerData, __NAMESPACE__ . "SanitizerData")
-        ) {
+        $a = is_a($sanitizerData, __NAMESPACE__ . "\SanitizerData");
+        if (empty($sanitizerData) || !$a) {
             $this->sanitizerData = new SanitizerData();
-        } elseif (
-            !empty($this->sanitizerData) &&
-            is_a($sanitizerData, __NAMESPACE__ . "SanitizerData")
-        ) {
+        } elseif (!empty($this->sanitizerData) && $a) {
             $this->sanitizerData = $sanitizerData;
         }
 
@@ -107,7 +105,7 @@ class Sanitizer
      * Warning message
      *
      * @param  $msg The Warning message
-     * @return string
+     * @return string The full Warning message
      */
     private function warn($msg)
     {
@@ -120,7 +118,7 @@ class Sanitizer
      * Fatal Error message
      *
      * @param  $msg The Fatal Error message
-     * @return string
+     * @return string The full Fatal Error message
      */
     private function fatal($msg)
     {
@@ -130,10 +128,20 @@ class Sanitizer
     }
 
     /**
+     * Get config - Useful for debugging purpose
+     *
+     * @return array The config settings
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
      * Load configuration from ini file
      *
      * @param  string $file Path to config.ini file
-     * @return null
+     * @return null Nothing to return, So null
      */
     public function configFromIni($file = "config.ini")
     {
@@ -143,12 +151,12 @@ class Sanitizer
         return null;
     }
 
-    /*
+    /**
      * Modify configuration options temporarily
      *
-     * @param string $case The key of the setting
-     * @param string|array $value The value of the setting
-     * @return bool
+     * @param  string       $case  The key of the setting
+     * @param  string|array $value The value of the setting
+     * @return bool Whether the config option has been modified or not
      */
     public function set($case, $value = "default")
     {
@@ -214,15 +222,21 @@ class Sanitizer
      * @param  bool   $htmlspecialchars Do you want to use htmlspecialchars in input data?
      * @param  bool   $alpha_num        Is the input data alpha numeric?
      * @param  bool   $ucwords          Do you want to automatically add upper case letters to each words?
-     * @return string
+     * @return string The sanitized string
      */
     public function clean($text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
     {
-        $text = strip_tags($this->HTML((string)$text));
+        $text = $this->stripTagsContent((string)$text);
 
-        if ($htmlspecialchars && $this->config["preventXSS"]) {
+        if (
+            $htmlspecialchars &&
+            $this->config["preventXSS"]
+        ) {
             $text = htmlspecialchars($text, ENT_QUOTES, "UTF-8");
-        } elseif ($htmlspecialchars && !($this->config["preventXSS"])) {
+        } elseif (
+            $htmlspecialchars &&
+            !($this->config["preventXSS"])
+        ) {
             $text = htmlspecialchars($text, ENT_QUOTES, $this->config["encoding"]);
         }
 
@@ -262,20 +276,20 @@ class Sanitizer
      *
      * @param  string           $type             The input type.
      * @param  string|int|float $text             The input data.
-     * @param  bool             $trim Do you want to trim the input data?
+     * @param  bool             $trim             Do you want to trim the input data?
      * @param  bool             $htmlspecialchars Do you want to use php htmlspecialchars function on the input data?
-     * @param  bool             $alpha_num Is the input data alpha numeric?
-     * @param  bool             $ucwords Do you want to automatically convert the first letter to upper case letter in each word?
-     * @return string|int|float
+     * @param  bool             $alpha_num        Is the input data alpha numeric?
+     * @param  bool             $ucwords          Do you want to automatically convert the first letter to upper case letter in each word?
+     * @return string|int|float The sanitized string or int or float
      */
     public function sanitize($type, $text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
     {
         $input = $text;
-        if (!isset($type) || is_null($type)) {
+        if (empty($type)) {
             $type = gettype($text);
 
-            if (gettype($text) === "string") {//If $type is not given and php detects it as a string
-                $type = "message"; //Then take it as message (because We don't know whether it contains EOL)
+            if ($type === "string") {//If $type is not given and php detects it as a string
+                $type = ""; //Then use the default clean function
             }
         }
 
@@ -296,13 +310,13 @@ class Sanitizer
                 $text = preg_replace("/[^A-Za-z0-9]/s", "", filter_var($this->clean($text, $trim, $htmlspecialchars, $alpha_num, $ucwords), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
                 break;
             case "hex":
-                $text = preg_replace("/[^a-f0-9]/s", "", filter_var($this->clean($text, $trim, $htmlspecialchars, $alpha_num, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
+                $text = preg_replace("/[^a-f0-9]/s", "", filter_var($this->clean($text, $trim, $htmlspecialchars, true, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
                 break;
             case "url":
                 $text = filter_var(strip_tags($text), FILTER_SANITIZE_URL);
                 break;
             case "password":
-                $text = filter_var($this->clean($text, false, false, false, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+                $text = filter_var($this->clean($text, false, false, false, false), FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES | FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
                 break;
             case "name":
                 $text = $this->clean(preg_replace("/[^A-Za-z\s+]/s", "", filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)), $trim, $htmlspecialchars, $alpha_num, true);
@@ -329,11 +343,11 @@ class Sanitizer
     /**
      * Text without any number (Depreciated)
      *
-     * @param  string $text The input data.
-     * @param  bool   $trim Do you want to trim the input data?
+     * @param  string $text             The input data.
+     * @param  bool   $trim             Do you want to trim the input data?
      * @param  bool   $htmlspecialchars Do you want to use php htmlspecialchars function on the input data?
      * @param  bool   $alpha_num
-     * @return string
+     * @return string The sanitized string
      */
     public function NonNumericText($text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
     {
@@ -348,9 +362,9 @@ class Sanitizer
      * @param  string $text   The html code.
      * @param  string $tags   The allowed html tags.
      * @param  bool   $invert Do you want to change parameter #2 to `The disallowed html tags.`?
-     * @return string
+     * @return string The striped string
      */
-    private function strip_tags_content($text, $tags = "", $invert = false)
+    private function stripTagsContent($text, $tags = "", $invert = false)
     {
         preg_match_all('/<(.+?)[\s]*\/?[\s]*>/si', trim($tags), $tags);
         $tags = array_unique($tags[1]);
@@ -372,23 +386,31 @@ class Sanitizer
      *
      * @param  string $text
      * @param  string $tags
-     * @return string
+     * @return string The sanitized html code
      */
     public function HTML($text, $tags = "<b><i><em><p><a><br>")
     {
         // Remove any attribute starting with on or xmlns
         $text = preg_replace('#(<[^>]+?[\x00-\x20"\'])(?:on|xmlns)[^>]*+>#iu', '$1>', (string)$text);
-        $text = $this->strip_tags_content((string)$text, $tags);
+        $text = $this->stripTagsContent((string)$text, $tags);
+        if (class_exists("\HTMLPurifier")) {
+            $config = \HTMLPurifier_Config::createDefault();
+            $purifier = new \HTMLPurifier($config);
+            $clean_html = $purifier->purify($text);
+        } else {
+            $msg = $this->warn("HTMLPurifier is not installed or not required (using `require_once '/path/to/HTMLPurifier.auto.php';`). So, the html returned may not be valid and secure to prevent XSS.");
+            $clean_html = $text;
+        }
 
-        return $text;
+        return $clean_html;
     }
 
     /**
      * Sanitize a array
      *
-     * @param  array $array
-     * @param  array $filters
-     * @return array
+     * @param  array $array The input array.
+     * @param  array $filters The filters to apply to the values in the array
+     * @return array The sanitized array
      */
     public function sanitizeArray($array, $filters = array("types" => array()))
     {
@@ -402,10 +424,10 @@ class Sanitizer
                 }
             }
 
-            if (!isset($filters["types"][$key])) {
+            if (empty($filters["types"][$key])) {
                 $filters["types"][$key] = gettype($value);
                 if ($filters["types"][$key] === "string") {
-                    $filters["types"][$key] = "message";
+                    $filters["types"][$key] = "";
                 }
             }
 
@@ -423,7 +445,7 @@ class Sanitizer
                     break;
                 case "string":
                 case "text":
-                    $sanitized = $this->sanitize("text", $value, $settings["trim"], $settings["htmlspecialchars"]);
+                    $sanitized = $this->sanitize("text", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
                     break;
                 case "hex":
                     $sanitized = $this->sanitize("hex", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
@@ -433,6 +455,7 @@ class Sanitizer
                     break;
                 case "password":
                     $sanitized = $this->sanitize("password", $value);
+                    break;
                 case "name":
                     $sanitized = $this->sanitize("name", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
                     break;
