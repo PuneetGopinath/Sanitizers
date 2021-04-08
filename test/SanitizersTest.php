@@ -9,6 +9,7 @@ for ($i = 0; $i < count($argv); $i++) {
             break;
         case "ini":
             $configFromIni = true;
+            break;
         default:
             if (!(isset($debug) && isset($configFromIni))) {
                 $debug = false;
@@ -73,8 +74,8 @@ $testValues = array(
     "email" => "AdMiN@ExAmPle.cOm",
     "message" => "Hi Name, <br>\r\n<img src=http://example.com/No_file.png onerror=alert('XSS');></img>",
     "url" => "http://example.com/index.php?username=<script>alert('XSS');</script>",
-    "username" => "PuneetGopinath", // It will become to smaller case if you want upper case also then use sanitize function with type parameter as name e.g. `$sanitizer->sanitize("name", $username)`
-    "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">Click here</a>",
+    "username" => "PuneetGopinath",
+    "html" => "<b>bold</b><!-- This is a comment --><link rel=stylesheet src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">Click here</a>",
     "password" => "\$UnIQUe|`_-<script>alert('XSS')</script>#pass•WorD%!?",
     "function_clean" => "XSS <script>alert('XSS');</script>"
 );
@@ -121,18 +122,20 @@ $filters = array(
         "tags" => "<b><i><em><p><a><br>"//Optinal Allowed tags
     )
 );
-$auto_values = $sanitizer->sanitizeArray($testValues, $filters);
+$autoValues = $sanitizer->sanitizeArray($testValues, $filters);
+
+$same = "\" -- same: ";
 
 echo "Array Key -- Original Value => Sanitized Value -- same: bool" . EOL;
 
 foreach ($testValues as $i => $value) {
-    echo $i . " -- \"" . $value . "\" => \"" . $values[$i] . "\" -- same: " . (($value === $values[$i]) ? "true" : "false") . EOL;
+    echo $i . " -- \"" . $value . "\" => \"" . $values[$i] . $same . (($value === $values[$i]) ? "true" : "false") . EOL;
 }
 
 echo EOL . "Array Key -- Original Value => Auto Sanitized Value -- same: bool" . EOL;
 
 foreach ($testValues as $i => $value) {
-    echo $i . " -- \"" . $value . "\" => \"" . $auto_values[$i] . "\" -- same: " . (($value === $auto_values[$i]) ? "true" : "false") . EOL;
+    echo $i . " -- \"" . $value . "\" => \"" . $autoValues[$i] . $same . (($value === $autoValues[$i]) ? "true" : "false") . EOL;
 }
 
 if ($debug) {
