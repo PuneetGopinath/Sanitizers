@@ -22,4 +22,8 @@ For a list of encoding options
 
 Do you want to prevent XSS strictly? True/False.
 
+**Note:** If you set preventXSS as true then you should also set encoding to "UTF-8".
+
+---------------------------------------------------------------------
+
 [Back to home](README.md)

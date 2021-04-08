@@ -38,4 +38,34 @@ See also HTML_sanitization in
 1. Always sanitize and validate all user input.
 2. [Add a strict Content Security Policy (CSP)](https://web.dev/strict-csp/).
 
+## When do XSS vulnerabilities arise?
+
+They usually arise from:
+
+ * Allowing user input to be add to your html code. (Use HTMLPurifier)
+ * Allowing users to upload HTML/SVG files and serving those back unsafely (Use HTMLPurifier/SVG sanitizer).
+ * Passing user input into executable functions/properties in JS. (Use Any Sanitizer like BK Sanitizers)
+ * Loading scripts from untrusted website. (You have to trust that website, we can't do anything)
+
+## What are the main things to sanitize?
+
+You can sanitize all the external sources before using any of them:
+
+1. $_SERVER
+2. $_POST
+3. $_GET
+4. $_COOKIE
+5. $_REQUEST (commonly not used)
+6. Data taken from databases
+7. APIs
+8. Input data from the clients
+9. $argv
+10. http://php://stdin
+11. http://php://input
+
+We are planning to create a new library AutoSanitize for sanitizing these variables.<br>
+If you are interested, send us a mail at [baalkrshna@gmail.com](mailto:baalkrshna@gmail.com\&subject=I%20am%20interested%20in%20AutoSanitize%20library\&cc=\&bcc=\&body=Hi%20BKS%20maintainers!%20I%20am%20interested%20in%20AutoSanitize%20library%20Thank%20you,%20Your%20name), Click on email address the subject and body is automatically added you can modify it. Note: Replace `Your name` with your name.
+
+---------------------------------------------------------------------
+
 [Back to home](README.md)

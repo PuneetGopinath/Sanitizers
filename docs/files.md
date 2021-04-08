@@ -20,4 +20,6 @@ This file contains the `SanitizerData` class.
 
 Example config file in ini format.
 
+---------------------------------------------------------------------
+
 [Back to home](README.md)

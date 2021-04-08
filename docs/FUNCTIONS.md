@@ -116,7 +116,7 @@ And returns the sanitized string.
 &emsp;Is the input data alpha numeric? True/False.
 
 <b>ucwords</b><br>
-&emsp;Do you want to automatically convert the first letter to upper case letter in each word? True/False.
+&emsp;Do you want to automatically convert the first letter of each word to upper case? True/False.
 
 ### Example
 
@@ -146,6 +146,8 @@ sanitize - Sanitize a string
 Cleans a user input. It sanitizes the input string through `filter_var` and somtimes uses above `clean` function based on the type parameter.
 The input string is given parameter 2.<br>
 And returns the sanitized string.
+
+**Note:** For username, the input data will be converted to smaller case if you want to allow upper case then use sanitize function with type parameter as name e.g. `$sanitizer->sanitize("name", $username)`
 
 ### Parameters
 
@@ -354,5 +356,7 @@ $sanitizer = new Sanitizer(false, $logger);
 
 ### Return values
 &emsp;Returns the class Sanitizer.
+
+---------------------------------------------------------------------
 
 [Back to home](README.md)

@@ -101,8 +101,15 @@ If you want to sanitize arrays then use `sanitizeArray($array, $filters);`, See 
 
 Plz read [SUPPORT.md](https://github.com/PuneetGopinath/Sanitizers/blob/main/.github/SUPPORT.md) if you want to ask questions or clarify doubts.
 
-If you want to use `psr/log` for debugging, Then create a new logger in a variable `$logger` (e.g. `$logger = new myPsr3Logger();`), then pass the `$logger` variable in parameter #2 while constructing Sanitizer class.
+If you want to use `psr/log` for debugging, Then create a new logger in a variable `$logger` (e.g. `$logger = new myPsr3Logger();`), then pass the `$logger` variable in parameter #2 while constructing Sanitizer class.<br>
+Example:
+```
+$logger = new myPsr3Logger();
+$sanitizer = new Sanitizer(false, $logger);
+```
 
 You will find more to play with in the [examples](https://github.com/PuneetGopinath/Sanitizers/tree/main/examples) folder.
+
+---------------------------------------------------------------------
 
 [Back to home](README.md)
