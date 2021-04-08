@@ -51,6 +51,8 @@
 
 </details>
 
+---------------------------------------------------------------------
+
 <h2><a name="features">Features</a></h2>
 
  * Sanitize strings and arrays

@@ -7,7 +7,7 @@ The following is a set of guidelines for contributing to BKS. These are mostly g
 
 We welcome Pull requests !!
 
-For major changes, please open an [discussion](https://github.com/PuneetGopinath/Sanitizers/discussions/new) to discuss what you would like to change.
+For major changes, please open an [discussion](https://github.com/PuneetGopinath/Sanitizers/discussions) to discuss what you would like to change.
 
 ## Asking Questions
 
