@@ -221,7 +221,7 @@ class Sanitizer
      * @param  bool   $trim             Do you want to trim the input data?
      * @param  bool   $htmlspecialchars Do you want to use htmlspecialchars in input data?
      * @param  bool   $alpha_num        Is the input data alpha numeric?
-     * @param  bool   $ucwords          Do you want to automatically add upper case letters to each words?
+     * @param  bool   $ucwords          Do you want to automatically convert the first letter of each word to upper case?
      * @return string The sanitized string
      */
     public function clean($text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
@@ -279,7 +279,7 @@ class Sanitizer
      * @param  bool             $trim             Do you want to trim the input data?
      * @param  bool             $htmlspecialchars Do you want to use php htmlspecialchars function on the input data?
      * @param  bool             $alpha_num        Is the input data alpha numeric?
-     * @param  bool             $ucwords          Do you want to automatically convert the first letter to upper case letter in each word?
+     * @param  bool             $ucwords          Do you want to automatically convert the first letter of each word to upper case?
      * @return string|int|float The sanitized string or int or float
      */
     public function sanitize($type, $text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
@@ -438,10 +438,10 @@ class Sanitizer
             switch (strtolower($filters["types"][$key])) {
                 case "int":
                 case "integer":
-                    $sanitized = $this->sanitize("integer", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
+                    $sanitized = $this->sanitize("integer", $value);
                     break;
                 case "float":
-                    $sanitized = $this->sanitize("float", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
+                    $sanitized = $this->sanitize("float", $value);
                     break;
                 case "string":
                 case "text":
@@ -466,7 +466,7 @@ class Sanitizer
                     $sanitized = $this->sanitize("email", $value, $settings["trim"], $settings["htmlspecialchars"], false);
                     break;
                 case "username":
-                    $sanitized = $this->sanitize("username", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
+                    $sanitized = $this->sanitize("username", $value, $settings["trim"], $settings["htmlspecialchars"], true, false);
                     break;
                 case "html":
                     $sanitized = $this->HTML($value, $filters[$key]["tags"]);
