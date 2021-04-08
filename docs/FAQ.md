@@ -64,7 +64,7 @@ You can sanitize all the external sources before using any of them:
 11. http://php://input
 
 We are planning to create a new library AutoSanitize for sanitizing these variables.<br>
-If you are interested, send us a mail at [baalkrshna@gmail.com](mailto:baalkrshna@gmail.com\&subject=I%20am%20interested%20in%20AutoSanitize%20library\&cc=\&bcc=\&body=Hi%20BKS%20maintainers!%20I%20am%20interested%20in%20AutoSanitize%20library%20Thank%20you,%20Your%20name), Click on email address the subject and body is automatically added you can modify it. Note: Replace `Your name` with your name.
+If you are interested, send us a mail at [baalkrshna@gmail.com](mailto:baalkrshna@gmail.com\&subject=I%20am%20interested%20in%20AutoSanitize%20library\&cc=\&bcc=\&body=Hi%20BKS%20maintainers%21%0D%0AI%20am%20interested%20in%20AutoSanitize%20library%0D%0A%0D%0AThank%20you%2C%0D%0AYour%20name), Click on email address the subject and body is automatically added you can modify it. Note: Replace `Your name` with your name.
 
 ---------------------------------------------------------------------
 

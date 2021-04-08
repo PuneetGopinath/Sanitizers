@@ -32,6 +32,7 @@ Format is `version (*dd-mm-yyyy*)`
  * Improve grammer in home page of docs
  * Add how to load HTMLPurifier in `INSTALL.md`
  * Improve contributing guidelines
+ * Add 2 new faqs
 
 ### v1.1.0 (*05-04-2021*)
 
