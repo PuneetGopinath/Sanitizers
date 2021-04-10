@@ -6,10 +6,6 @@ To know the frequently asked questions to BKS read this file.
 
 The Frequently Asked Questions are:
 
-## What is XSS ??
-
-XSS stands for Cross Site Scripting.
-
 ## What is Sanitize ??
 
 /ˈsanɪtʌɪz/ - to make something completely clean and free from bacteria.<br>
@@ -32,20 +28,6 @@ See also HTML_sanitization in
 3. Last, Escape output.
 
 <img src="../gif/Sanitize.jpg" alt="Validating process image" style="width:300;height:300;" height="300" width="300" />
-
-## What are the important things to do for preventing XSS ?
-
-1. Always sanitize and validate all user input.
-2. [Add a strict Content Security Policy (CSP)](https://web.dev/strict-csp/).
-
-## When do XSS vulnerabilities arise?
-
-They usually arise from:
-
- * Allowing user input to be add to your html code. (Use HTMLPurifier)
- * Allowing users to upload HTML/SVG files and serving those back unsafely (Use HTMLPurifier/SVG sanitizer).
- * Passing user input into executable functions/properties in JS. (Use Any Sanitizer like BK Sanitizers)
- * Loading scripts from untrusted website. (You have to trust that website, we can't do anything)
 
 ## What are the main things to sanitize?
 

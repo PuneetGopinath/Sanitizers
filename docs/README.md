@@ -7,10 +7,11 @@ Welcome to the documentation for BK Sanitizers.
 ## Pages
 
 1. [Getting Started](getting-started.md)
-2. [Functions and Methods](FUNCTIONS.md)
+2. [Functions and Methods](functions.md)
 3. [Configuring settings](config.md)
 4. [Files](files.md)
-5. [Frequently Asked Questions(FAQ)](FAQ.md)
+5. [Frequently Asked Questions(FAQ)](faq.md)
+6. [Learn more about XSS](xss.md)
 
 ## Community
 

@@ -1,13 +1,16 @@
-<link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
 <div class="card">
   <p align="center">
     <a href="https://puneetgopinath.github.io/Sanitizers">
-      <img src="docs/images/Sanitizers-logo-transparent.png" alt="BKS logo" style="width:300;height:300;" height="300" width="300" />
+      <img loading="lazy" src="https://puneetgopinath.github.io/Sanitizers/images/Sanitizers-logo-transparent.png" alt="BKS logo" style="width:300;height:300;" height="300" width="300" />
     </a>
   </p>
+  <link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
   <h2 align="center">BK Sanitizers (BKS)</h2>
+  <a href="https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers\&hashtags=php,backend,developer,opensource,bksanitizers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
+  <a href="https://github.com/PuneetGopinath/Sanitizers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/PuneetGopinath/Sanitizers?style=social"></a>
+  <a href="https://github.com/PuneetGopinath/Sanitizers/actions/workflows/php.yml"><img src="https://github.com/PuneetGopinath/Sanitizers/actions/workflows/php.yml/badge.svg" alt="PHP Composer" /></a>
   <blockquote><b>Quickly Sanitize user data</b></blockquote>
-  <img alt="Welcome" src="gif/Welcome.gif" />
+  <img loading="lazy" alt="Welcome" height="200" width="600" src="gif/Welcome.gif" />
 
   <p align="center">
     <b>BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.</b><br><br>
@@ -21,10 +24,8 @@
     <a href="https://github.com/PuneetGopinath/Sanitizers/wiki"><b>BK Sanitizers Wiki</b></a> &raquo;<br><br>
     <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md">Report bug(s)</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/releases">Releases</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=feature_request.md">Request feature</a> • <a href="https://baalkrshna.hashnode.dev/series/bks">Blog</a>
   </p><br><br>
-  <a href="https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers\&hashtags=php,backend,developer,opensource,bksanitizers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
   <a href="https://gitter.im/BaalKrshna/Sanitizers?utm_source=badge&utm_medium=badge"><img alt="Join the chat at https://gitter.im/BaalKrshna/Sanitizers" src="https://badges.gitter.im/BaalKrshna/Sanitizers.svg" /></a>
-  <a href="https://discord.gg/UqRgmKrYB3"><img alt="Discord Chat" src="https://img.shields.io/discord/826082157259915264?color=%237289da&label=discord"></a>
-  <a href="https://github.com/PuneetGopinath/Sanitizers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/PuneetGopinath/Sanitizers?style=social"></a><br>
+  <a href="https://discord.gg/UqRgmKrYB3"><img alt="Discord Chat" src="https://img.shields.io/discord/826082157259915264?color=%237289da&label=discord"></a><br>
 </div>
 
 ---------------------------------------------------------------------
@@ -66,9 +67,7 @@
 
 <h2><a name="quick-start">Quick Start 🚀</a></h2>
 
-- [Download the latest version](https://github.com/PuneetGopinath/Sanitizers/archive/v1.1.0.zip)
-
-- ### Clone the repo:
+- ### Clone the repo (if you want to contribute):
 
  * Using git:
 `git clone https://github.com/PuneetGopinath/Sanitizers.git`
