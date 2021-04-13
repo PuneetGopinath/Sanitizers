@@ -116,7 +116,7 @@ And returns the sanitized string.
 &emsp;Is the input data alpha numeric? True/False.
 
 <b>ucwords</b><br>
-&emsp;Do you want to automatically convert the first letter of each word to upper case? True/False.
+&emsp;Do you want to automatically convert first letter of each word to upper case? True/False.
 
 ### Example
 

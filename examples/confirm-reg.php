@@ -13,8 +13,8 @@ if (isset($_POST["Submit"])) {
     $sanitizer = new Sanitizer();
     $code = $sanitizer->sanitize("hex", $_POST["code"]);
 
-    // Now use variable $code for the code...
-    print_r(array("code" => $code, "Sanitizer" => $sanitizer, "_POST" => $_POST)); //Testing
+    // Now use $code for the code...
+    print_r(array("code" => $code, "config" => $sanitizer->getConfig(), "_POST" => $_POST)); //Testing
     // Check in Database, Send email, etc...
 }
 

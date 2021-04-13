@@ -4,6 +4,8 @@
 
 This folder contains examples of how to use PHP Sanitizers.
 
+**Note:** Before using them in production, remove the full line which contains `//Testing`
+
 ## Files
 
 #### 1. [Registeration Form](https://github.com/PuneetGopinath/Sanitizers/blob/main/examples/register.php)

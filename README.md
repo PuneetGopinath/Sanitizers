@@ -58,9 +58,8 @@
 
  * Sanitize strings and arrays
  * Namespaced to prevent name clashes
- * Built-in tests
- * Examples for how-to use BKS
- * Sanitize urls
+ * PHP 5.3.0 support
+ * Examples for how-to use BK Sanitizers
  * Use configuration from ini file
  * Easy to Use
  * And many more...
@@ -85,8 +84,8 @@ Please see [docs](docs/README.md) folder.
 
 - ### Example Usage
 
-Just include the file and Sanitize user input.
-- Example Usage without composer autoload:
+If you are using composer, then replace `require "src/BKS.auto.php";` with `require "vendor/autoload.php";`
+
 
 ```php
 <?php
@@ -106,25 +105,6 @@ try {
 ?>
 ```
 
-- Example Usage with composer autoload:
-
-```php
-<?php
-// Import classes
-use Sanitizers\Sanitizers\Sanitizer;
-
-require "vendor/autoload.php";
-
-$sanitizer = new Sanitizer(true);
-try {
-    echo $sanitizer->sanitize("username", $_GET["username"]);
-} catch (Exception $e) {
-    echo "Could not Sanitize user input.";
-    echo $e->getMessage();
-}
-?>
-```
-
 <h2><a name="status">Status</a></h2>
 
 This project is currently being maintained. And Will Be Maintained. If You Like This Project And Want This Project To Never Exhaust. Please Consider Donating.
@@ -133,21 +113,16 @@ This project is currently being maintained. And Will Be Maintained. If You Like 
 [![Discord Chat](https://img.shields.io/discord/826082157259915264?color=%237289da&label=discord)](https://discord.gg/UqRgmKrYB3)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers?ref=badge_shield)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](.github/CODE_OF_CONDUCT.md)
-
-#### Workflows
-
 [![PHP Composer](https://github.com/PuneetGopinath/Sanitizers/actions/workflows/php.yml/badge.svg)](https://github.com/PuneetGopinath/Sanitizers/actions/workflows/php.yml)
 
 #### GitHub
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/PuneetGopinath/Sanitizers)
-![GitHub last commit](https://img.shields.io/github/last-commit/PuneetGopinath/Sanitizers)
 [![Github Downloads](https://img.shields.io/github/downloads/PuneetGopinath/Sanitizers/total.svg)](https://github.com/PuneetGopinath/Sanitizers/releases)
 [![GitHub issues](https://img.shields.io/github/issues-raw/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/pulls)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/releases)
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/PuneetGopinath/Sanitizers)
-[![GitHub top language](https://img.shields.io/github/languages/top/PuneetGopinath/Sanitizers)]()
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/PuneetGopinath/Sanitizers)]()
 [![GitHub repo size](https://img.shields.io/github/repo-size/PuneetGopinath/Sanitizers)]()
 
@@ -160,18 +135,12 @@ This project is currently being maintained. And Will Be Maintained. If You Like 
 [![Monthly Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/monthly)](https://packagist.org/packages/sanitizers/sanitizers)
 [![Daily Downloads](https://poser.pugx.org/sanitizers/sanitizers/d/daily)](https://packagist.org/packages/sanitizers/sanitizers)
 
-#### Stargazers over time
-
-[![Stargazers over time](https://starchart.cc/PuneetGopinath/Sanitizers.svg)](https://starchart.cc/PuneetGopinath/Sanitizers)
-
-<!--[![Sparkline](https://stars.medv.io/PuneetGopinath/Sanitizers.svg)](https://stars.medv.io/PuneetGopinath/Sanitizers)-->
-
 <h2><a name="faq">FAQ</a></h2>
 
 Read the [FAQ.md](docs/FAQ.md) file in docs to understand the frequently asked questions to BKS:
 
- * What is XSS ??
- * What is Sanitize ??
+ * What is Sanitize??
+ * When and why should I use Sanitizers?
  * And many more...
 
 <h2><a name="files">Files️</a></h2>
@@ -207,7 +176,7 @@ Plz see [SUPPORT.md](https://github.com/PuneetGopinath/Sanitizers/blob/main/.git
 
 <h2><a name="authors">Authors ✒️</a></h2>
 
- * Puneet Gopinath - [GitHub](https://github.com/PuneetGopinath) - [Email](mailto:baalkrshna@gmail.com)
+ * Puneet Gopinath - [GitHub](https://github.com/PuneetGopinath) - [Email](mailto:baalkrshna@gmail.com) - [Donate at patreon](https://patreon.com/PuneetGopinath)
 
 See also the list of [contributors](https://github.com/PuneetGopinath/Sanitizers/graphs/contributors) who participated in building this project.
 
@@ -233,7 +202,7 @@ Thanks to all contributors again !!
 
 <h2><a name="license">LICENSE 📄</a></h2>
 
-MIT License. Read [LICENSE](LICENSE) file.
+Read [LICENSE](LICENSE) file.
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FPuneetGopinath%2FSanitizers?ref=badge_large)
 
 <h2><a name="comparing">Comparing 😕</a></h2>

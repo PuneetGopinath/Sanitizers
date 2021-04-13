@@ -17,8 +17,8 @@ if (isset($_POST["Submit"])) {
     $message = $sanitizer->clean($_POST["message"], false, false, false, false);
     $dept = $sanitizer->sanitize("text", $_POST["dept"]);
 
-    // Now use variables $name, $email, $message, $dept for user inputs...
-    print_r(array("name" => $name, "email" => $email, "message" => $message, "dept" => $dept, "Sanitizer" => $sanitizer, "_POST" => $_POST)); //Testing
+    // Now use $name, $email, $message, $dept for sanitized user inputs (name, email, message, dept respectively)...
+    print_r(array("name" => $name, "email" => $email, "message" => $message, "dept" => $dept, "config" => $sanitizer->getConfig(), "_POST" => $_POST)); //Testing
     // Check in Database, Send email, etc...
 }
 
@@ -38,7 +38,8 @@ if (isset($_POST["Submit"])) {
             <input required class="form-input" type="text" name="name"><br><br>
             <label class="form-text" for="email">Email address:</label><br>
             <input required class="form-input" type="email" name="email"><br><br>
-            <label class="form-text" for="message">Message:<b>Note: if more than 5000 letters, then extra letters will be removed</b></label><br>
+            <label class="form-text" for="message">Message:</label>
+            <b>Note: if message is more than 5000 letters, then extra letters will be removed</b><br>
             <textarea class="form-input" name="message" rows="8" cols="20"></textarea><br><br>
             <label class="form-text" for="dept">Send query to department:</label>
             <select class="form-select" name="dept" id="dept">

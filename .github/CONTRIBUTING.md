@@ -55,7 +55,7 @@ Steps to submit a pr:
 2. Clone it
 3. Edit
 4. Now commit
-5. Then push and give us a pull request
+5. Push and give us a pull request
 
 ## Where can I contribute to BKS?
 
@@ -64,7 +64,7 @@ You can contribute us by:
  * Improving docs
  * Translating docs, readme
  * Improving source code, examples and built-in tests
- * Visuals in different platforms, See [Visuals in readme](https://github.com/PuneetGopinath/Sanitizers#visuals), currently only termux (android) available
+ * Improving [Website](https://github.com/PuneetGopinath/Sanitizers/tree/gh-pages)
 
 ## Translating
 
@@ -75,10 +75,10 @@ Thank you very much !!
 1. Fork our repo
 2. Create new branch with the language name, for example: `en-us`
 3. Clone it
-4. Edit the docs, `INSTALL.md`, `.github/SUPPORT.md`, `.github/CONTRIBUTING.md` and readme
-5. At the end of readme add `Translated by your full name` in that language but not in english, replace `your full name` with your name in that language
+4. Edit the docs, `INSTALL.md`, `.github/SUPPORT.md`, `.github/CONTRIBUTING.md` and edit readme if possible
+5. At the end of readme add `Translated by your name` in that language but not in english, replace `your name` with your name in that language
 6. Now commit
-7. The push and give us a pull request
+7. Push and give us a pull request
 
 #### Languages already translated
 
@@ -87,7 +87,7 @@ Thank you very much !!
 ## Other options
 
  * You can also contribute by funding the Author
- * Even asking questions will help us improve our docs and wiki, Ask at gitter or at IRC #bksanitizers channel in `irc.freenode.net` server
+ * Even asking questions will help us improve our docs and wiki, See [SUPPORT.md](SUPPORT.md)
 
 # Code of Conduct
 

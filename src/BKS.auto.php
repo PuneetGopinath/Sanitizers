@@ -12,8 +12,6 @@
  * @see       https://packagist.org/packages/sanitizers/sanitizers BK Sanitizers on Packagist
  */
 
-namespace Sanitizers\Sanitizers;
-
 $dir = dirname(__FILE__);
 
 require_once $dir . "/Sanitizer.php";

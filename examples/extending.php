@@ -17,14 +17,15 @@ class MySanitizer extends Sanitizer
     /**
      * MySanitizer class constructor.
      *
-     * @param bool|null $exceptions
-     * @param \Psr\Log\LoggerInterface|null $logger
-     * @return MySanitizer
+     * @param  bool|null                     $exceptions Do you want to enable exceptions?
+     * @param  \Psr\Log\LoggerInterface|null $logger     You can pass an instance of a PSR-3 compatible logger here
+     * @param   SanitizerData|null $sanitizerData The SanitizerData class
+     * @return MySanitizer The MySanitizer class
      */
-    public function __construct($exceptions = null, $logger = null)
+    public function __construct($exceptions = null, $logger = null, $sanitizerData = null)
     {
         //Don't forget to do this or other things may not be set correctly!
-        parent::__construct($exceptions, $logger);
+        parent::__construct($exceptions, $logger, $sanitizerData);
         $baseDir = dirname(dirname(__FILE__));
         //Load config from ini
         //Comment it out, if you don't want config from ini
@@ -41,11 +42,11 @@ class MySanitizer extends Sanitizer
      */
     public function validate($type, $text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
     {
-        if (!isset($type) || is_null($type)) {
+        if (empty($type)) {
             $type = gettype($text);
 
-            if (gettype($text) === "string") {
-                $type = "message";
+            if ($type === "string") {
+                $type = "";
             }
         }
 

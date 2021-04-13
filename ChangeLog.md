@@ -18,11 +18,11 @@ Format is `version (*dd-mm-yyyy*)`
 
 #### Changes
  * Change function `strip_tags_content` to `stripTagsContent`
- * Move `SanitizerData` class (in BKS.auto.php) to `src/SanitizerData.php` (new file), for correcting PSR-12
- * Instead of calling `is_a($sanitizerData, __NAMESPACE__ . "\SanitizerData")` 2 times, save it in a variable for faster performace.
+ * Move `SanitizerData` class (was in `BKS.auto.php`) to `src/SanitizerData.php` (new file), for correcting to PSR-12
+ * Instead of calling `is_a($sanitizerData, __NAMESPACE__ . "\SanitizerData")` 2 times, save it in a variable for faster performance.
 
 #### Additions
- * Add `HTMLPurifier` as a dependency. And use `HTMLPurifier` when sanitizing html codes. (optinal if you are not using composer)
+ * Added `HTMLPurifier` as a dependency. And use `HTMLPurifier` when sanitizing html codes. (optinal if you are not using composer)
  * New function `getConfig()` - Get current configuration for debugging purposes
 
 #### Deletions

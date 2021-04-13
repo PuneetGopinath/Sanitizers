@@ -14,8 +14,8 @@ if (isset($_POST["Submit"])) {
     $username = $sanitizer->sanitize("username", $_POST["username"]);
     $password = $sanitizer->sanitize("password", $_POST["password"]);
 
-    // Now use variables $username, $password for user form inputs...
-    print_r(array("username" => $username, "password" => $password, "Sanitizer" => $sanitizer, "_POST" => $_POST)); //Testing
+    // Now use $username, $password for sanitized user inputs (username, password respectively)...
+    print_r(array("username" => $username, "password" => $password, "config" => $sanitizer->getConfig(), "_POST" => $_POST)); //Testing
     // Check in Database, Send email, etc...
 }
 ?>
