@@ -1,7 +1,3 @@
----
-title: Homepage
----
-
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <link rel="stylesheet" href="css/main.css" />
 <div class="card">
@@ -14,46 +10,11 @@ title: Homepage
     </p><br><br>
 </div>
 
-<a class="github-button" href="https://github.com/PuneetGopinath/Sanitizers" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star PuneetGopinath/Sanitizers on GitHub">Star</a>
+<a class="github-button" href="https://github.com/PuneetGopinath/Sanitizers" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star BK Sanitizers on GitHub">Star</a>
 
-# Table of contents
+We give our users the best protection ever we can.
 
- * [Features](#features)
- * [Supporters](#supporters)
- * [Spread](#spread)
-
-<h2><a name="features">Features</a></h2>
-
- * Sanitize strings and arrays
- * Namespaced to prevent name clashes
- * Built-in tests
- * Examples for how-to use BKS
- * Sanitize urls
- * Use configuration from ini file
- * Easy to Use
- * And many more...
-
-<h2><a name="supporters">Supporters</a></h2>
-
-👏 Thank you very much !
-
-You have proved that BK Sanitizers has some value !!
-
-### Stargazers
-
-[![Stargazers for @PuneetGopinath/Sanitizers](https://reporoster.com/stars/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/stargazers)
-
-### Forks
-
-[![Forkers for @PuneetGopinath/Sanitizers](https://reporoster.com/forks/PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/network/members)
-
-### Contributors
-
-Thanks to all contributors again !!
-
-[![GitHub Contributors Image](https://contrib.rocks/image?repo=PuneetGopinath/Sanitizers)](https://github.com/PuneetGopinath/Sanitizers/contributors)
-
-<h2><a name="spread">Spread</a></h2>
+## Spread
 
 Help spread awareness about BK Sanitizers by:
 
