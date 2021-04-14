@@ -1,1 +1,9 @@
 @import url("/css/main.css");
+body {
+  background-image: url('https://images.unsplash.com/photo-1557277770-baf0ca74f908?w=1634');
+  color: #fff;
+  background-color: black;
+}
+img {
+  background-image: inherit;
+}
