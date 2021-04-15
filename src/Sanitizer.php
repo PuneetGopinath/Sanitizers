@@ -221,7 +221,7 @@ class Sanitizer
      * @param  bool   $trim             Do you want to trim the input data?
      * @param  bool   $htmlspecialchars Do you want to use htmlspecialchars in input data?
      * @param  bool   $alpha_num        Is the input data alpha numeric?
-     * @param  bool   $ucwords          Do you want to automatically convert first letter of each word to upper case?
+     * @param  bool   $ucwords          Do you want to convert first letter of each word to upper case?
      * @return string The sanitized string
      */
     public function clean($text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
@@ -261,7 +261,7 @@ class Sanitizer
         if (function_exists("iconv") && $this->config["preventXSS"]) {
             $text = iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
         } elseif (!function_exists("iconv")) {
-            $msg = $this->warn("PHP extension iconv not installed.");
+            $this->warn("PHP extension iconv not installed.");
         }
 
         if ($ucwords) {
@@ -279,7 +279,7 @@ class Sanitizer
      * @param  bool             $trim             Do you want to trim the input data?
      * @param  bool             $htmlspecialchars Do you want to use php htmlspecialchars function on the input data?
      * @param  bool             $alpha_num        Is the input data alpha numeric?
-     * @param  bool             $ucwords          Do you want to automatically convert first letter of each word to upper case?
+     * @param  bool             $ucwords          Do you want to convert first letter of each word to upper case?
      * @return string|int|float The sanitized string or int or float
      */
     public function sanitize($type, $text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
@@ -302,34 +302,42 @@ class Sanitizer
                 $text = (int)intval($text) + 0;
                 break;
             case "float":
-                $text = preg_replace("/[^0-9.]/s", "", filter_var($text, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
-                $text = (float)floatval($text) + 0;
+                $text = filter_var($text, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+                $text = (float)floatval(preg_replace("/[^0-9.]/s", "", $text)) + 0;
                 break;
             case "string":
             case "text":
-                $text = preg_replace("/[^A-Za-z0-9]/s", "", filter_var($this->clean($text, $trim, $htmlspecialchars, $alpha_num, $ucwords), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
+                $text = $this->clean($text, $trim, $htmlspecialchars, $alpha_num, $ucwords);
+                $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+                $text = preg_replace("/[^A-Za-z0-9]/s", "", $text);
                 break;
             case "hex":
-                $text = preg_replace("/[^a-f0-9]/s", "", filter_var($this->clean($text, $trim, $htmlspecialchars, true, false), FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH));
+                $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+                $text = preg_replace("/[^a-f0-9]/s", "", $text);
+                $text = $this->clean($text, $trim, $htmlspecialchars, true, false);
                 break;
             case "url":
-                $text = filter_var(strip_tags($text), FILTER_SANITIZE_URL);
+                $text = filter_var($this->stripTagsContent($text), FILTER_SANITIZE_URL);
                 break;
             case "password":
                 $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES | FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
                 $text = $this->clean($text, false, false, false, false);
                 break;
             case "name":
-                $text = $this->clean(preg_replace("/[^A-Za-z\s+]/s", "", filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH)), $trim, $htmlspecialchars, $alpha_num, true);
+                $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+                $text = preg_replace("/[^A-Za-z\s+]/s", "", $text);
+                $text = $this->clean($text, $trim, $htmlspecialchars, $alpha_num, true);
                 break;
             case "message":
                 $text = $this->clean($text, false, true, false, false);
                 break;
             case "email":
-                $text = filter_var(strtolower($this->clean($text, $trim, $htmlspecialchars, false, false)), FILTER_SANITIZE_EMAIL);
+                $text = $this->clean($text, $trim, $htmlspecialchars, false, false);
+                $text = filter_var(strtolower($text), FILTER_SANITIZE_EMAIL);
                 break;
             case "username":
-                $text = preg_replace("/[^a-z0-9]/s", "", strtolower($this->sanitize("text", $text, $trim, $htmlspecialchars, true, false)));
+                $text = $this->sanitize("text", $text, $trim, $htmlspecialchars, true, false);
+                $text = preg_replace("/[^a-z0-9]/s", "", strtolower($text));
                 break;
             default:
                 $text = $this->clean($text, $trim, $htmlspecialchars, $alpha_num, $ucwords);
@@ -353,8 +361,9 @@ class Sanitizer
      */
     public function NonNumericText($text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
     {
-        $msg = $this->warn("You are using the depreciated function NonNumericText instead use sanitize function with type param as \"text\" (see FUNCTIONS.md in docs to understand sanitize function)");
-        $text = preg_replace("/[^A-Za-z]/s", "", $this->sanitize("text", (string)$text, $trim, $htmlspecialchars, $alpha_num, $ucwords));
+        $this->warn("You are using depreciated function NonNumericText, use sanitize function with type param as \"text\" (see functions in docs to understand sanitize function)");
+        $text = $this->sanitize("text", (string)$text, $trim, $htmlspecialchars, $alpha_num, $ucwords);
+        $text = preg_replace("/[^A-Za-z]/s", "", $text);
         return $text;
     }
 
@@ -400,7 +409,7 @@ class Sanitizer
             $purifier = new \HTMLPurifier($config);
             $clean_html = $purifier->purify($text);
         } else {
-            $msg = $this->warn("HTMLPurifier is not installed or required (require_once '/path/to/HTMLPurifier.auto.php';). So the html code may not be valid and secure to prevent XSS.");
+            $this->warn("HTMLPurifier is not installed or required (require_once '/path/to/HTMLPurifier.auto.php';). So the html code may not be valid and secure to prevent XSS.");
             $clean_html = $text;
         }
 
@@ -437,6 +446,11 @@ class Sanitizer
                 $filters[$key]["tags"] = "<b><i><em><p><a><br>";
             }
 
+            $trim = $settings["trim"];
+            $htmlspecialchars = $settings["htmlspecialchars"];
+            $alpha_num = $settings["alpha_num"];
+            $ucwords = $settings["ucwords"];
+
             switch (strtolower($filters["types"][$key])) {
                 case "int":
                 case "integer":
@@ -447,10 +461,10 @@ class Sanitizer
                     break;
                 case "string":
                 case "text":
-                    $sanitized = $this->sanitize("text", $value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
+                    $sanitized = $this->sanitize("text", $value, $trim, $htmlspecialchars, $alpha_num, $ucwords);
                     break;
                 case "hex":
-                    $sanitized = $this->sanitize("hex", $value, $settings["trim"], $settings["htmlspecialchars"], true, false);
+                    $sanitized = $this->sanitize("hex", $value, $trim, $htmlspecialchars, true, false);
                     break;
                 case "url":
                     $sanitized = $this->sanitize("url", $value);
@@ -459,22 +473,22 @@ class Sanitizer
                     $sanitized = $this->sanitize("password", $value);
                     break;
                 case "name":
-                    $sanitized = $this->sanitize("name", $value, $settings["trim"], $settings["htmlspecialchars"], true, $settings["ucwords"]);
+                    $sanitized = $this->sanitize("name", $value, $trim, $htmlspecialchars, true, $ucwords);
                     break;
                 case "message":
                     $sanitized = $this->clean($value, false, true, false, false);
                     break;
                 case "email":
-                    $sanitized = $this->sanitize("email", $value, $settings["trim"], $settings["htmlspecialchars"], false, false);
+                    $sanitized = $this->sanitize("email", $value, $trim, $htmlspecialchars, false, false);
                     break;
                 case "username":
-                    $sanitized = $this->sanitize("username", $value, $settings["trim"], $settings["htmlspecialchars"], true, false);
+                    $sanitized = $this->sanitize("username", $value, $trim, $htmlspecialchars, true, false);
                     break;
                 case "html":
                     $sanitized = $this->HTML($value, $filters[$key]["tags"]);
                     break;
                 default:
-                    $sanitized = $this->clean($value, $settings["trim"], $settings["htmlspecialchars"], $settings["alpha_num"], $settings["ucwords"]);
+                    $sanitized = $this->clean($value, $trim, $htmlspecialchars, $alpha_num, $ucwords);
                     break;
             }
 

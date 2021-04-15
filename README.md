@@ -226,6 +226,8 @@ But we always recomend [HTMLPurifier](https://htmlpurifier.org) for sanitizing h
 Support BK Sanitizers by becoming a **sponsor**.
 Your name will be added manually (by us) below `Click here to sponsor`.
 
+If your name is not added within 1 week, mail to baalkrshna@gmail.com.
+
 Click here to sponsor:
 
 1. [at patreon](https://patreon.com/PuneetGopinath)
@@ -258,3 +260,5 @@ We use [Semantic Versioning](https://semver.org) for our library.
 If you sanitize user input then, you will be able to manage data properly, validate it, show it in a secure and reliable way.
 
 It makes your web application trustworthy, so it must be one of your main goals from the beginning of your career as a web developer.
+
+Some people also disagree with sanitizing input, they say sanitizing output is the best, if you want to sanitize output, then you can use the clean function

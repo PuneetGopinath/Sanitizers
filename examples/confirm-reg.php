@@ -31,9 +31,9 @@ if (isset($_POST["Submit"])) {
         <p>Confirm Registration</p>
         <form class="form-control" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label class="form-text" for="code">Code:</label><br>
-            <input required class="form-input" type="password" name="code" />
+            <input required class="form-control" type="password" name="code" />
             <!-- Extra input tags like CSRF Protection, etc... -->
-            <input required class="btn btn-primary" type="submit" name="Submit" value="Confirm Registration" />
+            <input class="btn btn-primary" type="submit" name="Submit" value="Confirm Registration" />
         </form>
     </body>
 </html>

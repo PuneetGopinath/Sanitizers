@@ -35,19 +35,19 @@ if (isset($_POST["Submit"])) {
         <p>Contact us!</p>
         <form class="form-control" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label class="form-text" for="name">Name:</label><br>
-            <input required class="form-input" type="text" name="name"><br><br>
+            <input required class="form-control" type="text" name="name"><br><br>
             <label class="form-text" for="email">Email address:</label><br>
-            <input required class="form-input" type="email" name="email"><br><br>
+            <input required class="form-control" type="email" name="email"><br><br>
             <label class="form-text" for="message">Message:</label>
             <b>Note: if message is more than 5000 letters, then extra letters will be removed</b><br>
-            <textarea class="form-input" name="message" rows="8" cols="20"></textarea><br><br>
+            <textarea class="form-control" name="message" rows="8" cols="20"></textarea><br><br>
             <label class="form-text" for="dept">Send query to department:</label>
             <select class="form-select" name="dept" id="dept">
                 <option value="sales">Sales</option>
                 <option value="support" selected="true">Technical support</option>
                 <option value="accounts">Accounts</option>
             </select><br>
-            <input required class="btn btn-primary" type="submit" name="Submit" value="Send Email">
+            <input class="btn btn-primary" type="submit" name="Submit" value="Send Email">
         </form>
     </body>
 </html>

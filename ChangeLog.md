@@ -20,10 +20,12 @@ Format is `version (*dd-mm-yyyy*)`
  * Change function `strip_tags_content` to `stripTagsContent`
  * Move `SanitizerData` class (was in `BKS.auto.php`) to `src/SanitizerData.php` (new file), for correcting to PSR-12
  * Instead of calling `is_a($sanitizerData, __NAMESPACE__ . "\SanitizerData")` 2 times, save it in a variable for faster performance.
+ * Change irc `#bksanitizers` channel to `##bks` channel
 
 #### Additions
  * Added `HTMLPurifier` as a dependency. And use `HTMLPurifier` when sanitizing html codes. (optinal if you are not using composer)
  * New function `getConfig()` - Get current configuration for debugging purposes
+ * Add `phpcs.xml.dist` and add `squizlabs/php_codesniffer` as a dev dependency
 
 #### Deletions
  * Remove `@package BK_Sanitizers`

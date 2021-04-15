@@ -24,11 +24,11 @@ class SanitizerData
     /**
      * Default configuration options
      *
-     * @var array
+     * @var array $config The configuration options
      */
     public $config = array(
-        "maxInputLength" => 100, // 1
-        "encoding" => "UTF-8", // 2
-        "preventXSS" => true // 3
+        "maxInputLength" => 100,
+        "encoding" => "UTF-8",
+        "preventXSS" => true
     );
 }

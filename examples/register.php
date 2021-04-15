@@ -33,15 +33,15 @@ if (isset($_POST["Submit"])) {
         <p>Registration Form</p>
         <form class="form-control" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label class="form-text" for="name">Your Full Name:</label><br>
-            <input required class="form-input" type="text" name="name" /><br><br>
+            <input required class="form-control" type="text" name="name" /><br><br>
             <label class="form-text" for="email">Email Address:</label><br>
-            <input required class="form-input" type="email" name="email" /><br><br>
+            <input required class="form-control" type="email" name="email" /><br><br>
             <label class="form-text" for="username">Username:</label><br>
-            <input required class="form-input" type="text" name="username" /><br><br>
+            <input required class="form-control" type="text" name="username" /><br><br>
             <label class="form-text" for="password">Password:</label><br>
-            <input required class="form-input" type="password" name="password" />
+            <input required class="form-control" type="password" name="password" />
             <!-- Extra input tags like password validation, etc... -->
-            <input required class="btn btn-primary" type="submit" name="Submit" value="Create Account" />
+            <input class="btn btn-primary" type="submit" name="Submit" value="Create Account" />
         </form>
     </body>
 </html>

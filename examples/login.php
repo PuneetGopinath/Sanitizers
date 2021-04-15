@@ -31,11 +31,11 @@ if (isset($_POST["Submit"])) {
         <p>Login Form</p>
         <form class="form-control" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label class="form-text" for="username">Username:</label><br>
-            <input required class="form-input" type="text" name="username" /><br><br>
+            <input required class="form-control" type="text" name="username" /><br><br>
             <label class="form-text" for="password">Password:</label><br>
-            <input required class="form-input" type="password" name="password" />
+            <input required class="form-control" type="password" name="password" />
             <!-- Extra input tags like CSRF Protection, password validation, etc... -->
-            <input required class="btn btn-primary" type="submit" name="Submit" value="Login" />
+            <input class="btn btn-primary" type="submit" name="Submit" value="Login" />
         </form>
     </body>
 </html>

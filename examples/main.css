@@ -9,31 +9,6 @@ label {
   font-family: Courier New;
   padding: 0.75rem 0.25rem;
 }
-.form-input {
-  padding: 5px;
-  margin-top: 8px;
-  margin-bottom: 10px;
-}
-.form-input:focus {
-  color: #495057;
-  background-color: #fff;
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-.form-input {
-  display: block;
-  width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
-  font-size: x-large;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
 input {
   font-family: Comic Sans MS, Courier;
   font-weight: bold;
@@ -54,14 +29,6 @@ input[type="checkbox"] {
   text-rendering: auto;
   -webkit-rtl-ordering: logical;
 }
-[type="submit"], [type="button"], [type="reset"] {
-  font-size: auto;
-  font-family: Comic Sans MS;
-}
-[type="submit"] {
-  width: 6rem;
-  height: 4rem;
-}
 input {
   line-height: 40%;
   padding: 3px;
@@ -75,4 +42,12 @@ input:focus {
   -webkit-border-radius: 20px;
   -khtml-border-radius: 20px;
   border-radius: 20px;
+}
+[type="submit"], [type="button"], [type="reset"] {
+  font-size: auto;
+  font-family: Comic Sans MS;
+}
+[type="submit"] {
+  width: 50%;
+  height: 4rem;
 }

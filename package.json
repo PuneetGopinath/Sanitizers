@@ -1,8 +1,16 @@
 {
     "name": "bksanitizers",
-    "description": "BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.",
     "version": "v1.1.0",
+    "description": "BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PuneetGopinath/Sanitizers.git"
+    },
+    "author": "The BK Sanitizers Authors (https://github.com/PuneetGopinath/Sanitizers/graphs/contributors)",
     "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/PuneetGopinath/Sanitizers/issues"
+    },
     "funding": [
         {
             "type": "patreon",
@@ -10,7 +18,7 @@
         },
         "https://liberapay.com/PuneetGopinath"
     ],
-    "homepage": "https://github.com/PuneetGopinath/Sanitizers#readme",
+    "homepage": "https://puneetgopinath.github.io/Sanitizers",
     "config": {
         "version_short": "1.1"
     },
@@ -36,13 +44,5 @@
     "files": [
         "src/*.php",
         "test/*.php"
-    ],
-    "author": "The BK Sanitizers Authors (https://github.com/PuneetGopinath/Sanitizers/graphs/contributors)",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/PuneetGopinath/Sanitizers.git"
-    },
-    "bugs": {
-        "url": "https://github.com/PuneetGopinath/Sanitizers/issues"
-    }
+    ]
 }
