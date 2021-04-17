@@ -1,6 +1,6 @@
 <h2 align="center">BK Sanitizers Docs - Functions</h2>
 
-<link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
+<link rel="stylesheet" href="https://puneetgopinath.github.io/css/main.css" />
 
 # Table of contents
 

@@ -4,7 +4,7 @@
       <img loading="lazy" src="https://puneetgopinath.github.io/Sanitizers/images/Sanitizers-logo-transparent.png" alt="BKS logo" style="width:300;height:300;" height="300" width="300" />
     </a>
   </p>
-  <link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
+  <link rel="stylesheet" href="https://puneetgopinath.github.io/css/main.css" />
   <h2 align="center">BK Sanitizers (BKS)</h2>
   <a href="https://twitter.com/intent/tweet?text=This%20PHP%20Sanitizers%20Helped%20Me%20A%20Lot.%20Make%20Sure%20To%20Check%20It%20Out:\&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers\&hashtags=php,backend,developer,opensource,bksanitizers"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FPuneetGopinath%2FSanitizers" /></a>
   <a href="https://github.com/PuneetGopinath/Sanitizers/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/PuneetGopinath/Sanitizers?style=social"></a>
@@ -20,7 +20,7 @@
     <br><br>
     Latest release: <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/PuneetGopinath/Sanitizers"><br>
     <br><br>Explore:<br>
-    <a href="https://puneetgopinath.github.io/Sanitizers/docs"><b>BK Sanitizers Docs</b></a> &raquo;<br>
+    <a href="https://github.com/PuneetGopinath/Sanitizers/tree/main/docs"><b>BK Sanitizers Docs</b></a> &raquo;<br>
     <a href="https://github.com/PuneetGopinath/Sanitizers/wiki"><b>BK Sanitizers Wiki</b></a> &raquo;<br><br>
     <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=bug_report.md">Report bug(s)</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/releases">Releases</a> • <a href="https://github.com/PuneetGopinath/Sanitizers/issues/new?template=feature_request.md">Request feature</a> • <a href="https://baalkrshna.hashnode.dev/series/bks">Blog</a>
   </p><br><br>

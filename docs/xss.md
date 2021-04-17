@@ -1,6 +1,6 @@
 <h2 align="center">BK Sanitizers Docs - Learn more about XSS</h2>
 
-<link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
+<link rel="stylesheet" href="https://puneetgopinath.github.io/css/main.css" />
 
 The basic questions about XSS are below:
 

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="docs/css/main.css" />
+<link rel="stylesheet" href="https://puneetgopinath.github.io/css/main.css" />
 
 # How-to install BK Sanitizers
 

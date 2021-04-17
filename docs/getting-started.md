@@ -1,6 +1,6 @@
 <h2 align="center">BK Sanitizers Docs - Getting Started</h2>
 
-<link rel="stylesheet" href="https://puneetgopinath.github.io/Sanitizers/css/main.css" />
+<link rel="stylesheet" href="https://puneetgopinath.github.io/css/main.css" />
 
 Get started with BK Sanitizers, the library for sanitizing all types of user input in PHP.
 
