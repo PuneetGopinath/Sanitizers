@@ -8,8 +8,8 @@
  * @author    Puneet Gopinath (PuneetGopinath) <baalkrshna@gmail.com>
  * @copyright 2021 The BK Sanitizers Team
  * @license   http://www.opensource.org/licenses/MIT MIT
- * @see       https://github.com/PuneetGopinath/Sanitizers BK Sanitizers on GitHub
- * @see       https://packagist.org/packages/sanitizers/sanitizers BK Sanitizers on Packagist
+ * @see       https://github.com/PuneetGopinath/Sanitizers BKS on GitHub
+ * @see       https://packagist.org/packages/sanitizers/sanitizers BKS on Packagist
  */
 
 namespace Sanitizers\Sanitizers;
@@ -44,7 +44,8 @@ class Sanitizer
 
     /**
      * Optional LoggerInterface for debugging
-     * You can pass an instance of a PSR-3 compatible logger in __construct method in parameter 2
+     * You can pass an instance of a PSR-3 compatible logger
+     * in __construct method in parameter 2
      *
      * Example:
      * ```php
@@ -104,14 +105,22 @@ class Sanitizer
     /**
      * Warning message
      *
-     * @param  $msg The Warning message
+     * @param string      $msg         The Warning message
+     * @param string|null $depreciated If the warning is for depreciated mention it here
+     * @param string $deprecatedType What is deprecated, function?, argument?
      * @return string The full Warning message
      */
-    private function warn($msg)
+    private function warn($msg, $depreciated = null, $deprecatedType = "function")
     {
-        $msg = "Warning: BK Sanitizers: " . $msg;
-        error_log($msg);
-        return $msg;
+        $message = "Warning: BK Sanitizers: ";
+        if (!empty($depreciated)) {
+            $message .= "Using depreciated " . $deprecatedType . $depreciated . ", " . $msg;
+            error_log($message);
+            return $message;
+        }
+        $message .= $msg;
+        error_log($message);
+        return $message;
     }
 
     /**
@@ -308,11 +317,19 @@ class Sanitizer
             case "string":
             case "text":
                 $text = $this->clean($text, $trim, $htmlspecialchars, $alpha_num, $ucwords);
-                $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+                $text = filter_var(
+                    $text,
+                    FILTER_SANITIZE_STRING,
+                    FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH
+                );
                 $text = preg_replace("/[^A-Za-z0-9]/s", "", $text);
                 break;
             case "hex":
-                $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+                $text = filter_var(
+                    $text,
+                    FILTER_SANITIZE_STRING,
+                    FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH
+                );
                 $text = preg_replace("/[^a-f0-9]/s", "", $text);
                 $text = $this->clean($text, $trim, $htmlspecialchars, true, false);
                 break;
@@ -320,11 +337,19 @@ class Sanitizer
                 $text = filter_var($this->stripTagsContent($text), FILTER_SANITIZE_URL);
                 break;
             case "password":
-                $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES | FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+                $text = filter_var(
+                    $text,
+                    FILTER_SANITIZE_STRING,
+                    FILTER_FLAG_NO_ENCODE_QUOTES | FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH
+                );
                 $text = $this->clean($text, false, false, false, false);
                 break;
             case "name":
-                $text = filter_var($text, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH);
+                $text = filter_var(
+                    $text,
+                    FILTER_SANITIZE_STRING,
+                    FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH
+                );
                 $text = preg_replace("/[^A-Za-z\s+]/s", "", $text);
                 $text = $this->clean($text, $trim, $htmlspecialchars, $alpha_num, true);
                 break;
@@ -345,7 +370,10 @@ class Sanitizer
         }
         if ($this->logger) {
             $array = array("input" => $input,"output" => $text);
-            $this->logger->debug("Sanitized input (\"{input}\") to (\"{output}\")", $array);
+            $this->logger->debug(
+                "Sanitized input (\"{input}\") to (\"{output}\")",
+                $array
+            );
         }
         return $text;
     }
@@ -361,7 +389,10 @@ class Sanitizer
      */
     public function NonNumericText($text, $trim = true, $htmlspecialchars = true, $alpha_num = false, $ucwords = false)
     {
-        $this->warn("You are using depreciated function NonNumericText, use sanitize function with type param as \"text\" (see functions in docs to understand sanitize function)");
+        $this->warn(
+            "use sanitize function with type param as \"text\" (see functions in docs for more info)",
+            "NonNumericText"
+        );
         $text = $this->sanitize("text", (string)$text, $trim, $htmlspecialchars, $alpha_num, $ucwords);
         $text = preg_replace("/[^A-Za-z]/s", "", $text);
         return $text;
@@ -409,7 +440,7 @@ class Sanitizer
             $purifier = new \HTMLPurifier($config);
             $clean_html = $purifier->purify($text);
         } else {
-            $this->warn("HTMLPurifier is not installed or required (require_once '/path/to/HTMLPurifier.auto.php';). So the html code may not be valid and secure to prevent XSS.");
+            $this->warn("HTMLPurifier is not installed or required (See INSTALL.md for more info).");
             $clean_html = $text;
         }
 

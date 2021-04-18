@@ -88,6 +88,7 @@
 
     <!-- Short form of type keywords MUST be used i.e. bool instead of boolean, int instead of integer etc. -->
     <!-- checked by PSR12.Keywords.ShortFormTypeKeywords -->
+    <rule ref="PSR12.Keywords.ShortFormTypeKeywords"/>
 
     <!-- 3. Declare Statements, Namespace, and Import Statements -->
 
@@ -102,6 +103,7 @@
     One or more constant-based use import statements.
     The remainder of the code in the file. -->
     <!-- checked by PSR12.Files.FileHeader -->
+    <rule ref="PSR12.Files.FileHeader"/>
 
     <!-- When a file contains a mix of HTML and PHP, any of the above sections may still be used. If so, they MUST be present at the top of the file, even if the remainder of the code consists of a closing PHP tag and then a mixture of HTML and PHP. -->
 
@@ -109,9 +111,11 @@
 
     <!-- Import statements MUST never begin with a leading backslash as they must always be fully qualified. -->
     <!-- checked by PSR12.Files.ImportStatement -->
+    <rule ref="PSR12.Files.ImportStatement"/>
 
     <!-- Compound namespaces with a depth of more than two MUST NOT be used. -->
     <!-- checked by PSR12.Namespaces.CompoundNamespaceDepth -->
+    <rule ref="PSR12.Namespaces.CompoundNamespaceDepth"/>
 
     <!-- When wishing to declare strict types in files containing markup outside PHP opening and closing tags, the declaration MUST be on the first line of the file and include an opening PHP tag, the strict types declaration and closing tag. -->
     <!-- Declare statements MUST contain no spaces and MUST be exactly declare(strict_types=1) (with an optional semi-colon terminator). -->
@@ -122,6 +126,7 @@
 
     <!-- Any closing brace MUST NOT be followed by any comment or statement on the same line. -->
     <!-- checked by PSR12.Classes.ClosingBrace -->
+    <rule ref="PSR12.Classes.ClosingBrace"/>
 
     <!-- When instantiating a new class, parentheses MUST always be present even when there are no arguments passed to the constructor. -->
     <!-- checked by PSR12.Classes.ClassInstantiation -->
@@ -326,6 +331,7 @@
 
     <!-- All binary arithmetic, comparison, assignment, bitwise, logical, string, and type operators MUST be preceded and followed by at least one space. -->
     <!-- checked by PSR12.Operators.OperatorSpacing -->
+    <rule ref="PSR12.Operators.OperatorSpacing"/>
 
     <!-- 6.3. Ternary operators -->
 
@@ -346,6 +352,7 @@
 
     <!-- If a return type is present, it MUST follow the same rules as with normal functions and methods; if the use keyword is present, the colon MUST follow the use list closing parentheses with no spaces between the two characters. -->
     <!-- checked by PSR12.Functions.ReturnTypeDeclaration -->
+    <rule ref="PSR12.Functions.ReturnTypeDeclaration"/>
 
     <!-- 8. Anonymous Classes -->
 

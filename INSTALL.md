@@ -15,11 +15,16 @@ To install Sanitizers, you need:
 
  * Minimum php 5.3.0 compiler.
  * PHP Extensions - filter and mbstring extensions.
- * HTMLPurifier (optional) *(automaticaly installed if you are using composer)* **(recommended)** - You can install HTMLPurifier it will be used when sanitizing html code. Minimum 4.12.0 required. **Note:** If you are not using composer, you have to require it yourself e.g. `require_once '/path/to/HTMLPurifier.auto.php';`
+ * HTMLPurifier (optional) *(automaticaly installed if you are using composer)* **(recommended)** - You can install HTMLPurifier it will be used when sanitizing html code. Minimum 4.12.0 required. If you are not using the html code may not be valid and secure to prevent XSS.
+
+**Note:** If you are not using composer, you can require it yourself e.g. `require_once '/path/to/HTMLPurifier.auto.php';` or else you can
+1. Install HTMLPurifier
+2. move the library folder in HTMLPurifier to src folder in BKS
+3. rename library folder to HTMLPurifier. Thats all!
 
 If you want to encode strings then; you need php iconv extension also.
 
-**Note:** The warning messages will be always thrown, we don't have the feature of disabling this, if you want this feature, then submit a feature request using the [Issue tracker](https://github.com/PuneetGopinath/Sanitizers/issues), See [CONTRIBUTING.md](.github/CONTRIBUTING.md#using-the-issue-tracker) if you want to submit a feature request.
+**Note:** The warning messages will be always thrown, we don't have the feature of disabling this, if you want this feature, then submit a feature request, See [CONTRIBUTING.md](.github/CONTRIBUTING.md#using-the-issue-tracker) if you want to submit a feature request.
 
 <h2><a name="installing-sanitizers">Installing Sanitizers 📥</a></h2>
 
