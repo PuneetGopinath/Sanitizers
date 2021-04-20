@@ -8,7 +8,7 @@ All notable changes to BK Sanitizers library will be added to this file.
 
 Format is `version (*dd-mm-yyyy*)`
 
-### v1.1.1 (*unreleased*)
+### v1.1.1 (*05-05-2021*)
 
 #### Info
  * 🐛 Bug fix release
