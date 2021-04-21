@@ -55,7 +55,9 @@
         "ext-mbstring": "*"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.5.6"
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpunit/phpunit": "^9.5",
+        "yoast/phpunit-polyfills": "^0.2"
     },
     "suggest": {
         "ext-iconv": "Optional library required if you want to encode user input",
@@ -70,6 +72,12 @@
             "Sanitizers\\Sanitizers\\": "src/"
         }
     },
+    "autoload-dev": {
+        "classmap": ["tests/"],
+        "psr-4": {
+            "Sanitizers\\Test\\": "tests/"
+        }
+    },
     "support": {
         "docs": "https://puneetgopinath.github.io/Sanitizers/docs",
         "wiki":"https://github.com/PuneetGopinath/Sanitizers/wiki",
@@ -82,24 +90,14 @@
             "composer validate",
             "composer update"
         ],
-        "test": "php test/SanitizersTest.php debug",
-        "test-ini": "php test/SanitizersTest.php ini",
-        "test-autoload": [
-            "@setup",
-            "@test"
-        ],
-        "test-all": [
-            "rm -rf vendor",
-            "@test",
-            "@test-autoload",
-            "rm -rf vendor"
-        ]
+        "test": "php vendor/bin/phpunit",
+        "phpcs": "php vendor/bin/phpcs",
+        "phpcbf": "php vendor/bin/phpcbf"
     },
     "scripts-descriptions": {
         "setup": "Generate composer autoload files and install dependencies",
-        "test": "Run Sanitizers built-in test!",
-        "test-ini": "Test using config from ini",
-        "test-autoload": "Run test with composer autoload",
-        "test-all": "Run test without and with composer autoload"
+        "test": "Run BKS phpunit test!",
+        "phpcs": "Run PHP Code_Sniffer!",
+        "phpcbf": "Run PHP Code_Sniffer's beautifier tool!"
     }
 }

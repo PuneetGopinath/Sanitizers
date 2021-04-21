@@ -2,11 +2,15 @@
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
 
-    <config name="testVersion" value="5.5-"/>
+    <description>The coding standard for BKS.</description>
 
+    <!-- Base path -->
     <arg name="basepath" value="."/>
+    <!-- Tab width -->
     <arg name="tab-width" value="4"/>
+    <!-- Add colors in output -->
     <arg name="colors"/>
+    <!-- All PHP extensions -->
     <arg name="extensions" value="php"/>
     <!-- Show progress -->
     <arg value="p"/>

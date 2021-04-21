@@ -7,6 +7,9 @@
 *.cache
 *.out
 
+## Log folders
+logs
+
 ## Backup files
 *.bak
 *.tmp

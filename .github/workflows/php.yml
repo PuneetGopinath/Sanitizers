@@ -54,4 +54,7 @@ jobs:
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
     - name: Run tests
-      run: composer run-script test-all
+      run: composer run-script test
+
+    #- name: Run PHP Code_Sniffer
+      #run: composer run-script phpcs

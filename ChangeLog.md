@@ -26,6 +26,7 @@ Format is `version (*dd-mm-yyyy*)`
  * Added `HTMLPurifier` as a dependency. And use `HTMLPurifier` when sanitizing html codes. (optinal if you are not using composer)
  * New function `getConfig()` - Get current configuration for debugging purposes
  * Add `phpcs.xml.dist` and add `squizlabs/php_codesniffer` as a dev dependency
+ * Add `phpunit/phpunit` as a dev dependency, use `phpunit` for tests and add `phpunit.xml.dist`
 
 #### Deletions
  * Remove `@package BK_Sanitizers`

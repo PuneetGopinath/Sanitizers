@@ -28,6 +28,8 @@
   <a href="https://discord.gg/UqRgmKrYB3"><img alt="Discord Chat" src="https://img.shields.io/discord/826082157259915264?color=%237289da&label=discord"></a><br>
 </div>
 
+![Views](https://visitor-badge.laobi.icu/badge?page_id=PuneetGopinath.Sanitizers&title=Views)
+
 ---------------------------------------------------------------------
 
 <details open="true">
@@ -162,7 +164,7 @@ See Prerequisites section [in INSTALL.md](INSTALL.md#prerequisites).
 
 <h2><a name="tests">Tests ⚙️</a></h2>
 
-Run either `composer run-script test` or `php test/SanitizersTest.php debug`
+Run either `composer run-script test` or `php vendor/bin/phpunit`
 
 <h2><a name="contributing">Contributing</a></h2>
 
