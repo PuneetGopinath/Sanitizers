@@ -35,6 +35,11 @@ jobs:
     - name: Check PHP Version
       run: php -v
 
+    - name: Update dependencies
+#      if: steps.composer-cache.outputs.cache-hit != 'true'
+#      run: composer install --prefer-dist --no-progress #--no-suggest
+      run: composer update
+
     - name: Validate composer.json and composer.lock
       run: composer validate
 
@@ -46,11 +51,6 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
-
-    - name: Update dependencies
-#      if: steps.composer-cache.outputs.cache-hit != 'true'
-#      run: composer install --prefer-dist --no-progress #--no-suggest
-      run: composer update
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
