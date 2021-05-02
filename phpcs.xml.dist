@@ -135,6 +135,7 @@
 
     <!-- When instantiating a new class, parentheses MUST always be present even when there are no arguments passed to the constructor. -->
     <!-- checked by PSR12.Classes.ClassInstantiation -->
+    <rule ref="PSR12.Classes.ClassInstantiation"/>
 
     <!-- 4.1 Extends and Implements -->
 
@@ -152,6 +153,7 @@
     <!-- When the class has nothing after the use import statement, the class closing brace MUST be on the next line after the use import statement. Otherwise, it MUST have a blank line after the use import statement. -->
     <!-- When using the insteadof and as operators they must be used as follows taking note of indentation, spacing, and new lines. -->
     <!-- checked by PSR12.Traits.UseDeclaration -->
+    <rule ref="PSR12.Traits.UseDeclaration"/>
 
     <!-- 4.3 Properties and Constants -->
 
@@ -209,6 +211,7 @@
 
     <!-- In nullable type declarations, there MUST NOT be a space between the question mark and the type. -->
     <!-- checked by PSR12.Functions.NullableTypeDeclaration -->
+    <rule ref="PSR12.Functions.NullableTypeDeclaration"/>
 
     <!-- 4.6 abstract, final, and static -->
 
@@ -223,10 +226,10 @@
     <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
     <rule ref="PSR2.Methods.FunctionCallSignature"/>
     <rule ref="PSR2.Methods.FunctionCallSignature.SpaceAfterCloseBracket">
-        <severity>0</severity>
+        <!--<severity>0</severity>-->
     </rule>
     <rule ref="PSR2.Methods.FunctionCallSignature.OpeningIndent">
-        <severity>0</severity>
+        <!--<severity>0</severity>-->
     </rule>
 
     <!-- 5. Control Structures -->
@@ -250,12 +253,12 @@
             <property name="ignoreNewlines" value="true"/>
         </properties>
     </rule>
-    <rule ref="Squiz.ControlStructures.ForLoopDeclaration.SpacingAfterOpen">
+    <!--<rule ref="Squiz.ControlStructures.ForLoopDeclaration.SpacingAfterOpen">
         <severity>0</severity>
     </rule>
     <rule ref="Squiz.ControlStructures.ForLoopDeclaration.SpacingBeforeClose">
         <severity>0</severity>
-    </rule>
+    </rule>-->
     <rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
     <rule ref="Generic.ControlStructures.InlineControlStructure"/>
 
@@ -317,7 +320,7 @@
     </rule>
     <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration.SpaceBeforeClose">
         <severity>0</severity>
-    </rule>
+    </rule>-->
 
     <!-- 5.6 try, catch, finally -->
 

@@ -173,7 +173,8 @@ final class BKSTest extends TestCase
                 "url" => "url",
                 "username" => "username",
                 "html" => "html",
-                "clean" => "" //Will use clean function
+                "password" => "password",
+                "clean" => "clean" //Will use clean function
             ),
             "message" => array(
                 "trim" => false, //Enables php trim function, default:true

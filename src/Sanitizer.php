@@ -559,10 +559,10 @@ class Sanitizer
                 }
             }
 
-            if (empty($filters["types"][$key])) {
+            if (!is_string($filters["types"][$key])) {
                 $filters["types"][$key] = gettype($value);
                 if ($filters["types"][$key] === "string") {
-                    $filters["types"][$key] = "";
+                    $filters["types"][$key] = "clean";
                 }
             }
 
@@ -655,7 +655,20 @@ class Sanitizer
                 case "html":
                     $sanitized = $this->HTML($value, $filters[$key]["tags"]);
                     break;
+                case "clean":
+                    $sanitized = $this->clean(
+                        $value,
+                        $trim,
+                        $htmlspecialchars,
+                        $alpha_num,
+                        $ucwords
+                    );
+                    break;
                 default:
+                    $this->warn(
+                        "Using default clean function, because case is " . $filters["types"][$key] .
+                        ", it is recommended to use \"clean\" as value for case."
+                    );
                     $sanitized = $this->clean(
                         $value,
                         $trim,
