@@ -274,7 +274,7 @@ class Sanitizer
                 $text
             );
         } elseif (!function_exists("iconv")) {
-            $this->warn("PHP extension iconv not installed.");
+            $this->warn("PHP extension iconv not installed or enabled.");
         }
 
         if ($trim) {
@@ -374,7 +374,7 @@ class Sanitizer
                 break;
             case "url":
                 $text = filter_var(
-                    $this->stripTagsContent($text),
+                    $text,
                     FILTER_SANITIZE_URL
                 );
                 break;

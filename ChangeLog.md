@@ -102,4 +102,4 @@ Format is `version (*dd-mm-yyyy*)`
 
 <h2><a name="older-changelogs">Older ChangeLogs</a></h2>
 
- * [1.0](https://github.com/PuneetGopinath/Sanitizers/blob/1.0-dev/ChangeLog.md)
+ * [1.0](https://github.com/PuneetGopinath/Sanitizers/blob/v1.0.3/ChangeLog.md)

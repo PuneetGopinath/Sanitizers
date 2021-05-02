@@ -20,7 +20,7 @@ use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 use PHPUnit\Framework\Assert;
 
 /**
- * BK Sanitizers - unit test class.
+ * BK Sanitizers - phpunit test class.
  */
 final class BKSTest extends TestCase
 {
@@ -72,16 +72,16 @@ final class BKSTest extends TestCase
         $this->assertStringContainsString(
             $this->sanitizer->sanitize(
                 "int",
-                "1.5"
+                1.5
             ),
-            "15"
+            15
         );
         $this->assertStringContainsString(
             $this->sanitizer->sanitize(
                 "float",
-                "1.5"
+                1.5
             ),
-            "1.5"
+            1.5
         );
         $this->assertStringContainsString(
             $this->sanitizer->sanitize(
@@ -107,9 +107,9 @@ final class BKSTest extends TestCase
         $this->assertStringContainsString(
             $this->sanitizer->sanitize(
                 "url",
-                "http://example.com/index.php?username=<script>alert('XSS');</script>"
+                "http://example.com/index.php?username=test"
             ),
-            "http://example.com/index.php?username=alert('XSS');"
+            "http://example.com/index.php?username=test"
         );
         $this->assertStringContainsString(
             $this->sanitizer->sanitize(
@@ -141,5 +141,65 @@ final class BKSTest extends TestCase
             ),
             "XSS"
         );
+    }
+
+    /**
+     * Test sanitizeArray function.
+     */
+    public function testSanitizeArray()
+    {
+        $testValues = array(
+            "hex" => "d7b05d4f4e75ce249dda9bf9a5e9aa5f2bf7fae7ae10fc44fcef4ddd8603a4e4",
+            "int" => 1.5,
+            "float" => 1.5,
+            "name" => "\0saNiTiZeRs ä\x80",
+            "email" => "<AdMiN@example.com>",
+            "message" => "Hi Name<br><img src=http://example.com/No_file.png onerror=alert('XSS');></img>",
+            "url" => "http://example.com/index.php?username=test",
+            "username" => "PuneetGopinath",
+            "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet " .
+            "src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">Click here</a>",
+            "password" => "\$UnIQUe|`_-#pass•WorD%!?",
+            "clean" => "XSS <script>alert('XSS');</script>"
+        );
+        $filters = array(
+            "types" => array(
+                "hex" => "hex",
+                "int" => "integer", //You can also use int ("int" => "int")
+                "float" => "float",
+                "name" => "name",
+                "email" => "email",
+                "message" => "message",
+                "url" => "url",
+                "username" => "username",
+                "html" => "html",
+                "clean" => "" //Will use clean function
+            ),
+            "message" => array(
+                "trim" => false, //Enables php trim function, default:true
+                "htmlspecialchars" => true, //Enables using htmlspecialchars, default:true
+                "alpha_num" => false, //Sets value to be alpha_numeric, default:false
+                "ucwords" => false
+            ),
+            "html" => array(
+                "tags" => "<b><i><em><p><a><br>"//Optinal Allowed tags
+            )
+        );
+        $autoValues = $this->sanitizer->sanitizeArray($testValues, $filters);
+        $expectedValues = array(
+            "hex" => "d7b05d4f4e75ce249dda9bf9a5e9aa5f2bf7fae7ae10fc44fcef4ddd8603a4e4",
+            "int" => 15,
+            "float" => 1.5,
+            "name" => "Sanitizers",
+            "email" => "admin@example.com",
+            "message" => "Hi Name",
+            "url" => "http://example.com/index.php?username=test",
+            "username" => "puneetgopinath",
+            "html" => "<b>Text in bold</b><!-- This is a comment --><link rel=stylesheet " .
+            "src=http://ha.ckers.org/bad.css /><a href=\"javascript:alert('XSS');\">Click here</a>",
+            "password" => "\$UnIQUe|`_-#passWorD%!?",
+            "clean" => "XSS"
+        );
+        $this->assertEquals($autoValues, $expectedValues);
     }
 }

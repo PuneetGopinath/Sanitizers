@@ -8,7 +8,11 @@
 *.out
 
 ## Log folders
-logs
+/logs
+/log
+
+## Git bare clones
+*.git
 
 ## Backup files
 *.bak

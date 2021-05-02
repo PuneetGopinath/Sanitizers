@@ -73,12 +73,12 @@
 
     <!-- Code MUST use an indent of 4 spaces for each indent level, and MUST NOT use tabs for indenting. -->
     <rule ref="Generic.WhiteSpace.ScopeIndent">
-        <properties>
+        <!--<properties>
             <property name="ignoreIndentationTokens" type="array">
                 <element value="T_COMMENT"/>
                 <element value="T_DOC_COMMENT_OPEN_TAG"/>
             </property>
-        </properties>
+        </properties>-->
     </rule>
     <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
 
@@ -125,6 +125,7 @@
     <!-- Declare statements MUST contain no spaces and MUST be exactly declare(strict_types=1) (with an optional semi-colon terminator). -->
     <!-- Block declare statements are allowed and MUST be formatted as below. -->
     <!-- checked by PSR12.Files.DeclareStatement -->
+    <rule ref="PSR12.Files.DeclareStatement"/>
 
     <!-- 4. Classes, Properties, and Methods -->
 
@@ -204,6 +205,7 @@
 
     <!-- When you have a return type declaration present, there MUST be one space after the colon followed by the type declaration. The colon and declaration MUST be on the same line as the argument list closing parenthesis with no spaces between the two characters. -->
     <!-- checked by PSR12.Functions.ReturnTypeDeclaration -->
+    <rule ref="PSR12.Functions.ReturnTypeDeclaration"/>
 
     <!-- In nullable type declarations, there MUST NOT be a space between the question mark and the type. -->
     <!-- checked by PSR12.Functions.NullableTypeDeclaration -->
@@ -274,6 +276,7 @@
     <!-- checked by PSR12.ControlStructures.ControlStructureSpacing -->
     <!-- checked by PSR12.ControlStructures.BooleanOperatorPlacement -->
     <!-- checked by Squiz.ControlStructures.ControlSignature -->
+    <rule ref="PSR12.ControlStructures.ControlStructureSpacing"/>
 
     <!-- 5.2 switch, case -->
 
@@ -356,7 +359,6 @@
 
     <!-- If a return type is present, it MUST follow the same rules as with normal functions and methods; if the use keyword is present, the colon MUST follow the use list closing parentheses with no spaces between the two characters. -->
     <!-- checked by PSR12.Functions.ReturnTypeDeclaration -->
-    <rule ref="PSR12.Functions.ReturnTypeDeclaration"/>
 
     <!-- 8. Anonymous Classes -->
 
