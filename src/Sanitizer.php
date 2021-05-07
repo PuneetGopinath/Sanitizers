@@ -519,17 +519,16 @@ class Sanitizer
             '$1>',
             (string)$text
         );
-        $text = $this->stripTagsContent((string)$text, $tags);
         if (class_exists("\HTMLPurifier")) {
             $config = \HTMLPurifier_Config::createDefault();
             $purifier = new \HTMLPurifier($config);
             $clean_html = $purifier->purify($text);
         } else {
+            $clean_html = $this->stripTagsContent((string)$text, $tags);
             $this->warn(
-                "HTMLPurifier is not installed or required " .
+                "HTMLPurifier is not installed or loaded. " .
                 "(See INSTALL.md for more info)."
             );
-            $clean_html = $text;
         }
 
         return $clean_html;
@@ -557,6 +556,9 @@ class Sanitizer
                         $settings[$key2] = $filters[$key][$key2];
                     }
                 }
+            }
+            if (stripos($array[$key], "<body") !== false) {
+                $filters["types"][$key] = "html";
             }
 
             if (!is_string($filters["types"][$key])) {
