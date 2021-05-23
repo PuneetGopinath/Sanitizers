@@ -1,3 +1,6 @@
+# 23 May 2021: No longer maintained!!
+This package is no longer maintained.
+
 <div class="card">
   <p align="center">
     <a href="https://puneetgopinath.github.io/Sanitizers">
@@ -109,7 +112,7 @@ try {
 
 <h2><a name="status">Status</a></h2>
 
-This project is currently being maintained. And Will Be Maintained. If You Like This Project And Want This Project To Never Exhaust. Please Consider Donating.
+<del>This project is currently being maintained. And Will Be Maintained. If You Like This Project And Want This Project To Never Exhaust. Please Consider Donating.</del>
 
 [![Join the chat at https://gitter.im/BaalKrshna/Sanitizers](https://badges.gitter.im/BaalKrshna/Sanitizers.svg)](https://gitter.im/BaalKrshna/Sanitizers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Discord Chat](https://img.shields.io/discord/826082157259915264?color=%237289da&label=discord)](https://discord.gg/UqRgmKrYB3)
