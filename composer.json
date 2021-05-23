@@ -2,6 +2,7 @@
     "name": "sanitizers/sanitizers",
     "description": "BK Sanitizers is a community-developed, free and open source library for sanitizing user data in PHP.",
     "type": "library",
+    "abandoned": true,
     "keywords": [
         "escape",
         "PHP Sanitizers",
